@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 vite.config.js
+package-lock.json
 dist
 dist-ssr
 *.local
