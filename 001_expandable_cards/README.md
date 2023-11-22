@@ -3,7 +3,7 @@
 ### Demo:
 <image src="./gif/001_expandable_card.gif"/>
 
-### Knowledges:
+### Knowledge:
 This exercise is implemented with basic React concepts like Dynamic Values, Props, and Hook. It is a handy and beginner-friendly exercise that can help get used to React expressions by integrating content-interaction-visualization in one simple widget. 
 
 ### How to run the file:
