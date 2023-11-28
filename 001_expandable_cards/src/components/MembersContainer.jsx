@@ -3,12 +3,11 @@ import MemberCard from "./MemberCard.jsx";
 import { ROBOTS } from "../data/data.js";
 
 const Container = styled.div`
-  margin: 30px auto 20px auto;
+  margin: 0px auto 30px auto;
   position: relative;
-  display:grid;
-  width: 70%;
+  display: grid;
+  width: 65%;
   height: 55vh;
-  min-height: 520px;
   gap: 1em;
   transition: 300ms;
   grid-template-columns: ${(props) => props.$columnSpanStyle};

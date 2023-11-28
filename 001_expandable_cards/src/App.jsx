@@ -18,14 +18,15 @@ function App() {
 
 
   // return the current component
-  return (
+  return (<>
+    <h1>Crew Members</h1>
     <section>
-      <h1>Crew Members</h1>
       <MembersContainer hoverIndex={hoverIndex}
                         handleHoverIn={handleHoverIn}
                         handleHoverOut={handleHoverOut}/>
       <MemberInfo hoverIndex={hoverIndex}/>
     </section>
+    </>
   );
 }
 
