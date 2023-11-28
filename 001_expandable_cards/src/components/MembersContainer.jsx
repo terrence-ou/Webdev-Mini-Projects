@@ -8,6 +8,7 @@ const Container = styled.div`
   display:grid;
   width: 70%;
   height: 55vh;
+  min-height: 520px;
   gap: 1em;
   transition: 300ms;
   grid-template-columns: ${(props) => props.$columnSpanStyle};

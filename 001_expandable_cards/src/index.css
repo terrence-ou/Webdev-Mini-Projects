@@ -18,10 +18,11 @@ body {
 
 #root {
   max-width: 1280px;
+  min-height: 800px;
   height: 95vh;
   width: 95vw;
   margin: auto;
-  padding: 2em;
+  padding: 1em;
   text-align: center;
   background: linear-gradient(30deg, lightgray, #ffffff);
   box-sizing: border-box;
