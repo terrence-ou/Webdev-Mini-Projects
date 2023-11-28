@@ -21,55 +21,19 @@ body {
   height: 95vh;
   width: 95vw;
   margin: auto;
-  padding: 1rem;
+  padding: 2em;
   text-align: center;
-  background: lightgray;
+  background: linear-gradient(30deg, lightgray, #ffffff);
   box-sizing: border-box;
   border-radius: 25px
 }
 
 h1{
-  margin: 0.5em;
+  font-family: "Roboto", sans-serif;
   font-size: 30px;
   font-weight: bold;
 }
 
-h2{
-  margin: 0.4em;
-  font-size: 22px;
-  font-weight: bold;
-}
-
-p{
-  margin: 0.2em;
-}
-
 section{
   align-content:center;
-}
-
-.container{
-  margin: 30px auto 20px auto;
-  position: relative;
-  display:grid;
-  width: 70%;
-  height: 55vh;
-  gap: 1em;
-  transition: 300ms;
-}
-
-.info {
-    background: white;
-    opacity: 1.0;
-    margin: auto;
-    margin-top: 40px;
-    display: block;
-    position: relative;
-    width: 55%;
-    padding: 5px 10px 20px 10px;
-    border-radius: 20px;
-}
-
-.info p{
-  font-size: 15px;
 }
