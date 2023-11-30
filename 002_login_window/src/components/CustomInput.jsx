@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 import { useState } from "react";
 
+
+// Styles
 const InputSet = styled.div`
   position: relative;
 
@@ -10,10 +12,10 @@ const InputSet = styled.div`
     margin-bottom: 30px;
     font-size: 16px;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #395D73;
     background: transparent;
     outline: none;
-    color: white
+    color: #395D73;
   }
 
   & label{
@@ -23,12 +25,12 @@ const InputSet = styled.div`
     transition: .3s;
     top: ${(props) => props.$focused? "-20px" : 0};
     font-size: ${(props) => props.$focused? "12px" : "16px"};
-    color: ${(props) => props.$focused? "#03e9f4" : "white"};
+    color: ${(props) => props.$focused? "#6BA7BF" : "#395D73"};
   }
 `
 
 
-export default function CustomInput({label, inputValue, handleInput, onKeyPressed}){
+export default function CustomInput({label, inputValue, handleInput, type="text"}){
 
   const [ inputFocused, setInputFocused ] = useState(false);
   function handleOnFocus(value){
@@ -36,11 +38,12 @@ export default function CustomInput({label, inputValue, handleInput, onKeyPresse
   }
 
   return <InputSet $focused={inputFocused}>
-    <input type="text"
+    <input type={type}
            onFocus={() => handleOnFocus(true)}
            onBlur={() => handleOnFocus(inputValue.length != 0)}
            onChange={() => handleInput(event)}
-           onKeyDown={() => onKeyPressed(event)}></input>
+           value={inputValue}>
+    </input>
     <label>{label}</label>
   </InputSet>
 }
