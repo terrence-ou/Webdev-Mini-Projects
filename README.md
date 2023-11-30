@@ -3,3 +3,4 @@
 This is a repository that record the React exercises in 100 days (not necessarily consecutive)
 
 - Day 1: Expandable Cards :bookmark: [Link](./001_expandable_cards/)
+- Day 2: Adaptive Login Window :key: [Link](./002_adaptive_login_window/)
