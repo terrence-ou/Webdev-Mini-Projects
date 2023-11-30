@@ -1,8 +1,21 @@
-# React + Vite
+# Day 002 Adaptive Login Window
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Demo:
+<image src="./gif/day_002_adaptive_login.gif"/>
 
-Currently, two official plugins are available:
+### Knowledge:
+This adaptive login window is an example of how to build a login interface that can adjust to different types of users. This exercise demonstrates the implementation of React concepts like hooks, lifting state up, and two-way binding. Additionally, the exercise utilizes the `styled-components` package to scope component stylings, making styling modularized and reusable.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### How to run the file:
+Open the terminal and navigate to this folder, then excuting the following commands to install the necessary packages:
+```bash
+npm install
+```
+Then use 
+```bash
+npm run dev
+``` 
+to activate the local server, paste the link showing in termial that starts with ``http://localhost:****/`` (where `****` is a 4-digit port number that varies between machines) to the browser.
+
+### Provisional Use Case:
+- Website/App user login
