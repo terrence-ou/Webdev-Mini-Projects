@@ -71,6 +71,7 @@ export default function LoginContainer(){
 
   // Handle username
   const [ userName, setUserName ] = useState("");
+
   function handleUserName(event){
     setUserName(event.target.value);
   };
@@ -78,6 +79,7 @@ export default function LoginContainer(){
 
   // Handle password
   const [ password, setPassword ] = useState("");
+
   function handlePassword(event){
     setPassword(event.target.value);
   };
@@ -85,6 +87,7 @@ export default function LoginContainer(){
 
   // Handle password confirmation
   const [ confirmPassword, setConfirmPassword] = useState("");
+
   function handleConfirmPassword(event){
     setConfirmPassword(event.target.value);
   };
@@ -92,8 +95,8 @@ export default function LoginContainer(){
 
   // Handling warning messages
   const [ warningMessage, setWarningMessage ] = useState("");
-  function checkPassword(password, targetPassword){
 
+  function checkPassword(password, targetPassword){
     if (loginMode == null  || password.length == 0){
       return;
     }
@@ -110,8 +113,8 @@ export default function LoginContainer(){
 
   // Handle login mode and passward checking
   const [ loginMode, setLoginMode ]= useState();
-  function handleContinuePressed(){
 
+  function handleContinuePressed(){
     // When username is empty, pop out warning
     if (userName.length == 0){
       setWarningMessage("User name is required");

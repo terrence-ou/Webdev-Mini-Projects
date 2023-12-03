@@ -1,5 +1,0 @@
-Modification:
-
-1. Use useRef to ref inputs;
-2. Use dialog tags to control pop-out window;
-3. Use form to wrap inputs (call reset() on form to clear values);
