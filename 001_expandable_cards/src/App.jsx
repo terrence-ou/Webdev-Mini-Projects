@@ -6,21 +6,21 @@ import MemberInfo from "./components/MemberInfo.jsx";
 
 function App() {
   // handling card expansion
-  const [hoverIndex, setHoverIndex] = useState(undefined);
+  const [hoverIndex, setHoverIndex] = useState(0);
 
   function handleHoverIn(index) {
     setHoverIndex(index);
   }
 
   function handleHoverOut() {
-    setHoverIndex(undefined);
+    setHoverIndex(0);
   }
 
 
   // return the current component
   return (<>
-    <h1>Crew Members</h1>
     <section>
+      <h1>Meet with Crew Members</h1>
       <MembersContainer hoverIndex={hoverIndex}
                         handleHoverIn={handleHoverIn}
                         handleHoverOut={handleHoverOut}/>

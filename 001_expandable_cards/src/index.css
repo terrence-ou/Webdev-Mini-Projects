@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap");
 
 body {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   display: flex;
   place-items: center;
@@ -9,16 +9,11 @@ body {
   min-height: 100vh;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-}
-
 #root {
-  /*display: flex;*/
-  /*align-items: center;*/
+  display: flex;
+  align-items: center;
+  color: #213547;
+  background-color: #ffffff;
   max-width: 1280px;
   min-height: 800px;
   height: 95vh;
@@ -26,18 +21,20 @@ body {
   margin: auto;
   padding: 0.3em;
   text-align: center;
-  background: linear-gradient(30deg, lightgray, #ffffff);
+  background: linear-gradient(-30deg, #B5B5B5, #E8E8E8);
   box-sizing: border-box;
-  border-radius: 25px
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px gray;
 }
 
 h1{
-  font-family: "Roboto", sans-serif;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
-  margin: 30px 0px 20px 0px;
+  margin: 0px 0px 40px 0px;
 }
 
 section{
+  margin: 0 auto;
   align-content:center;
+  width: 65%;
 }

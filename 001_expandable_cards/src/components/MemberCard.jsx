@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 // Styles
 const Box = styled.div`
   border-radius: 10px;
+  overflow: hidden;
 `
 
 const Img = styled.img`

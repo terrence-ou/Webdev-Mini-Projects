@@ -3,10 +3,9 @@ import MemberCard from "./MemberCard.jsx";
 import { ROBOTS } from "../data/data.js";
 
 const Container = styled.div`
-  margin: 0px auto 30px auto;
+  margin: 0px auto 20px auto;
   position: relative;
   display: grid;
-  width: 65%;
   height: 55vh;
   gap: 1em;
   transition: 300ms;

@@ -1,46 +1,55 @@
 import { styled } from "styled-components";
 import { ROBOTS } from "../data/data.js";
 
-// Styles for the Info section
 const Info = styled.div`
-  background: white;
-  opacity: 1.0;
-  margin: auto;
-  display: block;
-  position: relative;
-  width: 55%;
-  padding: 10px 10px 20px 10px;
-  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  height: 150px;
+  text-align: start;
+  align-items: end;
 
-  & p{
-    font-size: 14px;
-    margin: 0.2em;
+  & .title{
+    margin-right: 30px;
+    border-right: solid white;
+
+    & h2{
+      font-size: 45px;
+      margin: 10px 0px;
+    }
+
+    & p{
+      font-size: 15px;
+      margin: 10px 0px;
+    }
   }
 
-  & h2{
-    font-family: "Roboto", sans-serif;
-    margin: 0.4em;
-    font-size: 20px;
-    font-weight: bold;
-}
+  & .description{
+    & p{
+      font-family: Georgia, serif;
+      font-size: 15px;
+      margin: 10px 0px;
+    }
+  }
+
 `
 
 export default function MemberInfo({ hoverIndex }){
-  let info = <div></div>;
-  if (hoverIndex !== undefined) {
-    const currRobot = ROBOTS[hoverIndex];
-    info = (
-      <Info>
+
+  const currRobot = ROBOTS[hoverIndex];
+
+  return <Info>
+      <div className="title">
         <h2>{currRobot.name}</h2>
         <p>
-          <b>Service ID: </b> {currRobot.id}{" "}
+          <b>Service ID: </b> {currRobot.id}
         </p>
-        <p>
-          <b>Position: </b> {currRobot.position}{" "}
-        </p>
+      <p>
+        <b>Position: </b> {currRobot.position}
+      </p>
+      </div>
+      <div className="description">
+        <h3>Role Description:</h3>
         <p>{currRobot.description}</p>
-      </Info>
-    );
-  }
-  return <>{info}</>;
-}
+      </div>
+    </Info>
+};
