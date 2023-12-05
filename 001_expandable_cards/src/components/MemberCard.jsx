@@ -34,6 +34,7 @@ export default function MemberCard({ img_source, selected, mouseIn, mouseOut }) 
         selected={selected}
         $grayscale={grayscale}
         $opacity={opacity}
+        alt="Robot member image"
       />
     </Box>
   );
