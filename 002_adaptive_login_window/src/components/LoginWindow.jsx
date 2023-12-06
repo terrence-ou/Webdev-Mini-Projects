@@ -1,8 +1,9 @@
 import { styled } from "styled-components";
+import { useRef, useState } from "react";
 
 import CustomInput from "./CustomInput.jsx";
 import UsersData from "../data/data.js";
-
+import Modal from "./Modal.jsx";
 
 const LoginSection = styled.section`
   position: relative;
@@ -66,10 +67,14 @@ const welcomeStrings = {
 
 export default function LoginWindow({ identity, handleIdentity }){
 
+  const modalRef = useRef()
+  const [ loginResult, setLoginResult ] = useState("");
+
+  // Conditions when continue button pressed
   function handleContinue(){
     if(identity === undefined) return;
 
-    // manipulate user group
+    // Verifing or adding user group
     let group = undefined;
     if (identity.username in UsersData){
       group = UsersData[identity.username].group;
@@ -83,26 +88,26 @@ export default function LoginWindow({ identity, handleIdentity }){
       }
     })
 
-    // handle submit
-    // avoid name conflict
+    // Handle submition, also avoid identity mismatch due to the lag of Hook
     if (identity.group != undefined && identity.group === group){
       if (group === "new"){
         let result = identity.password === identity.confirmPassword;
-        console.log(result);
+        setLoginResult(result ? "Account Created!" : "Please double check password");
       } else {
         let result = identity.password === UsersData[identity.username].password;
-        console.log(result);
+        setLoginResult(result ? "Login Successful!" : "Username or password incorrent")
       }
+      modalRef.current.open();
     }
   }
 
-
+  // Conditions when clear button pressed
   function handleClear(){
     handleIdentity(undefined);
     document.getElementById("username").value="";
   }
 
-
+  // Generate inputs based on the user group
   function getInputSection(group){
     let inputKeys = [
       {text:"Username", type:"text", id:"username"},
@@ -142,6 +147,8 @@ export default function LoginWindow({ identity, handleIdentity }){
   }
 
   return (
+    <>
+    <Modal ref={modalRef}>{loginResult}</Modal>
     <LoginSection>
       <h3> {title} </h3>
       {inputSection}
@@ -154,5 +161,6 @@ export default function LoginWindow({ identity, handleIdentity }){
         </button>
       </div>
     </LoginSection>
+    </>
   )
 }

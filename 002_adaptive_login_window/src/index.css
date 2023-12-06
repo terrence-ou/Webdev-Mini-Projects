@@ -11,6 +11,26 @@ body {
   width: 100%;
 }
 
+#background-light{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#FFFFFF, #C1B69D);
+  opacity: 1.0;
+}
+
+#background-dark{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#FFFFFF, #655C47);
+  opacity: 0.0;
+}
+
 #root {
   height: 100%;
   display: flex;
@@ -18,4 +38,7 @@ body {
   align-items: center;
   text-align: center;
   transition-all: .2s;
+  z-index: 3;
+  padding: 0;
+  margin: 0;
 }

@@ -10,8 +10,12 @@ const darkGradient = "radial-gradient(#FFFFFF, #655C47)"
 export default function App(){
 
   const [ identity, setIdentity ] = useState(undefined);
-  document.getElementById("root").style.background =
-    identity && identity.group === "sponsor" ? darkGradient : lightGradient;
+
+  // Control background transition
+  const darkBG = document.getElementById("background-dark");
+  darkBG.style.transition = ".5s";
+  darkBG.style.opacity =
+    identity && identity.group === "sponsor" ? 1.0 : 0.0;
 
   return <>
     <LoginContainer

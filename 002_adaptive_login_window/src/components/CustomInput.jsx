@@ -33,6 +33,7 @@ export default function CustomInput({ handleIdentity, children, ...props }){
 
   const handleFocused = () => {setFocused(true)};
 
+  // update the Identity value automatically when focus out
   const handleFocusOut = () => {
     const inputValue = inputRef.current.value;
     setFocused(inputValue.length != 0);

@@ -16,10 +16,7 @@ const Container = styled.div`
   display: flex;
 `
 
-export default function LoginContainer({
-  identity,
-  setIdentity
-}){
+export default function LoginContainer({ identity, setIdentity}){
 
   return (
   <Container>
