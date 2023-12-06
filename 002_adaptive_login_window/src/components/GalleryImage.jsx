@@ -11,7 +11,7 @@ const GallerySection = styled.section`
   overflow: hidden;
 
   & header{
-    color: black;
+    color: ${(props) => props.$fontColor};
     margin-top: 4.5rem;
   }
 
@@ -30,11 +30,10 @@ const GallerySection = styled.section`
   }
 `
 
+export default function GalleryImage({ identity }){
 
-export default function GalleryImage({ userGroup }){
-
-  const bgImage = userGroup === "sponsor" ? SponsorImage : NormalImage;
-  const fontColor = userGroup === "sponsor" ? "white" : "black";
+  const bgImage = identity && identity.group === "sponsor" ? SponsorImage : NormalImage;
+  const fontColor = identity && identity.group === "sponsor" ? "white" : "black";
 
   return (
     <GallerySection $bgImage={bgImage} $fontColor={fontColor}>

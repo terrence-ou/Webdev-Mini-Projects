@@ -16,12 +16,15 @@ const Container = styled.div`
   display: flex;
 `
 
-export default function LoginContainer({ userGroup, setUserGroup}){
+export default function LoginContainer({
+  identity,
+  setIdentity
+}){
 
   return (
   <Container>
-      <LoginWindow userGroup={userGroup} setUserGroup={setUserGroup}/>
-      <GalleryImage userGroup={userGroup}/>
+      <LoginWindow identity={identity} handleIdentity={setIdentity}/>
+      <GalleryImage identity={identity}/>
   </Container>
   )
 }
