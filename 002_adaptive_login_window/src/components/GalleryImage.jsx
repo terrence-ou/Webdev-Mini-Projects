@@ -13,6 +13,7 @@ const GallerySection = styled.section`
   & header{
     color: ${(props) => props.$fontColor};
     margin-top: 4.5rem;
+    transition: .2s;
   }
 
   & h2{

@@ -12,6 +12,7 @@ const InputSection = styled.section`
     border-bottom: 1px solid #774B2E;
     outline: none;
     font-size: 16px;
+    background: none;
   }
 
   & label{
@@ -20,7 +21,7 @@ const InputSection = styled.section`
     top: ${(props) => props.$focused? "-1rem" : "0"};
     font-size: ${(props) => props.$focused? "0.8rem" : "1.1rem"};
     transition: .3s;
-    color: #774B2E;
+    color: ${(props) => props.$focused ? "#667A5D" : "#774B2E"};
   }
 `
 
