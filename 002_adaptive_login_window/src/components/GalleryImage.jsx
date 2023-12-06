@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import NormalImage from "../assets/normal.png";
-import SponsorImage from "../assets/premium.png";
+import SponsorImage from "../assets/sponsor.png";
 
 const GallerySection = styled.section`
   position: relative;
