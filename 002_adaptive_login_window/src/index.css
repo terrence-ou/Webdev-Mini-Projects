@@ -42,3 +42,41 @@ body {
   padding: 0;
   margin: 0;
 }
+
+
+.result-modal[open]{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 2.5rem 1.5rem;
+  box-sizing: border-box;
+  width: 20rem;
+  height: 10rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #FDFCF6;
+
+  font-size: 1.0 rem;
+  font-weight: 400;
+}
+
+.result-modal::backdrop{
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.result-modal button{
+  height: 2.0rem;
+  width: 4.5rem;
+  border: none;
+  border-radius: 0.2rem;
+  background-color: #D88D4E;
+  color: white;
+  transition: .2s;
+}
+
+.result-modal button:hover{
+  cursor: pointer;
+  background-color: #A94E1F;
+}
