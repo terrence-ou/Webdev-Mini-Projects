@@ -14,6 +14,7 @@ const GallerySection = styled.section`
     color: ${(props) => props.$fontColor};
     margin-top: 4.5rem;
     transition: .2s;
+    mix-blend-mode: ${(props) => props.$fontColor === "white" ? "difference" : "normal"};
   }
 
   & h2{

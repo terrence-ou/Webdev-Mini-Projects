@@ -17,4 +17,5 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  transition-all: .2s;
 }
