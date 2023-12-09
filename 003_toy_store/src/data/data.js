@@ -1,6 +1,6 @@
 const ToysData = {
   shp001: { name: "Satsuki", price: 19.99, img: "shp001.jpeg" },
-  shp002: { name: "Misaki Sisters", price: 39.99, img: "shp002.jpeg" },
+  shp002: { name: "Misa Sisters", price: 39.99, img: "shp002.jpeg" },
   shp003: { name: "Noriko", price: 24.99, img: "shp003.jpeg" },
   shp004: { name: "Hina", price: 19.99, img: "shp004.jpeg" },
   shp005: { name: "Kiyomi", price: 24.99, img: "shp005.jpeg" },
