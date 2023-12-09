@@ -1,19 +1,24 @@
 import { createPortal } from "react-dom";
 import { useContext, useRef } from "react";
 
+import CartModal from "./CartModal.jsx";
 import { CartContext } from "./shopping_cart_context";
-
 
 const buttonClasses = "md:mx-12 sm:mx-6 text-zinc-600 hover:text-zinc-950"
 
 export default function Nav(){
 
   const { items } = useContext(CartContext);
-  const { modalRef } = useRef();
+  const modalRef = useRef();
 
   const totalItems = Object.values(items).reduce((sum, item) => sum += item, 0);
 
+  function handleCartClick(){
+    modalRef.current.open();
+  }
+
   return <>
+    <CartModal ref={modalRef} />
     {createPortal(
     <nav className="relative w-full bg-white h-10 z-20">
       <div className="flex justify-between h-full max-w-1280 px-44 mx-auto">
@@ -26,7 +31,7 @@ export default function Nav(){
           <button className={buttonClasses}>About</button>
         </div>
         <div className="my-auto">
-          <button>Cart({totalItems})</button>
+          <button onClick={handleCartClick}>Cart({totalItems})</button>
         </div>
       </div>
     </nav>,
