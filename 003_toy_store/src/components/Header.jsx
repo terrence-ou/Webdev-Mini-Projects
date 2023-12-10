@@ -3,10 +3,10 @@ export default function Header(){
   const headerButtonClasses = "md:mx-12 sm:mx-6 text-zinc-600 hover:text-zinc-950"
 
   return (
-    <div className="max-w-1280 box-border h-80 py-20">
-      <header className="relative w-full h-12 px-44 my-auto z-10">
+    <div className="max-w-1280 pt-20 pb-16">
+      <header className="relative w-full h-auto md:px-44 sm:px-20 my-auto z-10">
         <div id="intro" className="relative flex flex-col justify-between">
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-[1.6rem] font-bold">
             Figure Toy Expert Since 1980
           </h1>
           <p className="w-1/2 my-4 pr-10 text-sm font-light">

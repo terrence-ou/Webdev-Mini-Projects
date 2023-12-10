@@ -8,6 +8,9 @@ export default {
     maxWidth: {
       1280: "1280px",
     },
+    fontFamily: {
+      sans: ["Signika Negative", "sans-serif"],
+    },
     extend: {
       backgroundImage: {
         shop: `url('./public/storefront.png')`,

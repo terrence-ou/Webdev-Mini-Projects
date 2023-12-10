@@ -13,10 +13,9 @@ const CartModal = forwardRef(function CartModal({}, ref){
   });
 
   return createPortal(
-    <dialog ref={dialogRef}>
-      <h2>Shopping Cart</h2>
+    <dialog ref={dialogRef} className="w-[36%] px-6 py-6 bg-orange-100 backdrop:bg-zinc-800/80 rounded-md shadow-md">
+      <h2 className="font-bold relative text-center mx-auto text-zinc-800 text-lg pb-3">Shopping Cart</h2>
       <Cart />
-
     </dialog>
     , document.getElementById("modal")
   )

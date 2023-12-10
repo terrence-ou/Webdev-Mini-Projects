@@ -7,6 +7,7 @@ export const CartContext = createContext({
   updateItemQuantity: () => {},
 });
 
+
 function cartReducer(state, action){
   if (action.type === "ADD_ITEM"){
     const updatedState = {...state};
@@ -33,6 +34,7 @@ function cartReducer(state, action){
   }
   return state;
 }
+
 
 export default function CartContextProvider({ children }){
 
