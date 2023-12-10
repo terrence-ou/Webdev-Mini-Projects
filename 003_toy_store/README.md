@@ -1,6 +1,7 @@
 # Day 003 Figure Toy Shop
 
 ### Demo:
+*It takes several seconds to load the demo, thanks for your patience.* :relaxed:
 <img src="./gif/day_3_shop.gif" alt="Demo gif">
 
 ### Knowledge:
