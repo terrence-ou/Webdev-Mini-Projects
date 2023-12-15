@@ -1,13 +1,13 @@
 const COMPLETE_STYLE = {
   li: " bg-slate-200",
-  btnCircle: " bg-zinc-400",
+  btnCircle: " border-zinc-400 border-[6px] hover:border-2",
   text: " text-zinc-400 line-through",
   btnCross: " text-zinc-400 hover:text-zinc-800"
 };
 
 const ACTIVE_STYLE = {
   li: " bg-gradient-to-r to-[#CBEFFF] from-[#7D88E0]",
-  btnCircle: " border-white border-2 hover:border-[6px] duration-100 focus:outline-none",
+  btnCircle: " border-white border-2 hover:border-[6px]",
   text: " text-white",
   btnCross: " text-[#2A4474]",
 };
@@ -24,11 +24,11 @@ export default function TaskItems({ tasks, handleComplete, handleDelete }){
         >
           <button
             onClick={() => {handleComplete(item.id)}}
-            className={"w-5 h-5 my-auto rounded-full" + currStyle.btnCircle}
+            className={"w-5 h-5 my-auto rounded-full duration-100 focus:outline-none" + currStyle.btnCircle}
           >
           </button>
           <p
-            className={"basis-[85%] my-auto text-md text-zinc-400" + currStyle.text}
+            className={"basis-[85%] my-auto text-md" + currStyle.text}
           >
             {item.text}
           </p>

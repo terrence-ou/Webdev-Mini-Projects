@@ -6,7 +6,6 @@ import ListsByDate from "./ListsByDate.jsx";
 export default function Container(){
 
   const [ todoList, setTodoList ] = useState({});
-  console.log(todoList);
   function handleTodoList(newTask){
     const id = Math.random();
     setTodoList((prevList) => {
