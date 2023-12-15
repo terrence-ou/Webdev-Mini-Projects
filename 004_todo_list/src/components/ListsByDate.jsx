@@ -8,7 +8,7 @@ const DATE_FORMAT = {
   year: "numeric",
 }
 
-export default function ListsByDate( {todoList, handleComplete} ){
+export default function ListsByDate( {todoList, handleComplete, handleDelete} ){
 
   // If the list is empty, display "No Tasks"
   if (Object.keys(todoList).length === 0){
@@ -45,10 +45,16 @@ export default function ListsByDate( {todoList, handleComplete} ){
         formatedDate = formatedDate.split(",").join(" ");
         return (
           <div key={date}>
-            <h3>
+            <h3
+              className="mt-6 text-sm font-sans font-medium tracking-tight text-zinc-600"
+            >
               {formatedDate}
             </h3>
-            <TaskItems tasks={reoderedList[date]} handleComplete={handleComplete}/>
+            <TaskItems
+              tasks={reoderedList[date]}
+              handleComplete={handleComplete}
+              handleDelete={handleDelete}
+            />
           </div>
         )
       })}

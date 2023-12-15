@@ -5,8 +5,10 @@ export default function Stats({ todoList }){
   const completedTasks = results.filter(value => value === true).length;
 
   return (
-    <section>
-      <h2>Task Completed: {completedTasks}/{totalTasks}</h2>
+    <section
+      className="my-6 font-serif font-bold tracking-tight text-lg text-zinc-500"
+    >
+      <h2>Task Completed {completedTasks}/{totalTasks}</h2>
     </section>
   )
 }

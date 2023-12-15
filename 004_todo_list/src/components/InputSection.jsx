@@ -35,7 +35,7 @@ export default function InputSection({ handleTodoList }){
   return (
     <section
       key={inputKey}
-      className="flex justify-between gap-3"
+      className="flex justify-between gap-3 mt-6 font-serif text-lg"
     >
       <input
         ref={textInputRef}
