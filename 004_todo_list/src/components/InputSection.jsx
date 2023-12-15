@@ -49,7 +49,7 @@ export default function InputSection({ handleTodoList }){
       key={inputKey}
       className="flex justify-between gap-3 mt-6 mb-10 font-serif text-lg"
     >
-      {warningState === "visible" && <p className={"absolute text-sm text-rose-600 translate-y-10 animate-fadeIn" + " " + warningState}>
+      {warningState === "visible" && <p className={"absolute text-sm text-rose-500 translate-y-10 animate-fadeIn" + " " + warningState}>
         Input shouldn't be empty
       </p>}
       <input
