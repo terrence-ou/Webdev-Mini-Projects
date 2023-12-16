@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-
+// general input style for the input section
 const INPUT_STYLE = "py-[0.2rem] border-b-2 border-b-zinc-700 focus:outline-none";
 
 function getCurrentDate(){
@@ -14,12 +14,14 @@ function getCurrentDate(){
 
 export default function InputSection({ handleTodoList }){
 
+  // The input key helps to rerender the input section on submission
   const [inputKey, setInputKey] = useState(Math.random());
   const [warningState, setWarningState] = useState("hidden");
 
   const textInputRef = useRef();
   const dateInputRef = useRef();
 
+  // handle the "add a new task" event
   function submit(){
 
     if (textInputRef.current.value === ""){

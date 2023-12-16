@@ -1,6 +1,6 @@
 import TaskItems from "./TaskItems.jsx";
 
-
+// date format for date locale representation
 const DATE_FORMAT = {
   weekday: "long",
   month: "short",

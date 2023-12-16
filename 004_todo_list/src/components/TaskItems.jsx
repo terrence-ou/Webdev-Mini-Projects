@@ -1,3 +1,12 @@
+// the style of active tasks
+const ACTIVE_STYLE = {
+  li: " bg-gradient-to-r to-[#CBEFFF] from-[#7D88E0]",
+  btnCircle: " border-white border-2 hover:border-[6px]",
+  text: " text-white",
+  btnCross: " text-[#2A4474]",
+};
+
+// the style of completed tasks
 const COMPLETE_STYLE = {
   li: " bg-slate-200",
   btnCircle: " border-zinc-400 border-[6px] hover:border-2",
@@ -5,12 +14,6 @@ const COMPLETE_STYLE = {
   btnCross: " text-zinc-400 hover:text-zinc-800"
 };
 
-const ACTIVE_STYLE = {
-  li: " bg-gradient-to-r to-[#CBEFFF] from-[#7D88E0]",
-  btnCircle: " border-white border-2 hover:border-[6px]",
-  text: " text-white",
-  btnCross: " text-[#2A4474]",
-};
 
 export default function TaskItems({ tasks, handleComplete, handleDelete }){
 

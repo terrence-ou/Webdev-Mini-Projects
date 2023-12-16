@@ -3,32 +3,42 @@ import InputSection from "./InputSection.jsx";
 import Stats from "./Stats.jsx";
 import ListsByDate from "./ListsByDate.jsx";
 
-export default function Container(){
+// use local storages to store the todolist data in the local storage
+const localStorageKey = "storedTodoList";
+const getStoredData = () => JSON.parse(localStorage.getItem(localStorageKey)) || {};
+const setStoredData = (data) => localStorage.setItem(localStorageKey, JSON.stringify({...data}));
 
-  const [ todoList, setTodoList ] = useState({});
+
+export default function Container(){
+  // `todoList` stores the todo list data in the format of the Object
+  const [ todoList, setTodoList ] = useState(getStoredData());
   function handleTodoList(newTask){
-    const id = Math.random();
+    const id = Math.random(); // generate a random id for the newly added task
     setTodoList((prevList) => {
-      return {
-        ...prevList,
-        [id]: newTask,
-      }
+      const currList = {...prevList, [id]: newTask};
+      setStoredData(currList);
+      return currList;
     });
   }
 
+  // Making a single task completed/incompleted
   function handleComplete(id){
     setTodoList((prevList) => {
       const currState = prevList[id].completed;
-      return {
+      const currList = {
         ...prevList,
         [id]: {...prevList[id], completed: !currState}
       }
+      setStoredData(currList);
+      return currList;
     })
   }
 
+  // Deleting a task
   function handleDelete(id){
     setTodoList((prevList) => {
       delete prevList[id];
+      setStoredData(prevList);
       return {...prevList};
     })
   }
