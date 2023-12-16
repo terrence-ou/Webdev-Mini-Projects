@@ -36,7 +36,7 @@ export default function Container(){
   return (
     <div className="w-[40rem] min-h-[40rem] mx-auto px-16 py-14 rounded-xl bg-white shadow-[inset_5px_0_10px_0_#17255450] z-10">
       <h2
-        className="font-serif text-2xl font-bold"
+        className="font-serif text-[1.7rem] font-bold"
       >
         To Do List
       </h2>

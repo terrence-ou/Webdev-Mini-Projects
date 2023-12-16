@@ -38,7 +38,6 @@ export default function ListsByDate( {todoList, handleComplete, handleDelete} ){
   });
 
   // Generate HTML elements
-
   return (
     <section>
       {sortedDates.map((date) => {
@@ -47,7 +46,7 @@ export default function ListsByDate( {todoList, handleComplete, handleDelete} ){
         return (
           <div key={date}>
             <h3
-              className="mt-6 text-sm font-sans font-medium tracking-tight text-zinc-600"
+              className="mt-6 text-md font-sans font-medium tracking-tight text-zinc-600"
             >
               {formatedDate}
             </h3>
