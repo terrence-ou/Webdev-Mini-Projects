@@ -6,7 +6,7 @@ export default function Stats({ todoList }){
 
   return (
     <section
-      className="my-6 font-serif font-bold tracking-tight text-xl text-zinc-500"
+      className="my-3 font-serif font-bold tracking-tight text-xl text-zinc-500"
     >
       <h2>Tasks Completed <span className="ml-4">{completedTasks}/{totalTasks}</span></h2>
     </section>
