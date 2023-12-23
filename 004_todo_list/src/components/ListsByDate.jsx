@@ -46,7 +46,7 @@ export default function ListsByDate( {todoList, handleComplete, handleDelete} ){
         return (
           <div key={date}>
             <h3
-              className="mt-6 text-md font-sans font-medium tracking-tight text-zinc-600"
+              className="mt-3 text-md font-sans font-medium tracking-tight text-zinc-600"
             >
               {formatedDate}
             </h3>
