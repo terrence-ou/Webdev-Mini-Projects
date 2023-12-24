@@ -32,7 +32,7 @@ export default function Dropdown({label, listItems}){
           {label}
         </span>
         <button 
-          className="flex justify-between bg-white w-44 px-2 py-[0.2rem] text-left text-zinc-600 rounded-md text-sm shadow-[inset_1px_1px_2px_rgba(0,0,0,0.2)] focus:outline-none"
+          className="flex justify-between bg-white w-44 px-2 py-[0.2rem] text-left text-zinc-600 rounded-md text-sm shadow-[inset_1.5px_1.5px_2px_rgba(0,0,0,0.2)] focus:outline-none"
           onClick={handleShowDropdown}
         >
           {buttonValue}

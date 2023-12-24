@@ -13,6 +13,7 @@ export default function MainInterface(){
     <div 
       className="w-[70%] h-full pl-8 pr-12 py-uniform_y bg-zinc-200"
     >
+      {/*Section of Dropdown menus*/}
       <section
         id="languages"
         className="flex content-center justify-between"
@@ -39,15 +40,21 @@ export default function MainInterface(){
         </div>
       </section>
 
+      {/*Section of text areas*/}
       <section id="source">
-        <h3>Source Text</h3>
-        <TextArea />
+        <TextArea 
+          title="Source Text"
+        />
       </section>
 
       <section id="result">
-        <h3>Result</h3>
-        <p>Language detected:</p>
-        <TextArea />
+        <TextArea 
+          title="Result"
+        >
+          <p className="text-sm text-zinc-400 font-light py-1">
+            Language detected: not available
+          </p>
+        </TextArea>
       </section>
     </div>
   )
