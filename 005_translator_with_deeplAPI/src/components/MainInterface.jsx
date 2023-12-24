@@ -1,6 +1,12 @@
 import Dropdown from "./Dropdown.jsx";
 import TextArea from "./TextArea.jsx";
 
+import switchIcon from "../assets/switch_icon.svg";
+
+// move this to independent data
+const sourceListItems = ["Detect Language", "English", "Chinese"];
+const targetListItems = ["English", "Korean", "German"];
+
 export default function MainInterface(){
 
   return (
@@ -14,16 +20,21 @@ export default function MainInterface(){
         <div>
           <Dropdown 
             label="Source"
-            defaultVal={"Detect Language"}
+            listItems={sourceListItems}
           />
         </div>
-        <div>
-          <span>ICON</span>
-        </div>
+        <button 
+          className="focus:outline-none"
+        >
+          <img 
+            className="w-5"
+            src={switchIcon} 
+            alt="switch icon"/>
+        </button>
         <div>
           <Dropdown 
             label="Target"
-            defaultVal={"Chinese"}
+            listItems={targetListItems}
           />
         </div>
       </section>
