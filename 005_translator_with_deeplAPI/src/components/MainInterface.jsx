@@ -2,6 +2,8 @@ import Dropdown from "./Dropdown.jsx";
 import TextArea from "./TextArea.jsx";
 
 import switchIcon from "../assets/switch_icon.svg";
+import copyIcon from "../assets/copy_icon.svg";
+import actionIcon from "../assets/action_icon.svg";
 
 // move this to independent data
 const sourceListItems = ["Detect Language", "English", "Chinese"];
@@ -44,15 +46,21 @@ export default function MainInterface(){
       <section id="source">
         <TextArea 
           title="Source Text"
+          buttonIcon={actionIcon}
+          styles="h-28"
+          placeholder="Type or paste text here"
         />
       </section>
 
       <section id="result">
         <TextArea 
           title="Result"
+          buttonIcon={copyIcon}
+          styles="h-56 bg-zinc-100"
+          readOnly={true}
         >
           <p className="text-sm text-zinc-400 font-light py-1">
-            Language detected: not available
+            Language detected: <span className="italic">unavailable</span>
           </p>
         </TextArea>
       </section>

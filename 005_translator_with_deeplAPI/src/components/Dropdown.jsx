@@ -1,9 +1,8 @@
 import { useState } from "react";
 import dropdownIcon from "../assets/dropdown_icon.svg";
 
+const menuStyle = "absolute box-border drop-shadow bg-white ml-14 px-3 py-2 w-44 text-zinc-600 text-sm rounded-md z-20";
 
-const menuStyle = "absolute box-border bg-white ml-14 px-3 py-2 w-44 text-zinc-600 text-sm rounded-md";
-const buttonStyle = "";
 
 export default function Dropdown({label, listItems}){
   
@@ -18,6 +17,7 @@ export default function Dropdown({label, listItems}){
   }
 
   const [ buttonValue, setButtonValue ] = useState(listItems[0]);
+
   function handleButtonValue(newValue){
     setButtonValue(newValue);
     toggleOffDropdown();
