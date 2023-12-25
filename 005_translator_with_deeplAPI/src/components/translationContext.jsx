@@ -3,10 +3,9 @@ import { createContext, useContext, useState } from "react";
 export const LangContext = createContext({
   tranlationForm: {},
   translationHistory: [],
-  handleSourceLang: () => {},
-  handleTargetLang: () => {},
   handleSwapLangs: () => {},
-
+  handleSourceTextUpdate: () => {},
+  handleLangSelection: () => {},
 });
 
 const defaultForm = {
@@ -22,26 +21,22 @@ export default function LangContextProvider({ children }){
   const [ translationHistory, setTranslationHistory ] = useState([]);
 
   // functions handling translation form
-  function handleSourceLang(sourceLang){
-    setTranslationForm(prevForm => {
-      return {
-        ...prevForm,
-        source_lang: sourceLang
-      };
-    });
-  }
 
-  function handleTargetLang(targetLang){
+  function handleLangSelection(key, lang){
+    if (key !== "source_lang" && key !== "target_lang"){
+      console.error("Wrong key value provided");
+      return;
+    }
     setTranslationForm(prevForm => {
       return {
         ...prevForm,
-        target_lang: targetLang
-      };
+        [key]: lang,
+      }
     });
   }
 
   function handleSwapLangs(){
-    if (translationForm.source_lang != null){
+    if (translationForm.source_lang != "none"){
       const prevSourceLang = translationForm.source_lang;
       const prevTargetLang = translationForm.target_lang;
       setTranslationForm(prevForm => {
@@ -54,16 +49,22 @@ export default function LangContextProvider({ children }){
     }
   }
   
-  // TODO
-  function handleTextUpdate(){
-    
+  function handleSourceTextUpdate(text){
+    setTranslationForm(prevForm => {
+      return {
+        ...prevForm,
+        text: text,
+      }
+    });
   }
   
 
   const langContextValue = {
     translationForm: translationForm,
     translationHistory: translationHistory,
-
+    handleSwapLangs: handleSwapLangs,
+    handleSourceTextUpdate: handleSourceTextUpdate,
+    handleLangSelection: handleLangSelection,
   }
 
   return (

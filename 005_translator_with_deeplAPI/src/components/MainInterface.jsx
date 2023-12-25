@@ -1,14 +1,18 @@
+import { useContext } from "react";
+
 import Dropdown from "./Dropdown.jsx";
 import TextArea from "./TextArea.jsx";
+import { LangContext } from "./translationContext.jsx";
 
 import switchIcon from "../assets/switch_icon.svg";
 import copyIcon from "../assets/copy_icon.svg";
 import actionIcon from "../assets/action_icon.svg";
 
-import { sourceLangs, targetLangs } from "../data/languageMapping.js";
 
 export default function MainInterface(){
   
+  const { handleSwapLangs } = useContext(LangContext);
+
   return (
     <div 
       className="w-[70%] h-full pl-8 pr-12 py-uniform_y bg-zinc-200"
@@ -19,13 +23,11 @@ export default function MainInterface(){
         className="flex content-center justify-between"
       >
         <div>
-          <Dropdown 
-            label="Source"
-            listItems={sourceLangs}
-          />
+          <Dropdown label="Source"/>
         </div>
         <button 
           className="focus:outline-none"
+          onClick={handleSwapLangs}
         >
           <img 
             className="w-5"
@@ -33,10 +35,7 @@ export default function MainInterface(){
             alt="switch icon"/>
         </button>
         <div>
-          <Dropdown 
-            label="Target"
-            listItems={targetLangs}
-          />
+          <Dropdown label="Target"/>
         </div>
       </section>
 
