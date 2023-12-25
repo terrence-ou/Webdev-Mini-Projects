@@ -5,12 +5,10 @@ import switchIcon from "../assets/switch_icon.svg";
 import copyIcon from "../assets/copy_icon.svg";
 import actionIcon from "../assets/action_icon.svg";
 
-// move this to independent data
-const sourceListItems = ["Detect Language", "English", "Chinese"];
-const targetListItems = ["English", "Korean", "German"];
+import { sourceLangs, targetLangs } from "../data/languageMapping.js";
 
 export default function MainInterface(){
-
+  
   return (
     <div 
       className="w-[70%] h-full pl-8 pr-12 py-uniform_y bg-zinc-200"
@@ -23,7 +21,7 @@ export default function MainInterface(){
         <div>
           <Dropdown 
             label="Source"
-            listItems={sourceListItems}
+            listItems={sourceLangs}
           />
         </div>
         <button 
@@ -37,7 +35,7 @@ export default function MainInterface(){
         <div>
           <Dropdown 
             label="Target"
-            listItems={targetListItems}
+            listItems={targetLangs}
           />
         </div>
       </section>

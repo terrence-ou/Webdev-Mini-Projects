@@ -1,7 +1,7 @@
 import { useState } from "react";
 import dropdownIcon from "../assets/dropdown_icon.svg";
 
-const menuStyle = "absolute box-border drop-shadow bg-white ml-14 px-3 py-2 w-44 text-zinc-600 text-sm rounded-md z-20";
+const menuStyle = "absolute box-border drop-shadow bg-white ml-14 px-3 py-2 w-44 text-zinc-600 text-sm rounded-md z-30";
 
 
 export default function Dropdown({label, listItems}){
@@ -47,14 +47,14 @@ export default function Dropdown({label, listItems}){
         className={currMenuStyle}
       >
         <ul>
-          {listItems.map(item => {
+          {Object.keys(listItems).map(key => {
             return (
-              <li key={item} className="py-1">
+              <li key={key} className="py-1">
                 <button 
                   className="hover:text-zinc-800 hover:font-semibold focus:outline-none"
-                  onClick={() => handleButtonValue(item)}
+                  onClick={() => handleButtonValue(key)}
                 >
-                  {item}
+                  {key}
                 </button>
               </li>
             )

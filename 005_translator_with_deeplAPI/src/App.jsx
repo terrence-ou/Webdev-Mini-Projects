@@ -11,19 +11,26 @@ function App() {
   
   useEffect(() => {
     async function translate(){
-      const response = await axios.post(URL, null, {
-        params: {
-          auth_key: AUTH_KEY,
-          text: "Hello World",
-          target_lang: "DE"
-        }
-      })
-      console.log(response);
+      try {
+        const response = await axios.post(URL, null, {
+          params: {
+            auth_key: AUTH_KEY,
+            text: "测试API传输",
+            source_lang: null,
+            target_lang: "DE"
+          }
+        });
+        console.log(response.data.translations[0]);
+        // detected_source_language
+        // text
+      } catch(error) {
+        console.error("Error during translation:", error);
+        throw error;
+      }
     }
 
-    translate();
-
-  });
+    //translate();
+  }, []);
    
 
   return (
