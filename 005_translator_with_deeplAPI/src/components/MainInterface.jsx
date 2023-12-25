@@ -1,17 +1,37 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import Dropdown from "./Dropdown.jsx";
 import TextArea from "./TextArea.jsx";
 import { LangContext } from "./translationContext.jsx";
+import { submitTranslationRequest } from "../http.js";
 
 import switchIcon from "../assets/switch_icon.svg";
 import copyIcon from "../assets/copy_icon.svg";
 import actionIcon from "../assets/action_icon.svg";
 
+import { briefNameMapping } from "../data/languageMapping.js";
 
 export default function MainInterface(){
   
-  const { handleSwapLangs } = useContext(LangContext);
+  const [ sourceLang, setSourceLang ] = useState("unavailable"); 
+
+  const { translationForm, 
+          handleSwapLangs, 
+          handleSourceTextUpdate, 
+          handleResultTextUpdate } = useContext(LangContext);
+
+
+  async function submitRequest(){
+    if (translationForm.text.length === 0){
+      return;
+    }
+    handleResultTextUpdate("Translating...");
+    const result = await submitTranslationRequest(translationForm);
+    //console.log(result);
+    handleResultTextUpdate(result[0].text);
+    setSourceLang(briefNameMapping[result[0].detected_source_language]);
+  }
+
 
   return (
     <div 
@@ -46,6 +66,8 @@ export default function MainInterface(){
           buttonIcon={actionIcon}
           styles="h-28"
           placeholder="Type or paste text here"
+          onChange={() => handleSourceTextUpdate(event)}
+          onButtonClick={() => submitRequest()}
         />
       </section>
 
@@ -55,9 +77,10 @@ export default function MainInterface(){
           buttonIcon={copyIcon}
           styles="h-56 bg-zinc-100"
           readOnly={true}
+          value={translationForm.result}
         >
           <p className="text-sm text-zinc-400 font-light py-1">
-            Language detected: <span className="italic">unavailable</span>
+            Language detected: <span className="italic">{sourceLang}</span>
           </p>
         </TextArea>
       </section>

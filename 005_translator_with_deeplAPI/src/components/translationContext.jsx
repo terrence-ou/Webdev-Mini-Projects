@@ -4,24 +4,26 @@ export const LangContext = createContext({
   tranlationForm: {},
   translationHistory: [],
   handleSwapLangs: () => {},
-  handleSourceTextUpdate: () => {},
   handleLangSelection: () => {},
+  handleSourceTextUpdate: () => {},
+  handleResultTextUpdate: () => {},
 });
 
 const defaultForm = {
   source_lang: "none",
-  target_lang: "EN",
+  target_lang: "DE",
   text: "",
+  result: "",
 }
-
 
 export default function LangContextProvider({ children }){
   
   const [ translationForm, setTranslationForm ] = useState({...defaultForm});
   const [ translationHistory, setTranslationHistory ] = useState([]);
+  
+  //console.log(translationForm);
 
   // functions handling translation form
-
   function handleLangSelection(key, lang){
     if (key !== "source_lang" && key !== "target_lang"){
       console.error("Wrong key value provided");
@@ -49,22 +51,32 @@ export default function LangContextProvider({ children }){
     }
   }
   
-  function handleSourceTextUpdate(text){
+  function handleSourceTextUpdate(event){
     setTranslationForm(prevForm => {
       return {
         ...prevForm,
-        text: text,
+        text: event.target.value,
       }
     });
   }
-  
 
+  function handleResultTextUpdate(result){
+    setTranslationForm(prevForm => {
+      return {
+        ...prevForm,
+        result: result,
+      };
+    });
+  }
+  
+  // final context value for context use
   const langContextValue = {
     translationForm: translationForm,
     translationHistory: translationHistory,
     handleSwapLangs: handleSwapLangs,
-    handleSourceTextUpdate: handleSourceTextUpdate,
     handleLangSelection: handleLangSelection,
+    handleSourceTextUpdate: handleSourceTextUpdate,
+    handleResultTextUpdate: handleResultTextUpdate,
   }
 
   return (
