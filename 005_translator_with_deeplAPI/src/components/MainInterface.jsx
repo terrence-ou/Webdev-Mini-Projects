@@ -11,14 +11,14 @@ import actionIcon from "../assets/action_icon.svg";
 
 import { briefNameMapping } from "../data/languageMapping.js";
 
-export default function MainInterface(){
+
+export default function MainInterface({addTranslation}){
   
   const [ sourceLang, setSourceLang ] = useState("unavailable"); 
-
   const { translationForm, 
           handleSwapLangs, 
           handleSourceTextUpdate, 
-          handleResultTextUpdate } = useContext(LangContext);
+          handleResultTextUpdate,} = useContext(LangContext);
 
 
   async function submitRequest(){
@@ -26,10 +26,23 @@ export default function MainInterface(){
       return;
     }
     handleResultTextUpdate("Translating...");
-    const result = await submitTranslationRequest(translationForm);
-    //console.log(result);
-    handleResultTextUpdate(result[0].text);
-    setSourceLang(briefNameMapping[result[0].detected_source_language]);
+
+    try {
+      
+      const result = await submitTranslationRequest(translationForm);
+      handleResultTextUpdate(result[0].text);
+      setSourceLang(briefNameMapping[result[0].detected_source_language]);
+
+      const newTransRecord = {...translationForm, source_lang: result[0].detected_source_language, result: result[0].text};
+      const newTransId = Math.random().toFixed(6);
+      addTranslation(newTransId, newTransRecord);
+      
+    } catch (error) {
+
+      console.error("Translation failed:", error);
+      handleResultTextUpdate("Translation failed, please check your API or internet connection");
+    
+    }
   }
 
 

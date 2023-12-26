@@ -1,7 +1,7 @@
-export default function Sidebar(){
-    
-  const history = [];
+export default function Sidebar({ translationHistory }){
   
+  console.log(translationHistory);
+
   const noHistoryItem = (
     <p className="text-xs text-zinc-400 italic py-4">
       No translation history so far

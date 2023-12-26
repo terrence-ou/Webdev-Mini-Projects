@@ -2,7 +2,6 @@ import { createContext, useContext, useState } from "react";
 
 export const LangContext = createContext({
   tranlationForm: {},
-  translationHistory: [],
   handleSwapLangs: () => {},
   handleLangSelection: () => {},
   handleSourceTextUpdate: () => {},
@@ -19,9 +18,6 @@ const defaultForm = {
 export default function LangContextProvider({ children }){
   
   const [ translationForm, setTranslationForm ] = useState({...defaultForm});
-  const [ translationHistory, setTranslationHistory ] = useState([]);
-  
-  //console.log(translationForm);
 
   // functions handling translation form
   function handleLangSelection(key, lang){
@@ -68,11 +64,13 @@ export default function LangContextProvider({ children }){
       };
     });
   }
+
+
   
+
   // final context value for context use
   const langContextValue = {
     translationForm: translationForm,
-    translationHistory: translationHistory,
     handleSwapLangs: handleSwapLangs,
     handleLangSelection: handleLangSelection,
     handleSourceTextUpdate: handleSourceTextUpdate,
