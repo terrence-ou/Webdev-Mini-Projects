@@ -32,7 +32,7 @@ export default function Container(){
 
   return (
     <div className="flex w-[860px] h-[600px] bg-white rounded-xl overflow-hidden">
-      <Sidebar translationHistory={translationHistory} delTranslation={handleRemoveTranslation}/>
+      <Sidebar translationHistory={translationHistory} onDelete={handleRemoveTranslation}/>
       <MainInterface addTranslation={handleAddTranslation}/>
     </div>
   )
