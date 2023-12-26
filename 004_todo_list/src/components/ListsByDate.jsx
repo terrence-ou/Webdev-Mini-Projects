@@ -39,7 +39,7 @@ export default function ListsByDate( {todoList, handleComplete, handleDelete} ){
 
   // Generate HTML elements
   return (
-    <section className="max-h-[30rem] overflow-scroll">
+    <section className="max-h-[30rem] pr-2 overflow-y-scroll overflow-x-hidden">
       {sortedDates.map((date) => {
         let formatedDate = new Date(date).toLocaleString("en-US", DATE_FORMAT);
         formatedDate = formatedDate.split(",").join(" ");
