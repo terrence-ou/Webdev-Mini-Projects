@@ -6,7 +6,7 @@ import { nameBriefMapping, briefNameMapping } from "../data/languageMapping.js";
 
 import dropdownIcon from "../assets/dropdown_icon.svg";
 
-const menuStyle = "absolute box-border drop-shadow bg-white ml-14 px-3 py-2 w-44 text-zinc-600 text-sm rounded-md z-30";
+const MENU_STYLE = "absolute box-border drop-shadow bg-white ml-14 px-3 py-2 w-44 text-zinc-600 text-sm rounded-md z-30";
 
 
 export default function Dropdown({label}){
@@ -28,12 +28,13 @@ export default function Dropdown({label}){
     toggleOffDropdown();
   }
   
+  // determing the purpose of the textarea component
   const listItems = label === "Source" ? sourceLangs : targetLangs;
   const sourceIdentifier = label.toLowerCase() + "_lang";
   const buttonKey = translationForm[sourceIdentifier];
   const buttonValue = briefNameMapping[buttonKey];
   
-  const currMenuStyle = `${menuStyle} ${dropdownVisible ? " visible" : "invisible"}`;
+  const currMenuStyle = `${MENU_STYLE} ${dropdownVisible ? " visible" : " invisible"}`;
 
   return (
     <div>

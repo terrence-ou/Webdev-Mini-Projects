@@ -3,10 +3,10 @@ import { useState } from "react";
 import Sidebar from "./Sidebar.jsx";
 import MainInterface from "./MainInterface.jsx";
 
+const LOCAL_KEY = "DeepLTranslator";
+const getLocalHistory = () => JSON.parse(localStorage.getItem(LOCAL_KEY)) || {};
+const setLocalHistory = (newHist) => localStorage.setItem(LOCAL_KEY, JSON.stringify({...newHist})); 
 
-const LocalKey = "DeepLTranslator";
-const getLocalHistory = () => JSON.parse(localStorage.getItem(LocalKey)) || {};
-const setLocalHistory = (newHist) => localStorage.setItem(LocalKey, JSON.stringify({...newHist})); 
 
 export default function Container(){
   

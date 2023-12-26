@@ -8,7 +8,7 @@ export const LangContext = createContext({
   handleResultTextUpdate: () => {},
 });
 
-const defaultForm = {
+const DEFAULT_FORM = {
   source_lang: "none",
   target_lang: "DE",
   text: "",
@@ -17,7 +17,7 @@ const defaultForm = {
 
 export default function LangContextProvider({ children }){
   
-  const [ translationForm, setTranslationForm ] = useState({...defaultForm});
+  const [ translationForm, setTranslationForm ] = useState({...DEFAULT_FORM});
 
   // functions handling translation form
   function handleLangSelection(key, lang){
@@ -64,9 +64,6 @@ export default function LangContextProvider({ children }){
       };
     });
   }
-
-
-  
 
   // final context value for context use
   const langContextValue = {

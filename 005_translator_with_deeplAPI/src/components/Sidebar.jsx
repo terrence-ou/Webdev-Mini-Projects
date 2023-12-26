@@ -2,6 +2,7 @@ import HistoryItem from "./HistoryItem.jsx";
 
 export default function Sidebar({ translationHistory, onDelete }){
   
+  // display this message when there's no translation history
   const noHistoryItem = (
     <p className="text-xs text-zinc-400 italic py-4">
       No translation history so far
@@ -10,14 +11,13 @@ export default function Sidebar({ translationHistory, onDelete }){
 
   const historyItems = () => {
     return (
-      <section className="mt-5">
+      <section className="relative mt-5 h-96 overflow-y-scroll">
         {Object.entries(translationHistory).map(([key, item], i) => {
           return <HistoryItem key={key} id={key} item={item} onDelete={onDelete}/>
         })}
       </section>
     )
   };
-
 
   return (
     <aside className="w-[30%] bg-[#3B3E57] px-6 py-uniform_y">

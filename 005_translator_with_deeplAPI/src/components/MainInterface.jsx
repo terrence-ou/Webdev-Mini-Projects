@@ -45,6 +45,12 @@ export default function MainInterface({addTranslation}){
     }
   }
 
+  function copyToClipboard(){
+    if (translationForm.result){
+      navigator.clipboard.writeText(translationForm.result);
+    }
+  }
+
 
   return (
     <div 
@@ -91,6 +97,7 @@ export default function MainInterface({addTranslation}){
           styles="h-56 bg-zinc-100"
           readOnly={true}
           value={translationForm.result}
+          onButtonClick={() => copyToClipboard()}
         >
           <p className="text-sm text-zinc-400 font-light py-1">
             Language detected: <span className="italic">{sourceLang}</span>
