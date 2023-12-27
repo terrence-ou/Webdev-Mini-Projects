@@ -13,7 +13,7 @@ export default {
     },
     extend: {
       backgroundImage: {
-        shop: `url('./public/storefront.png')`,
+        shop: `url('assets/storefront.png')`,
       },
     },
   },

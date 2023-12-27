@@ -6,11 +6,10 @@ export default function ItemCard({itemKey}){
 
   const { items, addItemToCart } = useContext(CartContext);
   const { name, price, img } = ToysData[itemKey];
-  const imgDir = "/src/assets/" + img;
 
   return (
     <div className="relative flex flex-col md:w-[22%] sm:w-[30%] h-64 rounded-xl bg-gradient-to-t from-[#F2DDC8] via-white via-50% to-white drop-shadow-lg overflow-hidden">
-      <img src={imgDir} className="h-[75%] object-cover rounded-xl drop-shadow-lg"/>
+      <img src={img} className="h-[75%] object-cover rounded-xl drop-shadow-lg"/>
       <div className="flex justify-between content-end align-bottom px-2 my-auto">
         <div>
           <h2 className="font-bold tracking-wide text-[0.9rem]">{name}</h2>
