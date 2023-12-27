@@ -4,6 +4,10 @@
 *It takes several seconds to load the demo, thanks for your patience.* :relaxed:
 <img src="./gif/001_expandable_card.gif" alt="expandable card demo"/>
 
+### Link:
+[Day 001 Expandable Cards](https://clickvisionstudio.github.io/001_expandable_cards/)
+
+
 ### Knowledge:
 This exercise is implemented with basic React concepts like Dynamic Values, Props, and Hook. It is a handy and beginner-friendly exercise that can help get used to React expressions by integrating content-interaction-visualization in one simple widget.
 
