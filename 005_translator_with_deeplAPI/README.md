@@ -5,7 +5,7 @@
 <img src="./gif/005_translation_app.gif" alt="Demo gif">
 
 ### Live Demo Link: 
--> [Translator](https://github.com/clickvisionstudio/005_translator)
+-> [Translator](https://clickvisionstudio.github.io/005_translator/)
 
 ### Knowledge:
 This web application is a simple tool for language translation, integrating the DeepL API for its core functionality. Users can input text in a designated field and click the translation button to send request to DeepL and receive either result or error messages, and users are able to copy the result but simply clicking the `copy` button places in the result text area. It also uses `localStorage` to save translation histories. 
