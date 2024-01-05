@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Header from "./components/Header.jsx";
 import Input from "./components/Input.jsx";
 import DictResult from "./components/DictResult.jsx";
 import Error from "./components/Error.jsx";
+import ThemeContextProvider from "./components/themeContext.jsx";
 
+import { ThemeContext } from "./components/themeContext.jsx";
 import { requestDictResult } from "./http.js";
 
 function App() {
-  const [fontType, setFontType] = useState("font-sans");
   const [dictContent, setDictContent] = useState(undefined);
   const [result, setResult] = useState(undefined);
 
@@ -26,17 +27,18 @@ function App() {
   }, [requestDictResult]);
 
   return (
-    <div
-      className={
-        "mx-auto lg:w-page-width-lg md:w-page-width-md sm:w-page-width-sm mt-[58px] " +
-        fontType
-      }
-    >
-      <Header fontType={fontType} setFontType={setFontType} />
-      <Input setResult={setResult} />
-      {result && result !== "error" && <DictResult result={result} />}
-      {result === "error" && <Error />}
-    </div>
+    <ThemeContextProvider>
+      <div
+        className={
+          "mx-auto lg:w-page-width-lg md:w-page-width-md sm:w-page-width-sm mt-[58px]"
+        }
+      >
+        <Header />
+        <Input setResult={setResult} />
+        {result && result !== "error" && <DictResult result={result} />}
+        {result === "error" && <Error />}
+      </div>
+    </ThemeContextProvider>
   );
 }
 

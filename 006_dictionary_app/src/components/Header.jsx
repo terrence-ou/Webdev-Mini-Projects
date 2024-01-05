@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ThemeContext } from "./themeContext";
 
 import headerIcon from "../assets/icons/logo.svg";
 import dropdownIcon from "../assets/icons/icon-arrow-down.svg";
@@ -11,34 +12,21 @@ const fontMapping = {
   "font-mono": "Mono",
 };
 
-export default function Header({ fontType, setFontType }) {
-  // TODO: add system theme when the application starts
-
-  const [darkModeOn, setDarkModeOn] = useState(false);
+export default function Header({}) {
   const [fontMenuVisible, setFontMenuVisible] = useState(false);
+  const { theme, font, toggleDarkTheme, handleSetFont } =
+    useContext(ThemeContext);
 
-  const buttonPosition = darkModeOn ? "left-[22px]" : "left-[4px]";
-  function handleToggleDarkMode() {
-    setDarkModeOn((prevDarkOn) => !prevDarkOn);
-  }
+  const buttonPosition = theme === "dark" ? "left-[22px]" : "left-[4px]";
+  const moonIcon = theme === "dark" ? darkMoon : lightMoon;
 
   function handleMenuVisibility() {
     setFontMenuVisible((prevVisibility) => !prevVisibility);
   }
 
-  function handleFontSelection(currType) {
-    setFontType(currType);
+  function handleFontSelection(currFont) {
+    handleSetFont(currFont);
     setFontMenuVisible(false);
-  }
-
-  let moonIcon = lightMoon;
-
-  // handle html theme
-  if (darkModeOn) {
-    moonIcon = darkMoon;
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
   }
 
   // handle font style
@@ -70,7 +58,7 @@ export default function Header({ fontType, setFontType }) {
             className="flex justify-end gap-[16px] w-[120px] mr-8 font-bold text-dark-500 dark:text-white focus:outline-none"
             onClick={handleMenuVisibility}
           >
-            <span>{fontMapping[fontType]}</span>
+            <span>{fontMapping[font]}</span>
             <img src={dropdownIcon} alt="dropdown icon" className="my-auto" />
           </button>
           {fontMenuVisible && getFontSelections()}
@@ -78,7 +66,7 @@ export default function Header({ fontType, setFontType }) {
         <div className="h-[20px] ml-8 my-auto flex gap-4">
           <button
             className="relative box-border h-full w-[40px] rounded-full bg-gray-700 dark:bg-light-purple focus:outline-none"
-            onClick={handleToggleDarkMode}
+            onClick={toggleDarkTheme}
           >
             <span
               className={
