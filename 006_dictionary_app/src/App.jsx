@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header.jsx";
 import Input from "./components/Input.jsx";
 import DictResult from "./components/DictResult.jsx";
@@ -12,7 +12,7 @@ function App() {
   const [dictContent, setDictContent] = useState(undefined);
   const [result, setResult] = useState(undefined);
 
-  // get open-screen content: the definition of the word "dictionary"
+  // get open-screen content: the definition of the word "keyboard"
   useEffect(() => {
     async function getResult() {
       try {

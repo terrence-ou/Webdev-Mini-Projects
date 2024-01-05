@@ -1,6 +1,8 @@
 import { createContext, useState, useContext } from "react";
 
-const INIT_THEME = "light";
+const INIT_THEME = window.matchMedia("(prefers-color-scheme: dark)").matches
+  ? "dark"
+  : "light";
 const INIT_FONT = "font-serif";
 
 export const ThemeContext = createContext({
@@ -12,13 +14,14 @@ export const ThemeContext = createContext({
 
 let initialized = false;
 
-function initPage() {
+// initialize theme and font when loading the app
+function initPage(initDarkTheme) {
   if (initialized) return;
   document.documentElement.classList.add(INIT_FONT);
-  if (INIT_THEME === "dark") {
-    document.documentElement.classList.add(INIT_THEME);
-  }
   initialized = true;
+  if (INIT_THEME === "dark") {
+    document.documentElement.classList.add("dark");
+  }
 }
 
 export default function ThemeContextProvider({ children }) {

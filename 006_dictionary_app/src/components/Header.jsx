@@ -17,9 +17,6 @@ export default function Header({}) {
   const { theme, font, toggleDarkTheme, handleSetFont } =
     useContext(ThemeContext);
 
-  const buttonPosition = theme === "dark" ? "left-[22px]" : "left-[4px]";
-  const moonIcon = theme === "dark" ? darkMoon : lightMoon;
-
   function handleMenuVisibility() {
     setFontMenuVisible((prevVisibility) => !prevVisibility);
   }
@@ -29,7 +26,7 @@ export default function Header({}) {
     setFontMenuVisible(false);
   }
 
-  // handle font style
+  // handle update font style
   function getFontSelections() {
     return (
       <div className="absolute flex flex-col top-[40px] w-40 right-8 px-4 py-2 rounded-[1rem] bg-white dark:bg-dark-300 focus:outline-none shadow-light-scheme dark:shadow-dark-scheme z-20">
@@ -48,6 +45,9 @@ export default function Header({}) {
       </div>
     );
   }
+
+  const buttonPosition = theme === "dark" ? "left-[22px]" : "left-[4px]";
+  const moonIcon = theme === "dark" ? darkMoon : lightMoon;
 
   return (
     <div className="md:h-header-height sm:h-header-height-sm flex justify-between align-middle md:text-body-lg sm:text-body-sm">
