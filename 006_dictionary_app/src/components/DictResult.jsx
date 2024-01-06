@@ -12,9 +12,11 @@ function getHeadElements(word, phonetic, audio) {
           {phonetic}
         </p>
       </div>
-      <button disabled={audio === undefined} onClick={() => audio.play()}>
-        <img src={playIcon} alt="play icon" />
-      </button>
+      {audio && (
+        <button disabled={audio === undefined} onClick={() => audio.play()}>
+          <img src={playIcon} alt="play icon" className="h-full" />
+        </button>
+      )}
     </section>
   );
 }
