@@ -11,3 +11,4 @@ This is a repository that record the React exercises in 100 days (not necessaril
 
 - Day 5: Translator with DeepL API :uk: [Code](./005_translator_with_deeplAPI/), [Website](https://clickvisionstudio.github.io/005_translator/)
 
+- Day 6: Dictionary App with Free Dictionary API :closed_book: [Code](./006_dictionary_app/), [Website](https://clickvisionstudio.github.io/responsive_dict_app/)
