@@ -37,10 +37,10 @@ const Sidebar = () => {
         className="flex mt-6 text-white hover:text-orange-dark"
       >
         <img className="w-4 mr-4 my-auto" src={fileIcon} alt="file icon" />
-        <span className="flex flex-col text-start">
-          <p className="text-header-sm text-gray-500">{createDate}</p>
-          <h2 className="text-header-lg">{file.name}</h2>
-        </span>
+        <p className="flex flex-col text-start">
+          <span className="text-header-sm text-gray-500">{createDate}</span>
+          <span className="text-header-lg">{file.name}</span>
+        </p>
       </button>
     );
   };
