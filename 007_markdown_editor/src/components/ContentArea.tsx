@@ -14,12 +14,12 @@ const ContentArea = ({
   return (
     <div className="flex-1 flex flex-col border-gray-300 dark:border-gray-600 border-l overflow-auto">
       <section className="flex justify-between h-10 bg-gray-200 dark:bg-gray-900 px-4">
-        <h3 className="leading-10 text-header-md font-bold tracking-[2px] text-gray-500">
+        <p className="leading-10 text-header-md font-bold tracking-[2px] text-gray-500">
           {label}
-        </h3>
+        </p>
         {icon && (
           <button onClick={onIconClick}>
-            <img src={icon} />
+            <img src={icon} alt="preview icon" />
           </button>
         )}
       </section>
