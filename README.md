@@ -1,6 +1,6 @@
-# 100 Days of React
+# Mini Webdev Projects
 
-This is a repository that record the React exercises in 100 days (not necessarily consecutive)
+This is a repository that records my mini webdev exercises. Each exercise explores a single frontend development topic that has the potential to be integrated into real-world applications.
 
 - Day 1: Expandable Cards :bookmark: [Code](./001_expandable_cards/), [Website](https://clickvisionstudio.github.io/001_expandable_cards/)
 - Day 2: Adaptive Login Window :key: [Code](./002_adaptive_login_window/), [Website](https://clickvisionstudio.github.io/002_adaptive_login_window/)
@@ -12,3 +12,5 @@ This is a repository that record the React exercises in 100 days (not necessaril
 - Day 5: Translator with DeepL API :uk: [Code](./005_translator_with_deeplAPI/), [Website](https://clickvisionstudio.github.io/005_translator/)
 
 - Day 6: Dictionary App with Free Dictionary API :closed_book: [Code](./006_dictionary_app/), [Website](https://clickvisionstudio.github.io/responsive_dict_app/)
+
+- Day 7: Markdown Editor :memo: [Code](./007_markdown_editor/), [Website](https://clickvisionstudio.github.io/markdown-editor/)
