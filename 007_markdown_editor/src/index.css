@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@300;400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+@layer components{
+  textarea:focus, input:focus, button:focus, a:focus{
+    outline:none;
+  }
+  
+  .processed-contents > *{
+    color: #2B2D31;
+    padding: 10px 0;
+    font-weight: 700;
+  }
+
+  .processed-contents{
+    h1 {
+      font-size: 32px;
+    }
+    h2 {
+      font-weight: 300;
+      font-size: 28px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+    h4 {
+      font-size: 20px;
+    }
+    h5 {
+      font-size: 16px;
+    }
+    h6 {
+      color: #E46643;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    p, ol, ul {
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 400;
+      color: #7C8187;
+    }
+    a {
+      text-decoration: underline;
+    }
+    ol, ul {
+      padding-left: 36px;
+    }
+    ol {
+      list-style-type: decimal;
+      list-style-position: outside;
+    }
+    ul {
+      list-style-type: circle;
+      list-style-position: outside;
+    }
+    pre, blockquote {
+      font-size: 14px;
+      background-color: #F5F5F5;
+      padding: 24px;
+      border-radius: 4px;
+      margin: 10px 0;
+      text-wrap: wrap;
+    }
+    blockquote {
+      border-left: 5px solid #E46643;
+    }
+    blockquote p {
+      font-weight: 700;
+      color: #2B2D31;
+    }
+  }
+
+
+  html.dark .processed-contents{
+    h1, h2, h3, h4, h5{
+      color: white;
+    }
+    p, ol, ul{
+      color: #C1C4CB;
+    }
+    pre, blockquote{
+      background-color: #2B2D31;
+    }
+    blockquote p {
+      font-weight: 700;
+      color: white;
+    }
+    pre code{
+      color: white;
+    }
+  }
+}
