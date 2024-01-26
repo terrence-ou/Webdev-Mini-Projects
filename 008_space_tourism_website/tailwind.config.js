@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+const content = "32px";
+const header = "96px";
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -22,15 +25,19 @@ export default {
         sh1: "28px",
         sh2: "14px",
         nav: "16px",
-        content: "32px",
+        content: content,
       },
       letterSpacing: {
         h5: "4.75px",
         nav: "2.7px",
         sh2: "2.35px",
       },
+      height: {
+        header: header,
+      },
       lineHeight: {
-        content: "32px",
+        content: content,
+        header: header,
       },
     },
   },
