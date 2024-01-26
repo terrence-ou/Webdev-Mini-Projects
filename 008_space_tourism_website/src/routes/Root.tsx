@@ -1,21 +1,46 @@
-import { NavLink, Outlet } from "react-router-dom";
-
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import bgCovers from "../assets/backgrounds";
 import logo from "../assets/shared/logo.svg";
 
-// type pageType = "home" | "destination" | "crew" | "technology";
+interface Location {
+  pathname: string;
+  search: string;
+  hash: string;
+  state: any;
+  key?: string;
+}
 
 const Root = () => {
-  const navItems: string[] = ["HOME", "DESTINATION", "CREW", "TECHNOLOGY"];
+  const navItems: string[] = ["home", "destination", "crew", "technology"];
 
-  const bgImage = bgCovers.home.desktop;
+  const location: Location = useLocation();
+  const currTab: string = location.pathname.split("/")[1];
+  let bgImage: string | undefined = undefined;
+
+  switch (currTab) {
+    case "home":
+      bgImage = bgCovers.home.desktop;
+      break;
+    case "destination":
+      bgImage = bgCovers.destination.desktop;
+      break;
+    case "crew":
+      bgImage = bgCovers.crew.desktop;
+      break;
+    case "technology":
+      bgImage = bgCovers.technology.desktop;
+      break;
+    default:
+      bgImage = bgCovers.home.desktop;
+  }
+
   const style = {
     backgroundImage: `url(${bgImage})`,
   };
 
   return (
     <div
-      className="w-dvw h-dvh py-[40px] bg-no-repeat bg-cover min-w-[1300px]"
+      className="flex flex-col justify-between w-dvw h-dvh pt-[40px] bg-dark bg-no-repeat bg-cover min-w-[1300px]"
       style={style}
     >
       <header className="relative flex justify-between items-center h-header w-full">
@@ -28,18 +53,27 @@ const Root = () => {
         <p className="pl-[55px]">
           <img src={logo} alt="website logo" />
         </p>
-        <nav className="pr-[167px] font-barlow-condensed text-nav tracking-nav z-10">
+        <nav className="pr-innerpad font-barlow-condensed text-nav tracking-nav z-10">
           <ul className="flex items-center gap-[48px]">
             {navItems.map((item, i) => {
               return (
                 <li key={item}>
-                  <NavLink to={item.toLowerCase()}>
-                    <h1 className="leading-header h-header text-white hover:border-b-[3px] hover:border-b-white/50 hover:cursor-pointer my-auto">
-                      <span className="font-bold pr-3">
-                        {i.toString().padStart(2, "0")}
-                      </span>
-                      {item}
-                    </h1>
+                  <NavLink to={item}>
+                    {({ isActive }) => {
+                      let style: string =
+                        "leading-header h-header text-white hover:cursor-pointer my-auto";
+                      style += isActive
+                        ? " border-b-[3px] border-b-white"
+                        : " border-b-white/0 hover:border-b-[3px] hover:border-b-white/50 duration-100";
+                      return (
+                        <h1 className={style}>
+                          <span className="font-bold pr-3">
+                            {i.toString().padStart(2, "0")}
+                          </span>
+                          {item.toUpperCase()}
+                        </h1>
+                      );
+                    }}
                   </NavLink>
                 </li>
               );
@@ -47,7 +81,9 @@ const Root = () => {
           </ul>
         </nav>
       </header>
-      <Outlet />
+      <div className="text-white px-innerpad">
+        <Outlet />
+      </div>
     </div>
   );
 };

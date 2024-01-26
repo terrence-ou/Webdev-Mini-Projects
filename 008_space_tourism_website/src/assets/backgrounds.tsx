@@ -14,13 +14,13 @@ import bgTechDesktop from "./technology/background-technology-desktop.jpg";
 import bgTechTablet from "./technology/background-technology-tablet.jpg";
 import bgTechMobile from "./technology/background-technology-mobile.jpg";
 
-type bgType = {
+export type bgType = {
   desktop: string;
   tablet: string;
   mobile: string;
 };
 
-type backgrounds = {
+export type backgrounds = {
   home: bgType;
   crew: bgType;
   destination: bgType;

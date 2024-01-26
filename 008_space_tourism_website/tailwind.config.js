@@ -16,6 +16,9 @@ export default {
       bellefair: ["Bellefair", "serif"],
     },
     extend: {
+      spacing: {
+        innerpad: "165px",
+      },
       fontSize: {
         h1: "150px",
         h2: "100px",
