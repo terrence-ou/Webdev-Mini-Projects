@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Nav from "../components/Nav";
 import bgCovers from "../assets/backgrounds";
 import logo from "../assets/shared/logo.svg";
@@ -38,7 +38,7 @@ const Root = () => {
   const style = {
     backgroundImage: `url(${bgImage})`,
     opcity: "100%",
-    transition: "300ms",
+    transition: "200ms",
   };
 
   return (
@@ -58,7 +58,7 @@ const Root = () => {
         </p>
         <Nav navItems={navItems} />
       </header>
-      <div className="text-white px-innerpad">
+      <div className="text-white px-innerpad w-full">
         <Outlet />
       </div>
     </div>

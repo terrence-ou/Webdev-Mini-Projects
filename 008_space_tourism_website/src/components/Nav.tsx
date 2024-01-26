@@ -2,27 +2,32 @@ import { NavLink } from "react-router-dom";
 
 type navType = {
   navItems: string[];
+  showIndex: boolean;
+  root: boolean;
 };
 
-const Nav = ({ navItems }: navType) => {
+const Nav = ({ navItems, showIndex = true, root = true }: navType) => {
   return (
     <nav className="pr-innerpad font-barlow-condensed text-nav tracking-nav z-10">
-      <ul className="flex items-center gap-[48px]">
+      <ul className={`flex items-center gap-[${root ? 48 : 36}px]`}>
         {navItems.map((item, i) => {
           return (
             <li key={item}>
               <NavLink to={item}>
                 {({ isActive }) => {
-                  let style: string =
-                    "leading-header h-header text-white hover:cursor-pointer my-auto";
+                  let style: string = `text-white hover:cursor-pointer my-auto ${
+                    root ? "h-header leading-header" : "h-subnav leading-subnav"
+                  }`;
                   style += isActive
                     ? " border-b-[3px] border-b-white"
                     : " border-b-white/0 hover:border-b-[3px] hover:border-b-white/50 duration-100";
                   return (
                     <h1 className={style}>
-                      <span className="font-bold pr-3">
-                        {i.toString().padStart(2, "0")}
-                      </span>
+                      {showIndex && (
+                        <span className="font-bold pr-3">
+                          {i.toString().padStart(2, "0")}
+                        </span>
+                      )}
                       {item.toUpperCase()}
                     </h1>
                   );
