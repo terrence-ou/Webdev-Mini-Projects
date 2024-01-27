@@ -9,8 +9,10 @@ const DotsNav = () => {
           <li key={item.name}>
             <NavLink to={item.id}>
               {({ isActive }) => {
-                let style: string = "text-[17px] opacity-20";
-                style += isActive ? " opacity-100" : " hover:opacity-60";
+                let style: string = "text-[17px] duration-200";
+                style += isActive
+                  ? " opacity-100"
+                  : " opacity-20 hover:opacity-60";
                 return <span className={style}>●</span>;
               }}
             </NavLink>

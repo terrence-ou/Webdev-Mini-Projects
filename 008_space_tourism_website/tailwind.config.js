@@ -17,6 +17,15 @@ export default {
       bellefair: ["Bellefair", "serif"],
     },
     extend: {
+      // keyframes: {
+      //   fadeIn: {
+      //     "0%": { opacity: "0.0" },
+      //     "100%": { opacity: "1.0" },
+      //   },
+      // },
+      // animation: {
+      //   fadeIn: "fadeIn 200ms linear",
+      // },
       spacing: {
         innerpad: "165px",
       },
