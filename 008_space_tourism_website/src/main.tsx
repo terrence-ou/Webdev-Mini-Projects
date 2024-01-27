@@ -16,6 +16,7 @@ import Crew from "./routes/Crew.tsx";
 
 import "./index.css";
 import CrewIntro from "./components/CrewIntro.tsx";
+import TechnologyIntro from "./components/TechnologyIntro.tsx";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,14 @@ const router = createBrowserRouter([
               { path: ":crewId", element: <CrewIntro /> },
             ],
           },
-          { path: "technology", element: <Technology /> },
+          {
+            path: "technology",
+            element: <Technology />,
+            children: [
+              { index: true, element: <Navigate to="launch-vehicle" /> },
+              { path: ":techId", element: <TechnologyIntro /> },
+            ],
+          },
         ],
       },
     ],

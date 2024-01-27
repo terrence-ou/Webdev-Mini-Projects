@@ -64,7 +64,7 @@ const Root = () => {
       {index > 0 && (
         <PageTitle index={index.toString().padStart(2, "0")} title={title} />
       )}
-      <div className="text-white px-innerpad w-full max-w-[1600px]">
+      <div className="text-white pl-innerpad w-full max-w-[1600px]">
         <Outlet />
       </div>
     </div>

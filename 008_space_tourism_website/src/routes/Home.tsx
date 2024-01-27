@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="flex justify-between items-end pb-[130px]">
+    <div className="flex justify-between items-end pb-[130px] pr-innerpad">
       <section className="flex flex-col w-[35%] min-w-[445px] gap-6">
         <p className="font-barlow-condensed text-h5 tracking-h5 text-violet">
           SO, YOU WANT TO TRAVEL TO

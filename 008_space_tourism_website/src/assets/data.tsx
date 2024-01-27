@@ -1,3 +1,5 @@
+import { useParams } from "react-router-dom";
+
 import bgHomeDesktop from "./home/background-home-desktop.jpg";
 import bgHomeTablet from "./home/background-home-tablet.jpg";
 import bgHomeMobile from "./home/background-home-mobile.jpg";
@@ -24,40 +26,49 @@ import victorImg from "./crew/image-victor-glover.png";
 import markImg from "./crew/image-mark-shuttleworth.png";
 import anoushehImg from "./crew/image-anousheh-ansari.png";
 
+import launchImgPortrait from "./technology/image-launch-vehicle-portrait.jpg";
+import launchImgLandscape from "./technology/image-launch-vehicle-landscape.jpg";
+
+import spacePortPortrait from "./technology/image-spaceport-portrait.jpg";
+import spacePortLandscape from "./technology/image-spaceport-landscape.jpg";
+
+import spaceCapsulePortrait from "./technology/image-space-capsule-portrait.jpg";
+import spaceCapsuleLandscape from "./technology/image-space-capsule-landscape.jpg";
+
 /* BACKGROUNDS */
 
-export type bgType = {
+interface imgType {
   desktop: string;
-  tablet: string;
-  mobile: string;
-};
+  tablet?: string;
+  mobile?: string;
+}
 
 export type backgrounds = {
-  home: bgType;
-  crew: bgType;
-  destination: bgType;
-  technology: bgType;
+  home: imgType;
+  crew: imgType;
+  destination: imgType;
+  technology: imgType;
 };
 
-const bgHome: bgType = {
+const bgHome: imgType = {
   desktop: bgHomeDesktop,
   tablet: bgHomeTablet,
   mobile: bgHomeMobile,
 };
 
-const bgCrew: bgType = {
+const bgCrew: imgType = {
   desktop: bgCrewDesktop,
   tablet: bgCrewTablet,
   mobile: bgCrewMobile,
 };
 
-const bgDestination: bgType = {
+const bgDestination: imgType = {
   desktop: bgDestinationDesktop,
   tablet: bgDestinationTablet,
   mobile: bgDestinationMobile,
 };
 
-const bgTech: bgType = {
+const bgTech: imgType = {
   desktop: bgTechDesktop,
   tablet: bgTechTablet,
   mobile: bgTechMobile,
@@ -70,41 +81,53 @@ export const bgCovers: backgrounds = {
   technology: bgTech,
 };
 
+interface introType {
+  id: string;
+  name: string;
+  description: string;
+}
+
 /* DESTINATION DATA*/
 
-export type destinationType = {
-  name: string;
-  desc: string;
+export interface destinationType extends introType {
   distance: string;
   travelTime: string;
   image: string;
-};
+}
 
 export const destinationData: destinationType[] = [
   {
+    id: "moon",
     name: "moon",
-    desc: "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
+    description:
+      "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
     distance: "384,400 km",
     travelTime: "3 days",
     image: moonImg,
   },
   {
+    id: "mars",
     name: "mars",
-    desc: "Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!",
+    description:
+      "Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!",
     distance: "255 mil. km",
     travelTime: "9 months",
     image: marsImg,
   },
   {
+    id: "europa",
     name: "europa",
-    desc: "The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.",
+    description:
+      "The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.",
     distance: "628 mil. km",
     travelTime: "3 years",
     image: europaImg,
   },
   {
+    id: "titan",
     name: "titan",
-    desc: "The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.",
+    description:
+      "The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.",
     distance: "1.6 bil. km",
     travelTime: "7 years",
     image: titanImg,
@@ -112,13 +135,11 @@ export const destinationData: destinationType[] = [
 ];
 
 /* CREW DATA */
-type crewType = {
-  id: string;
-  role: string;
-  name: string;
-  description: string;
+
+export interface crewType extends introType {
   image: string;
-};
+  role: string;
+}
 
 export const crewData: crewType[] = [
   {
@@ -154,3 +175,55 @@ export const crewData: crewType[] = [
     image: anoushehImg,
   },
 ];
+
+/* TECHNOLOGY DATA */
+export interface techType extends introType {
+  image: imgType;
+}
+
+export const techData: techType[] = [
+  {
+    id: "launch-vehicle",
+    name: "launch vehicle",
+    description:
+      "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!",
+    image: {
+      desktop: launchImgPortrait,
+      tablet: launchImgLandscape,
+      mobile: launchImgLandscape,
+    },
+  },
+  {
+    id: "spaceport",
+    name: "space port",
+    description:
+      "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch.",
+    image: {
+      desktop: spacePortPortrait,
+      tablet: spacePortLandscape,
+      mobile: spacePortLandscape,
+    },
+  },
+  {
+    id: "space-capsule",
+    name: "space capsule",
+    description:
+      "A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained.",
+    image: {
+      desktop: spaceCapsulePortrait,
+      tablet: spaceCapsuleLandscape,
+      mobile: spaceCapsuleLandscape,
+    },
+  },
+];
+
+let fetchFn: (
+  dataset: destinationType[] | crewType[] | techType[],
+  key: string,
+) => destinationType | crewType | techType;
+
+export const fetchData: fetchFn = (dataset, key) => {
+  const params = useParams();
+  if (!params[key]) return dataset[0];
+  return dataset.filter((item) => item.id === params[key])[0];
+};

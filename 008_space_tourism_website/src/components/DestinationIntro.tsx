@@ -1,5 +1,4 @@
-import { useParams } from "react-router-dom";
-import { destinationData } from "../assets/data";
+import { destinationData, destinationType, fetchData } from "../assets/data";
 
 const Metric = ({ label, data }: { label: string; data: string }) => {
   return (
@@ -13,19 +12,18 @@ const Metric = ({ label, data }: { label: string; data: string }) => {
 };
 
 const DestinationIntro = () => {
-  const params = useParams();
-  const currDestData = destinationData.filter(
-    (item) =>
-      item.name === (params.destinationId ? params.destinationId : "moon"),
-  )[0];
+  const currDestData: destinationType = fetchData(
+    destinationData,
+    "destinationId",
+  );
 
   return (
     <div>
       <h2 className="text-h2 font-bellefair">
-        {params.destinationId?.toUpperCase()}
+        {currDestData.name.toUpperCase()}
       </h2>
       <p className="text-desc text-violet font-barlow leading-content pb-[54px] border-b border-white/20">
-        {currDestData.desc}
+        {currDestData.description}
       </p>
       <div className="flex justify-start gap-[86px] pt-[28px]">
         <Metric

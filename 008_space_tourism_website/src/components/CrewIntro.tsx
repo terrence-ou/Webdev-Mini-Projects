@@ -1,10 +1,6 @@
-import { useParams } from "react-router-dom";
-import { crewData } from "../assets/data";
+import { crewData, crewType, fetchData } from "../assets/data";
 const CrewIntro = () => {
-  const params = useParams();
-  const currCrewData = crewData.filter(
-    (item) => item.id === (params.crewId ? params.crewId : "douglas"),
-  )[0];
+  const currCrewData: crewType = fetchData(crewData, "crewId");
   return (
     <>
       <h4 className="text-h4 text-white/50 font-bellefair">

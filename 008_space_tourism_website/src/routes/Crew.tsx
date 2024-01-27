@@ -1,5 +1,5 @@
-import { crewData } from "../assets/data";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { crewData, crewType, fetchData } from "../assets/data";
+import { NavLink, Outlet } from "react-router-dom";
 
 const DotsNav = () => {
   return (
@@ -24,19 +24,22 @@ const DotsNav = () => {
 };
 
 const Crew = () => {
-  const params = useParams();
-  const currCrewData = crewData.filter(
-    (item) => item.id === (params.crewId ? params.crewId : "douglas"),
-  )[0];
+  const currCrewData: crewType = fetchData(crewData, "crewId");
+  const key = Math.random().toFixed(4);
 
   return (
-    <div className="flex items-end justify-between">
+    <div className="flex items-end justify-between pr-innerpad">
       <section className="pb-[100px]">
         <Outlet />
         <DotsNav />
       </section>
       <section>
-        <img src={currCrewData.image} alt="crew image" />
+        <img
+          key={key}
+          className="animate-fadeIn"
+          src={currCrewData.image}
+          alt="crew image"
+        />
       </section>
     </div>
   );

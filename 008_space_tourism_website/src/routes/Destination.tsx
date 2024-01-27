@@ -1,19 +1,17 @@
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Nav from "../components/Nav";
-import PageTitle from "../components/PageTitle";
 
-import { destinationData } from "../assets/data";
+import { destinationData, destinationType, fetchData } from "../assets/data";
 
 const Destination = () => {
-  const params = useParams();
-  const currDestData = destinationData.filter(
-    (item) =>
-      item.name === (params.destinationId ? params.destinationId : "moon"),
-  )[0];
+  const currDestData: destinationType = fetchData(
+    destinationData,
+    "destinationId",
+  );
 
   const navItems: string[] = ["moon", "mars", "europa", "titan"];
   return (
-    <div className="flex flex-col justify-between">
+    <div className="flex flex-col justify-between pr-innerpad">
       <div className="flex justify-between items-end pb-[130px]">
         <section className="flex flex-col gap-[97px]">
           <img
