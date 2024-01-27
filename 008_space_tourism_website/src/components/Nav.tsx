@@ -2,14 +2,15 @@ import { NavLink } from "react-router-dom";
 
 type navType = {
   navItems: string[];
-  showIndex: boolean;
+  showIndex?: boolean;
   root: boolean;
 };
 
-const Nav = ({ navItems, showIndex = true, root = true }: navType) => {
+const Nav = ({ navItems, showIndex = true, root }: navType) => {
+  const gap: string = root ? "gap-[48px]" : "gap-[32px]";
   return (
     <nav className="pr-innerpad font-barlow-condensed text-nav tracking-nav z-10">
-      <ul className={`flex items-center gap-[${root ? 48 : 36}px]`}>
+      <ul className={"flex items-center " + gap}>
         {navItems.map((item, i) => {
           return (
             <li key={item}>

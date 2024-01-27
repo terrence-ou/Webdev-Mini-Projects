@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router-dom";
-import bgCovers from "../assets/backgrounds";
+import { bgCovers } from "../assets/data";
 
 const Error = ({ root }: { root: boolean }) => {
   const bgImage = bgCovers.home.desktop;

@@ -32,7 +32,11 @@ const router = createBrowserRouter([
             element: <Destination />,
             children: [
               { index: true, element: <Navigate to="moon" /> },
-              { path: ":destinationId", element: <DestinationIntro /> },
+              {
+                path: ":destinationId",
+
+                element: <DestinationIntro />,
+              },
             ],
           },
           { path: "crew", element: <Crew /> },

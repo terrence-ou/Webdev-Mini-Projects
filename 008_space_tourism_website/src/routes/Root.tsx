@@ -1,15 +1,7 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, Location } from "react-router-dom";
 import Nav from "../components/Nav";
-import bgCovers from "../assets/backgrounds";
+import { bgCovers } from "../assets/data";
 import logo from "../assets/shared/logo.svg";
-
-interface Location {
-  pathname: string;
-  search: string;
-  hash: string;
-  state: any;
-  key?: string;
-}
 
 const Root = () => {
   const navItems: string[] = ["home", "destination", "crew", "technology"];
@@ -56,7 +48,7 @@ const Root = () => {
         <p className="pl-[55px]">
           <img src={logo} alt="website logo" />
         </p>
-        <Nav navItems={navItems} />
+        <Nav navItems={navItems} root={true} />
       </header>
       <div className="text-white px-innerpad w-full">
         <Outlet />
