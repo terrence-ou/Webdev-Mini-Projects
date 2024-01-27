@@ -1,11 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 const content = "32px";
+const contentTablet = "28px";
 const header = "96px";
 const subnav = "42px";
+const h1 = "150px";
 
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      mobile: { max: "767px", min: "375px" },
+      tablet: { max: "1279px", min: "768px" },
+      desktop: "1280px",
+    },
     colors: {
       dark: "#0B0D17",
       violet: "#D0D6F9",
@@ -27,6 +34,7 @@ export default {
         fadeIn: "fadeIn 300ms linear",
       },
       spacing: {
+        pagepad: "55px",
         innerpad: "165px",
       },
       fontSize: {
@@ -35,9 +43,11 @@ export default {
         h3: "56px",
         h4: "32px",
         h5: "28px",
+        "h5-tablet": "20px",
         sh1: "28px",
         sh2: "14px",
         desc: "18px",
+        "desc-tablet": "16px",
         nav: "16px",
         content: content,
       },
@@ -52,7 +62,9 @@ export default {
       },
       lineHeight: {
         content: content,
+        "content-tablet": contentTablet,
         header: header,
+        h1: h1,
       },
     },
   },

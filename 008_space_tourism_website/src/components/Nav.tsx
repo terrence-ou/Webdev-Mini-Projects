@@ -7,9 +7,9 @@ type navType = {
 };
 
 const Nav = ({ navItems, showIndex = true, root }: navType) => {
-  const gap: string = root ? "gap-[48px]" : "gap-[32px]";
+  const gap: string = root ? "gap-[48px] tablet:gap-[42px]" : "gap-[32px]";
   return (
-    <nav className="pr-innerpad font-barlow-condensed text-nav tracking-nav z-10">
+    <nav className="pr-innerpad tablet:pr-pagepad font-barlow-condensed text-nav tracking-nav z-10">
       <ul className={"flex items-center " + gap}>
         {navItems.map((item, i) => {
           return (
@@ -25,7 +25,7 @@ const Nav = ({ navItems, showIndex = true, root }: navType) => {
                   return (
                     <h1 className={style}>
                       {showIndex && (
-                        <span className="font-bold pr-3">
+                        <span className="font-bold pr-3 tablet:hidden">
                           {i.toString().padStart(2, "0")}
                         </span>
                       )}

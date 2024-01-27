@@ -217,13 +217,20 @@ export const techData: techType[] = [
   },
 ];
 
-let fetchFn: (
-  dataset: destinationType[] | crewType[] | techType[],
-  key: string,
-) => destinationType | crewType | techType;
+// export function fetchData(
+//   dataset: destinationType[] | crewType[] | techType[],
+//   key: string,
+// ): destinationType | crewType | techType {
+//   const params = useParams();
+//   if (!params[key]) return dataset[0];
+//   return dataset.filter((item) => item.id === params[key])[0];
+// }
 
-export const fetchData: fetchFn = (dataset, key) => {
+export function fetchData<Type extends introType>(
+  dataset: Type[],
+  key: string,
+): Type {
   const params = useParams();
   if (!params[key]) return dataset[0];
   return dataset.filter((item) => item.id === params[key])[0];
-};
+}
