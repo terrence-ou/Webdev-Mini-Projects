@@ -19,6 +19,11 @@ import marsImg from "./destination/image-mars.png";
 import europaImg from "./destination/image-europa.png";
 import titanImg from "./destination/image-titan.png";
 
+import douglasImg from "./crew/image-douglas-hurley.png";
+import victorImg from "./crew/image-victor-glover.png";
+import markImg from "./crew/image-mark-shuttleworth.png";
+import anoushehImg from "./crew/image-anousheh-ansari.png";
+
 /* BACKGROUNDS */
 
 export type bgType = {
@@ -103,5 +108,49 @@ export const destinationData: destinationType[] = [
     distance: "1.6 bil. km",
     travelTime: "7 years",
     image: titanImg,
+  },
+];
+
+/* CREW DATA */
+type crewType = {
+  id: string;
+  role: string;
+  name: string;
+  description: string;
+  image: string;
+};
+
+export const crewData: crewType[] = [
+  {
+    id: "douglas",
+    role: "commander",
+    name: "douglas hurley",
+    description:
+      "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.",
+    image: douglasImg,
+  },
+  {
+    id: "mark",
+    role: "mission specialist",
+    name: "mark shuttleworth",
+    description:
+      "Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to travel to space as a space tourist.",
+    image: markImg,
+  },
+  {
+    id: "victor",
+    role: "pilot",
+    name: "victor glover",
+    description:
+      "Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64, and served as a station systems flight engineer.",
+    image: victorImg,
+  },
+  {
+    id: "anousheh",
+    role: "flight engineer",
+    name: "anousheh ansari",
+    description:
+      "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space.",
+    image: anoushehImg,
   },
 ];
