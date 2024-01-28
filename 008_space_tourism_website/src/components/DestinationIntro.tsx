@@ -18,14 +18,14 @@ const DestinationIntro = () => {
   );
 
   return (
-    <div>
-      <h2 className="text-h2 font-bellefair">
+    <div className="tablet:text-center">
+      <h2 className="text-h2 tablet:text-h2-tablet font-bellefair">
         {currDestData.name.toUpperCase()}
       </h2>
-      <p className="text-desc text-violet font-barlow leading-content pb-[54px] border-b border-white/20">
+      <p className="text-desc tablet:text-desc-tablet text-violet font-barlow leading-content pb-[54px] tablet:pb-[48px] border-b border-white/20">
         {currDestData.description}
       </p>
-      <div className="flex justify-start gap-[86px] pt-[28px]">
+      <div className="flex justify-start tablet:justify-center gap-[86px] pt-[28px]">
         <Metric
           label={"AVG. DISTANCE"}
           data={currDestData.distance.toUpperCase()}

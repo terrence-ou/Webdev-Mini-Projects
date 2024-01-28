@@ -40,6 +40,7 @@ export default {
       fontSize: {
         h1: "150px",
         h2: "100px",
+        "h2-tablet": "80px",
         h3: "56px",
         h4: "32px",
         h5: "28px",
@@ -53,6 +54,7 @@ export default {
       },
       letterSpacing: {
         h5: "4.75px",
+        "h5-tablet": "3.38px",
         nav: "2.7px",
         sh2: "2.35px",
       },
