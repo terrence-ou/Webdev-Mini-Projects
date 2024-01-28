@@ -65,7 +65,7 @@ const Root = () => {
 
   return (
     <div
-      className="box-border flex flex-col justify-between items-center w-dvw h-dvh pt-[40px] tablet:pt-0 bg-dark bg-no-repeat bg-cover min-h-[900px]"
+      className="box-border flex flex-col justify-between items-center w-dvw h-dvh pt-[40px] tablet:pt-0 bg-dark bg-no-repeat bg-cover min-h-[900px] tablet:overflow-hidden"
       style={style}
     >
       <header className="relative flex justify-between items-center h-header w-full max-w-[1600px]">
@@ -83,7 +83,7 @@ const Root = () => {
       {index > 0 && (
         <PageTitle index={index.toString().padStart(2, "0")} title={title} />
       )}
-      <div className="text-white pl-innerpad w-full max-w-[1600px] tablet:grow">
+      <div className="text-white pl-innerpad tablet:p-0 w-full max-w-[1600px] tablet:grow">
         <Outlet />
       </div>
     </div>

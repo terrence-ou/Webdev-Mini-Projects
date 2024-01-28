@@ -11,7 +11,7 @@ const Destination = () => {
 
   const navItems: string[] = ["moon", "mars", "europa", "titan"];
   return (
-    <div className="flex tablet:flex-col justify-between items-end tablet:items-center pb-[130px] tablet:pb-0 pr-innerpad">
+    <div className="flex tablet:flex-col justify-between items-end tablet:items-center pb-[130px] pr-innerpad tablet:p-0">
       <img
         className="w-[445px] h-[445px] tablet:w-[300px] tablet:h-[300px] tablet:mt-[60px] tablet:mb-[40px]"
         src={currDestData.image}
