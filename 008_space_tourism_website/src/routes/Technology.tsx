@@ -1,15 +1,16 @@
 import { NavLink, Outlet, useOutletContext } from "react-router-dom";
 import { techData, techType, fetchData } from "../assets/data";
+import Img from "../components/Img";
 import { sizeType } from "./Root";
 
 const OrderedNav = () => {
   return (
     <section>
-      <ol className="flex flex-col tablet:flex-row gap-8 tablet:gap-4 tablet:my-[50px]">
+      <ol className="flex desktop:flex-col flex-row gap-8 tablet:gap-4 tablet:my-[50px] mobile:my-[30px]">
         {techData.map((item, index) => {
           return (
             <li
-              className="w-[80px] h-[80px] tablet:w-[60px] tablet:h-[60px]"
+              className="aspect-square w-[80px] tablet:w-[60px] mobile:w-[40px]"
               key={item.id}
             >
               <NavLink to={item.id}>
@@ -20,7 +21,7 @@ const OrderedNav = () => {
                     : " border border-white/25 hover:border-white duration-200 text-white";
                   return (
                     <p className={style}>
-                      <span className="leading-[80px] tablet:leading-[60px] font-bellefair text-h4 tablet:text-h4-tablet">
+                      <span className="leading-[80px] tablet:leading-[60px] mobile:leading-[40px] font-bellefair text-h4 tablet:text-h4-tablet mobile:text-h4-mobile">
                         {index + 1}
                       </span>
                     </p>
@@ -35,25 +36,19 @@ const OrderedNav = () => {
   );
 };
 
-const Img = ({ image }: { image: string }) => {
-  const key = Math.random().toFixed(4);
-  return (
-    <img
-      key={key}
-      className="w-[515px] h-[527px] tablet:h-[310px] tablet:w-auto animate-fadeIn"
-      src={image}
-      alt="tech image"
-    />
-  );
-};
-
 const Technology = () => {
   const currTechData: techType = fetchData(techData, "techId");
   const currSize: sizeType = useOutletContext();
-  const ImgComponent = () => <Img image={currTechData.image[currSize] || ""} />;
+  const ImgComponent = () => (
+    <Img
+      image={currTechData.image[currSize]}
+      name={currTechData.name}
+      extraStyles="desktop:w-[515px] desktop:h-[527px] tablet:h-[310px] mobile:h-[170px]"
+    />
+  );
 
   return (
-    <div className="flex tablet:flex-col justify-between items-center pb-[100px] tablet:pb-0 tablet:mt-[60px]">
+    <div className="flex desktop:flex-row flex-col justify-between items-center desktop:pb-[100px] pb-0 tablet:mt-[60px] mobile:mt-[32px]">
       {currSize === "desktop" && (
         <>
           <OrderedNav />

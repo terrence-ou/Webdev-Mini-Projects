@@ -42,8 +42,10 @@ export default {
         "h1-mobile": "80px",
         h2: "100px",
         "h2-tablet": "80px",
+        "h2-mobile": "56px",
         h3: "56px",
         "h3-tablet": "40px",
+        "h3-mobile": "24px",
         h4: "32px",
         "h4-tablet": "24px",
         "h4-mobile": "20px",
@@ -56,6 +58,7 @@ export default {
         "desc-tablet": "16px",
         "desc-mobile": "15px",
         nav: "16px",
+        "nav-mobile": "14px",
         content: content,
       },
       letterSpacing: {
@@ -63,6 +66,7 @@ export default {
         "h5-tablet": "3.38px",
         "h5-mobile": "2.7px",
         nav: "2.7px",
+        "nav-mobile": "2.35px",
         sh2: "2.35px",
       },
       height: {

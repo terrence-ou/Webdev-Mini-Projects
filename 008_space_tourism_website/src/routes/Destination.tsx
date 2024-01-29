@@ -17,7 +17,7 @@ const Destination = () => {
         src={currDestData.image}
         alt={`${currDestData.name} image`}
       />
-      <section className="flex flex-col tablet:items-center mobile:items-center w-[445px] tablet:w-[573px]">
+      <section className="flex flex-col tablet:items-center mobile:items-center w-[445px] tablet:w-[573px] mobile:w-[327px]">
         <Nav navItems={navItems} showIndex={false} root={false} />
         <Outlet />
       </section>

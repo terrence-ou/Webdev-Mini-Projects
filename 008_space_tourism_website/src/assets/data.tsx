@@ -81,7 +81,7 @@ export const bgCovers: backgrounds = {
   technology: bgTech,
 };
 
-interface introType {
+export interface introType {
   id: string;
   name: string;
   description: string;
