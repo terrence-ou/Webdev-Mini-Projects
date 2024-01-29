@@ -3,6 +3,7 @@ import { techData, techType, fetchData } from "../assets/data";
 import Img from "../components/Img";
 import { sizeType } from "./Root";
 
+/* The number-ordered navigation links for the technology page*/
 const OrderedNav = () => {
   return (
     <section>
@@ -36,12 +37,13 @@ const OrderedNav = () => {
   );
 };
 
+/* The Technology component*/
 const Technology = () => {
   const currTechData: techType = fetchData(techData, "techId");
   const currSize: sizeType = useOutletContext();
   const ImgComponent = () => (
     <Img
-      image={currTechData.image[currSize]}
+      image={currTechData.image[currSize] || " "}
       name={currTechData.name}
       extraStyles="desktop:w-[515px] desktop:h-[527px] tablet:h-[310px] mobile:h-[170px]"
     />

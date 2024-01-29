@@ -2,6 +2,7 @@ import { crewData, crewType, fetchData } from "../assets/data";
 import { NavLink, Outlet, useOutletContext } from "react-router-dom";
 import Img from "../components/Img";
 
+/* The dot navigation links */
 const DotsNav = () => {
   return (
     <ul className="flex desktop:justify-start justify-center gap-6 mt-[120px] tablet:mt-[40px] mobile:my-[32px]">
@@ -24,8 +25,9 @@ const DotsNav = () => {
   );
 };
 
+/* The Crew component*/
 const Crew = () => {
-  const currSize = useOutletContext();
+  const currSize = useOutletContext(); // reading current screen type
   const currCrewData: crewType = fetchData(crewData, "crewId");
   const ImgComponent = () => (
     <Img
