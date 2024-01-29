@@ -1,24 +1,29 @@
 import { useState, useEffect } from "react";
 import { Outlet, useLocation, Location } from "react-router-dom";
 import Nav from "../components/Nav";
+import MobileNav from "../components/MobileNav";
 import { bgCovers } from "../assets/data";
 import logo from "../assets/shared/logo.svg";
 import PageTitle from "../components/PageTitle";
 
-type sizeType = "desktop" | "tablet" | "mobile";
+export type sizeType = "desktop" | "tablet" | "mobile";
+
+const getWindowSize = (): sizeType => {
+  const currWidth: number = window.innerWidth;
+  let size: sizeType = "desktop";
+  if (currWidth >= 1280) size = "desktop";
+  else if (currWidth < 1280 && currWidth >= 600) size = "tablet";
+  else size = "mobile";
+  return size;
+};
 
 const Root = () => {
   const navItems: string[] = ["home", "destination", "crew", "technology"];
-  const [currSize, setCurrSize] = useState<sizeType>("desktop");
+  const [currSize, setCurrSize] = useState<sizeType>(getWindowSize());
 
   useEffect(() => {
     const handleResize = () => {
-      const width = window.innerWidth;
-      if (width > 1280) {
-        setCurrSize("desktop");
-      } else if (width < 1280 && width >= 768) {
-        setCurrSize("tablet");
-      }
+      setCurrSize(getWindowSize());
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -65,26 +70,31 @@ const Root = () => {
 
   return (
     <div
-      className="box-border flex flex-col justify-between items-center w-dvw h-dvh pt-[40px] tablet:pt-0 bg-dark bg-no-repeat bg-cover min-h-[900px] tablet:overflow-hidden"
+      className="box-border flex flex-col justify-between mobile:justify-start items-center w-dvw h-dvh pt-[40px] tablet:pt-0 mobile:pt-0 bg-dark bg-no-repeat bg-cover desktop:min-h-[900px] mobile:min-w-[350px] tablet:overflow-hidden"
       style={style}
     >
-      <header className="relative flex justify-between items-center h-header w-full max-w-[1600px]">
-        <div className="absolute right-0 top-0 w-[60%] tablet:min-w-[500px] h-full bg-white/10 backdrop-blur-2xl z-0">
+      <header className="relative flex justify-between items-center h-header mobile:h-header-mobile w-full max-w-[1600px] mobile:px-6">
+        <div className="absolute right-0 top-0 w-[60%] tablet:min-w-[500px] mobile:hidden h-full bg-white/10 backdrop-blur-2xl z-0">
           {" "}
         </div>
-        <div className="absolute left-[167px] top-[50%] w-[30%] h-[1px] bg-white/25 z-0 tablet:hidden">
+        <div className="absolute left-[167px] top-[50%] w-[30%] h-[1px] bg-white/25 z-0 mobile:hidden tablet:hidden">
           {" "}
         </div>
-        <p className="pl-pagepad">
-          <img src={logo} alt="website logo" />
+        <p className="desktop:pl-pagepad">
+          <img
+            className="mobile:w-10 mobile:h-10"
+            src={logo}
+            alt="website logo"
+          />
         </p>
-        <Nav navItems={navItems} root={true} />
+        {currSize !== "mobile" && <Nav navItems={navItems} root={true} />}
+        {currSize === "mobile" && <MobileNav navItems={navItems} />}
       </header>
       {index > 0 && (
         <PageTitle index={index.toString().padStart(2, "0")} title={title} />
       )}
-      <div className="text-white pl-innerpad tablet:p-0 w-full max-w-[1600px] tablet:grow">
-        <Outlet />
+      <div className="text-white desktop:pl-innerpad p-0 w-full max-w-[1600px] tablet:grow">
+        <Outlet context={currSize} />
       </div>
     </div>
   );

@@ -11,13 +11,13 @@ const Destination = () => {
 
   const navItems: string[] = ["moon", "mars", "europa", "titan"];
   return (
-    <div className="flex tablet:flex-col justify-between items-end tablet:items-center pb-[130px] pr-innerpad tablet:p-0">
+    <div className="flex desktop:flex-row flex-col justify-between desktop:items-end items-center pb-[130px] pr-innerpad tablet:p-0 mobile:p-0">
       <img
-        className="w-[445px] h-[445px] tablet:w-[300px] tablet:h-[300px] tablet:mt-[60px] tablet:mb-[40px]"
+        className="aspect-square w-[445px] tablet:w-[300px] mobile:w-[170px] tablet:mt-[60px] tablet:mb-[40px] mobile:my-9"
         src={currDestData.image}
         alt={`${currDestData.name} image`}
       />
-      <section className="flex flex-col tablet:items-center w-[445px] tablet:w-[573px]">
+      <section className="flex flex-col tablet:items-center mobile:items-center w-[445px] tablet:w-[573px]">
         <Nav navItems={navItems} showIndex={false} root={false} />
         <Outlet />
       </section>
