@@ -1,10 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Navigate,
-} from "react-router-dom";
+import { createHashRouter, RouterProvider, Navigate } from "react-router-dom";
 
 import Root from "./routes/Root.tsx";
 import Error from "./routes/Error.tsx";
@@ -18,7 +14,7 @@ import "./index.css";
 import CrewIntro from "./components/CrewIntro.tsx";
 import TechnologyIntro from "./components/TechnologyIntro.tsx";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Root />,
@@ -27,7 +23,7 @@ const router = createBrowserRouter([
       {
         errorElement: <Error root={false} />,
         children: [
-          { index: true, element: <Home /> },
+          { index: true, element: <Navigate to="home" /> },
           { path: "home", element: <Home /> },
           {
             path: "destination",
