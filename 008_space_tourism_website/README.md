@@ -1,5 +1,8 @@
 # Day 008 Space Tourism Website
 
+### Demo:
+*It takes several seconds to load the demo, thanks for your patience.* :relaxed:
+<img src="./gif/008_space_tourism.gif" alt="Demo gif">
 
 ### Live Demo Link: 
 -> [Space Tourism Website](https://clickvisionstudio.github.io/space_tourism_website/#/home)
