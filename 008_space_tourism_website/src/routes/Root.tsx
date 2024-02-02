@@ -75,7 +75,7 @@ const Root = () => {
 
   return (
     <div
-      className="box-border flex flex-col justify-between mobile:justify-start items-center h-dvh tablet:h-full mobile:h-full pt-[40px] tablet:pt-0 mobile:pt-0 bg-dark bg-no-repeat bg-cover desktop:min-h-[900px] mobile:min-w-[350px] mobile:pb-10 tablet:pb-10"
+      className="box-border flex flex-col justify-between mobile:justify-start items-center h-dvh tablet:h-full mobile:h-full pt-[40px] tablet:pt-0 mobile:pt-0 bg-dark bg-no-repeat bg-cover desktop:min-h-[900px] mobile:min-w-[350px] mobile:pb-10 tablet:pb-10 desktop:overflow-hidden"
       style={style}
     >
       <header className="relative flex justify-between items-center h-header mobile:h-header-mobile w-full max-w-[1600px] mobile:px-6">
