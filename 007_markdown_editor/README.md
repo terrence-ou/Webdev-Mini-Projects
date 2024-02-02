@@ -27,4 +27,4 @@ npm run dev
 to activate the local server, paste the link showing in termial that starts with ``http://localhost:****/`` (where `****` is a 4-digit port number that varies between machines) to the browser.
 
 ### Provisional Use Case:
-- Project Landing Page, Company Website, Profolio Website
+- Markdown editor, note-taking app, or code editors with markdown preview functionalities.
