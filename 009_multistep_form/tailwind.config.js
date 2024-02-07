@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -27,10 +28,13 @@ export default {
       lineHeight: {
         "body-lg": "25px",
       },
-
       spacing: {
         width: "940px",
         height: "600px",
+      },
+      backgroundImage: {
+        desktop: "url('assets/bg-sidebar-desktop.svg')",
+        mobile: "url('assets/bg-sidebar-mobile.svg')",
       },
     },
   },
