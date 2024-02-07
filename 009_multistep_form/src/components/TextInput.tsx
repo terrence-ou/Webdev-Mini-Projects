@@ -5,7 +5,7 @@ type InputPropsType = {
   placeHolder: string;
 };
 
-const Input = ({ label, inputName, type, placeHolder }: InputPropsType) => {
+const TextInput = ({ label, inputName, type, placeHolder }: InputPropsType) => {
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={inputName} className="text-md text-denim">
@@ -22,4 +22,4 @@ const Input = ({ label, inputName, type, placeHolder }: InputPropsType) => {
   );
 };
 
-export default Input;
+export default TextInput;

@@ -1,4 +1,4 @@
-import Input from "../components/Input";
+import TextInput from "../components/TextInput";
 import Title from "../components/Title";
 
 const PersonalInfo = () => {
@@ -9,19 +9,19 @@ const PersonalInfo = () => {
         description="Please provide your name, email addressm and phone number."
       />
       <form className="flex flex-col gap-6">
-        <Input
+        <TextInput
           inputName="name"
           label="Name"
           type="text"
           placeHolder="e.g. Stephen King"
         />{" "}
-        <Input
+        <TextInput
           inputName="email"
           label="Email Address"
           type="email"
           placeHolder="e.g. stephenking@lorem.com"
         />{" "}
-        <Input
+        <TextInput
           inputName="phone"
           label="Phone Number"
           type="tel"
