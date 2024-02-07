@@ -6,7 +6,7 @@ export default {
     colors: {
       white: "#FFFFFF",
       bg: "#EFF5FF",
-      border: "#D6D9E6",
+      "border-color": "#D6D9E6",
       denim: "#022959",
       grey: "#9699AA",
       "light-gray": "#D6D9E6",
