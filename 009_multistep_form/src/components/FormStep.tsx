@@ -9,7 +9,7 @@ const FormStep = ({ index, text, isActive = false }: FormStepPropsType) => {
   const inactiveStyle = "border-white border text-white";
   const currStyle = isActive ? activeStyle : inactiveStyle;
   return (
-    <div className="flex items-center gap-4 text-white text-md font-bold">
+    <div className="flex items-center gap-4 text-white text-md font-bold hover:cursor-pointer">
       <p
         className={
           "w-8 h-8 leading-8 rounded-full text-center font-bold" +

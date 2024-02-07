@@ -1,4 +1,4 @@
-import Navigation from "./Navigation";
+import Navigation from "../components/Navigation";
 
 const Root = () => {
   return (

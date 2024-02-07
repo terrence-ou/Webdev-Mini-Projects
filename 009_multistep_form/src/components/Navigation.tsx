@@ -1,4 +1,4 @@
-import FormStep from "../components/FormStep";
+import FormStep from "./FormStep";
 
 const formSteps: string[] = ["your info", "select plan", "add-ons", "summary"];
 
@@ -9,7 +9,7 @@ const Navigation = () => {
         {formSteps.map((text, index) => {
           return (
             <li key={text}>
-              <FormStep index={index} text={text} />
+              <FormStep index={index + 1} text={text} />
             </li>
           );
         })}
