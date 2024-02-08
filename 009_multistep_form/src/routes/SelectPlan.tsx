@@ -2,15 +2,35 @@ import { useState } from "react";
 
 import RadioInput from "../components/RadioInput";
 import Title from "../components/Title";
+import Toggle from "../components/Toggle";
 
-export type currPlanType = "arcade" | "advanced" | "pro";
 const plans = ["arcade", "advanced", "pro"] as const;
 export type planType = (typeof plans)[number];
+export type subscriptionType = "monthly" | "yearly";
+
+export type subPlanType = {
+  plan: planType;
+  billPeriod: subscriptionType;
+};
 
 const SelectPlan = () => {
-  const [currPlan, setCurrPlan] = useState<currPlanType>("arcade");
-  // console.log(currPlan);
-  const handleSetCurrPlan = (value: planType) => setCurrPlan(value);
+  const [subPlan, setSubPlan] = useState<subPlanType>({
+    plan: "arcade",
+    billPeriod: "monthly",
+  });
+
+  const handleChangePlan = (plan: planType) => {
+    setSubPlan((prevSubPlan) => ({ ...prevSubPlan, plan }));
+  };
+
+  const handleChangeBill = () => {
+    setSubPlan((prevSubPlan) => {
+      const billPeriod =
+        prevSubPlan.billPeriod === "monthly" ? "yearly" : "monthly";
+      return { ...prevSubPlan, billPeriod };
+    });
+  };
+
   return (
     <div>
       <Title
@@ -23,12 +43,14 @@ const SelectPlan = () => {
             <RadioInput
               key={value}
               value={value}
-              handleSelection={handleSetCurrPlan}
-              selected={currPlan === value}
+              subPlan={subPlan}
+              handleChangePlan={handleChangePlan}
+              selected={subPlan.plan === value}
             />
           );
         })}
       </form>
+      <Toggle subPlan={subPlan} handleChangeBill={handleChangeBill} />
     </div>
   );
 };
