@@ -13,6 +13,7 @@ export type subPlanType = {
   billPeriod: subscriptionType;
 };
 
+// Body of Select Plan Element
 const SelectPlan = () => {
   const [subPlan, setSubPlan] = useState<subPlanType>({
     plan: "arcade",

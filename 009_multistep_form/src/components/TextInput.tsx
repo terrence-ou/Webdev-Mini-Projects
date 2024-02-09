@@ -7,7 +7,7 @@ type InputPropsType = {
 
 const TextInput = ({ label, inputName, type, placeHolder }: InputPropsType) => {
   return (
-    <div className="flex flex-col gap-2">
+    <fieldset className="flex flex-col gap-2">
       <label htmlFor={inputName} className="text-md text-denim">
         {label}
       </label>
@@ -18,7 +18,7 @@ const TextInput = ({ label, inputName, type, placeHolder }: InputPropsType) => {
         placeholder={placeHolder}
         className="h-12 px-4 border border-border-color rounded-lg text-lg leading-body-lg font-medium"
       ></input>
-    </div>
+    </fieldset>
   );
 };
 
