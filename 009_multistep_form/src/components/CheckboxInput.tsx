@@ -18,10 +18,17 @@ const CheckboxInput = ({
   checked,
   handleSelection,
 }: checkboxPropsType) => {
+  const boxStyle = checked
+    ? "outline-purple bg-very-light-gray"
+    : "outline-light-gray";
   return (
     <fieldset
       onClick={() => handleSelection(title)}
-      className="flex items-center gap-6 px-6 h-20 my-4 outline outline-1 outline-light-gray rounded-lg group hover:cursor-pointer"
+      className={
+        "flex items-center gap-6 px-6 h-20 my-4 outline outline-1 rounded-lg group hover:cursor-pointer" +
+        " " +
+        boxStyle
+      }
     >
       <input
         id={title}

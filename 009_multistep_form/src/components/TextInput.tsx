@@ -16,7 +16,7 @@ const TextInput = ({ label, inputName, type, placeHolder }: InputPropsType) => {
         name={inputName}
         id={inputName}
         placeholder={placeHolder}
-        className="h-12 px-4 border border-border-color rounded-lg text-lg leading-body-lg font-medium"
+        className="h-12 px-4 border border-border-color focus:outline-none focus:border-purple rounded-lg text-lg leading-body-lg font-medium"
       ></input>
     </fieldset>
   );
