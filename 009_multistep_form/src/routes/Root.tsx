@@ -42,7 +42,7 @@ const Root = () => {
   return (
     <div className="box-border flex w-width h-height bg-white rounded-2xl">
       <aside className="box-border m-[16px] mr-0 w-[300px] rounded-xl bg-desktop bg-center bg-cover">
-        <Navigation formSteps={formSteps} />
+        <Navigation formSteps={formSteps} currStep={currStep} />
       </aside>
       <section className="flex-grow flex flex-col justify-between mx-20 mt-14 mb-8">
         <Outlet />

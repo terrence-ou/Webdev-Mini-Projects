@@ -1,7 +1,7 @@
 type FormStepPropsType = {
   index: number;
   text: string;
-  isActive?: boolean;
+  isActive: boolean;
 };
 
 const FormStep = ({ index, text, isActive = false }: FormStepPropsType) => {

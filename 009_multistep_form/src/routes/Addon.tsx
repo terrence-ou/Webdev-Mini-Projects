@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Title from "../components/Title";
-import CheckboxInput from "../components/checkboxInput";
+import CheckboxInput from "../components/CheckboxInput";
 
 const addons = [
   "online-service",
