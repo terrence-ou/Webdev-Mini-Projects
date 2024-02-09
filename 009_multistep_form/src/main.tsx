@@ -7,6 +7,7 @@ import PersonalInfo from "./routes/PersonalInfo";
 import SelectPlan from "./routes/SelectPlan";
 import Addon from "./routes/Addon";
 import Summary from "./routes/Summary";
+import Completed from "./routes/Completed";
 
 import "./index.css";
 
@@ -31,6 +32,10 @@ const router = createHashRouter([
       {
         path: "summary",
         element: <Summary />,
+      },
+      {
+        path: "completed",
+        element: <Completed />,
       },
     ],
   },

@@ -21,15 +21,22 @@ const Root = () => {
   const location = useLocation();
   const currLocation = location.pathname.split("/").slice(-1)[0];
   const [currStep, setCurrStep] = useState<number>(getCurrStep(currLocation));
+
   function toNextStep(): void {
     setCurrStep((prevStep) => prevStep + 1);
     const nextPath = stepToPath(formSteps[currStep + 1]);
     navigate(nextPath);
   }
+
   function toPrevStep(): void {
     const prevPath = stepToPath(formSteps[currStep - 1]);
     setCurrStep((prevStep) => prevStep - 1);
     navigate(prevPath);
+  }
+
+  function toSubmit(): void {
+    setCurrStep((prevStep) => prevStep + 1);
+    navigate("completed");
   }
 
   return (
@@ -40,8 +47,11 @@ const Root = () => {
       <section className="flex-grow flex flex-col justify-between mx-20 mt-14 mb-8">
         <Outlet />
         <div className="flex flex-row-reverse justify-between font-medium text-lg">
-          {currStep !== formSteps.length - 1 && (
+          {currStep < formSteps.length - 1 && (
             <Button text="Next Step" type="next" onClick={toNextStep} />
+          )}
+          {currStep === formSteps.length - 1 && (
+            <Button text="Confirm" type="confirm" onClick={toSubmit} />
           )}
           {currStep !== 0 && (
             <Button text="Go Back" type="back" onClick={toPrevStep} />
