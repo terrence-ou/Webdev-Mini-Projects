@@ -15,6 +15,10 @@ export type priceDataType = {
   addon: addonPricesType;
 };
 
+export type subPeriodType = "monthly" | "yearly";
+export type planType = keyof planPricesType;
+export type addonType = keyof addonPricesType;
+
 export const priceData: priceDataType = {
   plan: {
     arcade: 9,
@@ -26,4 +30,13 @@ export const priceData: priceDataType = {
     "large-storage": 2,
     "customizable-profile": 2,
   },
+};
+
+export type subDetailType = {
+  name: string | undefined;
+  email: string | undefined;
+  phone: string | undefined;
+  subPeriod: subPeriodType;
+  plan: planType;
+  addons: addonType[];
 };

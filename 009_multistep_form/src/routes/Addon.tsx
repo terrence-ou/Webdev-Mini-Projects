@@ -3,13 +3,8 @@ import { useState } from "react";
 import Title from "../components/Title";
 import CheckboxInput from "../components/CheckboxInput";
 
-const addons = [
-  "online-service",
-  "large-storage",
-  "customizable-profile",
-] as const;
+import { addonType } from "../data";
 
-export type addonType = (typeof addons)[number];
 const descriptions: { title: addonType; description: string }[] = [
   { title: "online-service", description: "Access to multiplayer games" },
   { title: "large-storage", description: "Extra 1TB of cloud storage" },

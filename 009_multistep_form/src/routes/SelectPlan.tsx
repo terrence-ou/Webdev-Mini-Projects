@@ -4,11 +4,9 @@ import RadioInput from "../components/RadioInput";
 import Title from "../components/Title";
 import Toggle from "../components/Toggle";
 
-import { planPricesType, priceData } from "../data";
+import { priceData, subPeriodType, planType } from "../data";
 
-export type planType = keyof planPricesType;
 const plans: string[] = Object.keys(priceData.plan);
-export type subPeriodType = "monthly" | "yearly";
 
 export type subPlanType = {
   plan: planType;

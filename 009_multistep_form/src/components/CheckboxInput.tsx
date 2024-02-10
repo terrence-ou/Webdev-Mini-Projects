@@ -1,4 +1,4 @@
-import { addonType } from "../routes/Addon";
+import { addonType } from "../data";
 
 type checkboxPropsType = {
   title: addonType;

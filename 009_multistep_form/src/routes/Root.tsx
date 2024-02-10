@@ -16,6 +16,7 @@ function getCurrStep(currLocation: string): number {
   return currIndex === -1 ? 0 : currIndex;
 }
 
+// The body of the Root element
 const Root = () => {
   const navigate = useNavigate();
   const location = useLocation();

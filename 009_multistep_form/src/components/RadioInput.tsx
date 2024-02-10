@@ -1,7 +1,4 @@
-import { planType } from "../routes/SelectPlan";
-import { subPeriodType } from "../routes/SelectPlan";
-
-import { planPricesType, priceData } from "../data";
+import { planPricesType, priceData, planType, subPeriodType } from "../data";
 
 import iconArcade from "../assets/icon-arcade.svg";
 import iconAdvanced from "../assets/icon-advanced.svg";
