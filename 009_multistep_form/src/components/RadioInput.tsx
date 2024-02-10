@@ -1,19 +1,22 @@
 import { planType } from "../routes/SelectPlan";
+import { subPeriodType } from "../routes/SelectPlan";
+
+import { planPricesType, priceData } from "../data";
 
 import iconArcade from "../assets/icon-arcade.svg";
 import iconAdvanced from "../assets/icon-advanced.svg";
 import iconPro from "../assets/icon-pro.svg";
 
-import { subPlanType } from "../routes/SelectPlan";
-
 type inputPropsType = {
-  value: planType;
-  subPlan: subPlanType;
+  value: planType | string;
+  subPeriod: subPeriodType;
   handleChangePlan: (value: planType) => void;
   selected: boolean;
 };
 
-const getIcon = (value: planType): string => {
+const planPrices: planPricesType = priceData.plan;
+
+function getIcon(value: planType): string {
   switch (value) {
     case "arcade":
       return iconArcade;
@@ -24,11 +27,11 @@ const getIcon = (value: planType): string => {
     default:
       return iconArcade;
   }
-};
+}
 
 const RadioInput = ({
   value,
-  subPlan,
+  subPeriod,
   handleChangePlan,
   selected,
 }: inputPropsType) => {
@@ -36,7 +39,11 @@ const RadioInput = ({
     ? "outline-purple bg-very-light-gray"
     : "outline-border-color";
 
-  const planIcon: string = getIcon(value);
+  const planIcon: string = getIcon(value as planType);
+  let planPrice: number = planPrices[value as planType];
+  if (subPeriod === "yearly") planPrice *= 10;
+  const priceTag: string =
+    subPeriod === "yearly" ? `$${planPrice}/yr` : `$${planPrice}/mo`;
 
   return (
     <div
@@ -45,7 +52,7 @@ const RadioInput = ({
         " " +
         borderStyle
       }
-      onClick={() => handleChangePlan(value)}
+      onClick={() => handleChangePlan(value as planType)}
     >
       <img src={planIcon} alt={value + " " + "plan icon"} className="w-10" />
       <fieldset>
@@ -65,8 +72,8 @@ const RadioInput = ({
           <span className="font-medium text-lg text-denim">
             {value.charAt(0).toUpperCase() + value.slice(1)}
           </span>
-          <span className="text-md text-grey">$9/mo</span>
-          {subPlan.billPeriod === "yearly" && (
+          <span className="text-md text-grey">{priceTag}</span>
+          {subPeriod === "yearly" && (
             <span className="text-sm text-denim">2 months free</span>
           )}
         </label>

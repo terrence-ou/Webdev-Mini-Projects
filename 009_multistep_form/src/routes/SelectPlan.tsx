@@ -4,13 +4,15 @@ import RadioInput from "../components/RadioInput";
 import Title from "../components/Title";
 import Toggle from "../components/Toggle";
 
-const plans = ["arcade", "advanced", "pro"] as const;
-export type planType = (typeof plans)[number];
-export type subscriptionType = "monthly" | "yearly";
+import { planPricesType, priceData } from "../data";
+
+export type planType = keyof planPricesType;
+const plans: string[] = Object.keys(priceData.plan);
+export type subPeriodType = "monthly" | "yearly";
 
 export type subPlanType = {
   plan: planType;
-  billPeriod: subscriptionType;
+  billPeriod: subPeriodType;
 };
 
 // Body of Select Plan Element
@@ -44,7 +46,7 @@ const SelectPlan = () => {
             <RadioInput
               key={value}
               value={value}
-              subPlan={subPlan}
+              subPeriod={subPlan.billPeriod}
               handleChangePlan={handleChangePlan}
               selected={subPlan.plan === value}
             />
