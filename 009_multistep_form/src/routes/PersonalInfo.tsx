@@ -29,6 +29,7 @@ const PersonalInfo = () => {
           label="Phone Number"
           type="tel"
           placeHolder="e.g. +1 234 567 890"
+          pattern="^\+?\d{1,3}?\s?\d{3}\s?\d{3}\s?\d{4}$"
         />{" "}
       </form>
     </div>
