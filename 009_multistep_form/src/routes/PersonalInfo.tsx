@@ -11,7 +11,11 @@ const PersonalInfo = () => {
         title="Personal Info"
         description="Please provide your name, email addressm and phone number."
       />
-      <form className="flex flex-col gap-6" onSubmit={onSubmit}>
+      <form
+        className="flex flex-col gap-6"
+        onSubmit={onSubmit}
+        autoComplete="off"
+      >
         <TextInput
           inputName="name"
           label="Name"
