@@ -40,3 +40,14 @@ export type subDetailType = {
   plan: planType;
   addons: addonType[];
 };
+
+export type subDetailsKeyType = keyof subDetailType;
+
+export const subDetailsInitData: subDetailType = {
+  name: undefined,
+  email: undefined,
+  phone: undefined,
+  subPeriod: "monthly",
+  plan: "arcade",
+  addons: [],
+};

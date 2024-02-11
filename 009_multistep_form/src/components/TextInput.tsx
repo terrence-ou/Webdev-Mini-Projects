@@ -5,6 +5,7 @@ type InputPropsType = {
   label: string;
   type: string;
   placeHolder: string;
+  // updateFn?: unknown;
   pattern?: string;
 };
 

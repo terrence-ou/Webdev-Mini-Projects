@@ -21,6 +21,8 @@ const Root = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currLocation = location.pathname.split("/").slice(-1)[0];
+
+  // State and functions handling form navigation
   const [currStep, setCurrStep] = useState<number>(getCurrStep(currLocation));
 
   function toNextStep(): void {
