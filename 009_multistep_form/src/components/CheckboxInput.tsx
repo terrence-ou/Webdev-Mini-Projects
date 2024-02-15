@@ -1,13 +1,12 @@
-import { addonType } from "../data";
-
 type checkboxPropsType = {
-  title: addonType;
+  title: string;
   description: string;
   checked: boolean;
-  handleSelection: (item: addonType) => void;
+  priceTag: string;
+  handleSelection: (item: string) => void;
 };
 
-function processTitle(title: addonType): string {
+function processTitle(title: string): string {
   const newTitle = title.charAt(0).toUpperCase() + title.slice(1);
   return newTitle.split("-").join(" ");
 }
@@ -16,6 +15,7 @@ const CheckboxInput = ({
   title,
   description,
   checked,
+  priceTag,
   handleSelection,
 }: checkboxPropsType) => {
   const boxStyle = checked
@@ -51,7 +51,7 @@ const CheckboxInput = ({
             {description}
           </span>
         </span>
-        <span className="text-md text-purple">+1/mo</span>
+        <span className="text-md text-purple">{priceTag}</span>
       </label>
     </fieldset>
   );

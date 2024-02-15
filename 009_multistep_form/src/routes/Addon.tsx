@@ -1,43 +1,52 @@
 import { useState } from "react";
+import { useAppSelector, useAppDispatch } from "../store/hooks";
+import { subscriptionFormActions } from "../store/subForm";
 
 import Title from "../components/Title";
 import CheckboxInput from "../components/CheckboxInput";
 
-import { addonType } from "../data";
-
-const descriptions: { title: addonType; description: string }[] = [
-  { title: "online-service", description: "Access to multiplayer games" },
-  { title: "large-storage", description: "Extra 1TB of cloud storage" },
-  {
-    title: "customizable-profile",
-    description: "Custom theme on your profile",
-  },
-];
+import { priceData } from "../data";
+import { RootState } from "../store";
 
 const Addon = () => {
-  const [selected, setSelected] = useState<addonType[]>([]);
-  const handleSelection = (item: addonType) => {
+  const dispatch = useAppDispatch();
+  const currSelections = useAppSelector(
+    (state: RootState) => state.subscriptionFormReducer.addons
+  );
+  const currentSubPeriod = useAppSelector(
+    (state: RootState) => state.subscriptionFormReducer.subPeriod
+  );
+  const [selected, setSelected] = useState<string[]>(currSelections);
+  const handleSelection = (item: string) => {
     setSelected((prevSelected) => {
+      let newSelected = [...prevSelected];
       if (prevSelected.includes(item)) {
-        return prevSelected.filter((selection) => selection !== item);
+        newSelected = newSelected.filter((selection) => selection !== item);
       } else {
-        return [...prevSelected, item];
+        newSelected.push(item);
       }
+      dispatch(subscriptionFormActions.updateAddons(newSelected));
+      return newSelected;
     });
   };
+
   return (
     <div>
       <Title
         title="Pick add-ons"
         description="Add-ons help enhance your gaming experience"
       />
-      {descriptions.map((item) => {
+      {priceData.addon.map((item) => {
+        const price =
+          currentSubPeriod === "monthly" ? item.price : item.price * 10;
+        const period = currentSubPeriod === "monthly" ? "mo" : "yr";
         return (
           <CheckboxInput
             key={item.title}
             title={item.title}
             description={item.description}
             checked={selected.includes(item.title)}
+            priceTag={`+${price}/${period}`}
             handleSelection={handleSelection}
           />
         );

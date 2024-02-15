@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useAppSelector, useAppDispatch } from "../store/hooks";
+import { subscriptionFormActions } from "../store/subForm";
 
 import RadioInput from "../components/RadioInput";
 import Title from "../components/Title";
 import Toggle from "../components/Toggle";
 
 import { priceData, subPeriodType, planType } from "../data";
+import { RootState } from "../store";
 
 const plans: string[] = Object.keys(priceData.plan);
 
@@ -15,19 +18,29 @@ export type subPlanType = {
 
 // Body of Select Plan Element
 const SelectPlan = () => {
+  const currPlan = useAppSelector(
+    (state: RootState) => state.subscriptionFormReducer.plan
+  );
+  const currBillPeriod = useAppSelector(
+    (state: RootState) => state.subscriptionFormReducer.subPeriod
+  );
+  const dispatch = useAppDispatch();
+
   const [subPlan, setSubPlan] = useState<subPlanType>({
-    plan: "arcade",
-    billPeriod: "monthly",
+    plan: currPlan,
+    billPeriod: currBillPeriod,
   });
 
   const handleChangePlan = (plan: planType) => {
     setSubPlan((prevSubPlan) => ({ ...prevSubPlan, plan }));
+    dispatch(subscriptionFormActions.updatePlan(plan));
   };
 
   const handleChangeBill = () => {
     setSubPlan((prevSubPlan) => {
       const billPeriod =
         prevSubPlan.billPeriod === "monthly" ? "yearly" : "monthly";
+      dispatch(subscriptionFormActions.updateSubPeriod(billPeriod));
       return { ...prevSubPlan, billPeriod };
     });
   };

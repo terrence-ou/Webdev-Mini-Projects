@@ -15,6 +15,15 @@ const subscriptionFormSlice = createSlice({
     updatePhone(state, action) {
       state.phone = action.payload;
     },
+    updatePlan(state, action) {
+      state.plan = action.payload;
+    },
+    updateSubPeriod(state, action) {
+      state.subPeriod = action.payload;
+    },
+    updateAddons(state, action) {
+      state.addons = action.payload;
+    },
   },
 });
 

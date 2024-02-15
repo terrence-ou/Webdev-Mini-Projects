@@ -4,20 +4,19 @@ export type planPricesType = {
   pro: number;
 };
 
-export type addonPricesType = {
-  "online-service": number;
-  "large-storage": number;
-  "customizable-profile": number;
+export type addonItemType = {
+  title: string;
+  description: string;
+  price: number;
 };
 
 export type priceDataType = {
   plan: planPricesType;
-  addon: addonPricesType;
+  addon: addonItemType[];
 };
 
 export type subPeriodType = "monthly" | "yearly";
 export type planType = keyof planPricesType;
-export type addonType = keyof addonPricesType;
 
 export const priceData: priceDataType = {
   plan: {
@@ -25,11 +24,23 @@ export const priceData: priceDataType = {
     advanced: 12,
     pro: 15,
   },
-  addon: {
-    "online-service": 1,
-    "large-storage": 2,
-    "customizable-profile": 2,
-  },
+  addon: [
+    {
+      title: "online-service",
+      description: "Access to multiplayer games",
+      price: 1,
+    },
+    {
+      title: "large-storage",
+      description: "Extra 1TB of cloud storage",
+      price: 2,
+    },
+    {
+      title: "customizable-profile",
+      description: "Custom theme on your profile",
+      price: 2,
+    },
+  ],
 };
 
 export type subDetailType = {
@@ -38,7 +49,7 @@ export type subDetailType = {
   phone: string | undefined;
   subPeriod: subPeriodType;
   plan: planType;
-  addons: addonType[];
+  addons: string[];
 };
 
 export type subDetailsKeyType = keyof subDetailType;
