@@ -72,7 +72,7 @@ const Summary = () => {
         <DataRow
           category="total"
           label={`Total (per ${period === "monthly" ? "month" : "year"})`}
-          price={`+$${totalPrice}${tag}`}
+          price={`$${totalPrice}${tag}`}
         />
       </section>
     </div>

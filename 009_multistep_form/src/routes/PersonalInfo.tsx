@@ -14,7 +14,7 @@ const PersonalInfo = () => {
       <form
         className="flex flex-col gap-6"
         onSubmit={onSubmit}
-        autoComplete="off"
+        aria-autocomplete="none"
       >
         <TextInput
           inputName="name"

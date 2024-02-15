@@ -53,6 +53,10 @@ const TextInput = ({
       if (inputRef.current?.value.length === 0) {
         setErrorMessage("This field is required");
       }
+      // in current input value is invalid, set the data state to undefined
+      if (dispatchFn) {
+        dispatch(dispatchFn(undefined));
+      }
     } else {
       setInputValid(true);
       const inputValue = inputRef.current.value;
@@ -96,7 +100,7 @@ const TextInput = ({
         defaultValue={currValue}
         onBlur={() => onBlur()}
         pattern={pattern ? pattern : ".*"}
-        autoComplete="off"
+        aria-autocomplete="none"
         required
         className={
           "h-12 px-4 border focus:outline-none focus:border-purple rounded-lg text-lg leading-body-lg font-medium" +

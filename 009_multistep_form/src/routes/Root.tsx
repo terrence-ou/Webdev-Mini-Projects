@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-
+import { useAppSelector } from "../store/hooks";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 import Navigation from "../components/Navigation";
 import Button from "../components/Button";
+import { RootState } from "../store";
 
 const formSteps: string[] = ["your info", "select plan", "add-ons", "summary"];
 
@@ -50,6 +51,21 @@ const Root = () => {
     navigate("completed");
   }
 
+  // Verify personal infomation inputs
+  const name = useAppSelector(
+    (state: RootState) => state.subscriptionFormReducer.name
+  );
+  const email = useAppSelector(
+    (state: RootState) => state.subscriptionFormReducer.email
+  );
+  const phone = useAppSelector(
+    (state: RootState) => state.subscriptionFormReducer.phone
+  );
+  function verifyPersonalInfo(): boolean {
+    if (!name || !email || !phone) return false;
+    return true;
+  }
+
   return (
     <div className="box-border flex w-width h-height bg-white rounded-2xl">
       <aside className="box-border m-[16px] mr-0 w-[300px] rounded-xl bg-desktop bg-center bg-cover">
@@ -59,7 +75,12 @@ const Root = () => {
         <Outlet />
         <div className="flex flex-row-reverse justify-between font-medium text-lg">
           {currStep < formSteps.length - 1 && (
-            <Button text="Next Step" type="next" onClick={toNextStep} />
+            <Button
+              text="Next Step"
+              type="next"
+              onClick={toNextStep}
+              disabled={!verifyPersonalInfo()}
+            />
           )}
           {currStep === formSteps.length - 1 && (
             <Button text="Confirm" type="confirm" onClick={toSubmit} />
