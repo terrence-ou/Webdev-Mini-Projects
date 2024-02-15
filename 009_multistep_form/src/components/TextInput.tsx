@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
-import { useAppDispatch } from "../store/hooks";
+import { useAppSelector, useAppDispatch } from "../store/hooks";
 import { subscriptionFormActions } from "../store/subForm";
+import { RootState } from "../store";
 
 type InputPropsType = {
   inputName: string;
@@ -27,6 +28,7 @@ function getReducerAction(inputName: string) {
   }
 }
 
+/* The body of the text input element */
 const TextInput = ({
   label,
   inputName,
@@ -59,6 +61,23 @@ const TextInput = ({
     }
   }
 
+  const currValue: string | undefined = useAppSelector((state: RootState) => {
+    switch (inputName) {
+      case "name": {
+        return state.subscriptionFormReducer.name;
+      }
+      case "email": {
+        return state.subscriptionFormReducer.email;
+      }
+      case "phone": {
+        return state.subscriptionFormReducer.phone;
+      }
+      default: {
+        return undefined;
+      }
+    }
+  });
+
   return (
     <fieldset className="flex flex-col gap-2">
       <label htmlFor={inputName} className="flex justify-between text-md">
@@ -73,15 +92,16 @@ const TextInput = ({
         name={inputName}
         id={inputName}
         placeholder={placeHolder}
+        defaultValue={currValue}
+        onBlur={() => onBlur()}
+        pattern={pattern ? pattern : ".*"}
+        autoComplete="off"
+        required
         className={
           "h-12 px-4 border focus:outline-none focus:border-purple rounded-lg text-lg leading-body-lg font-medium" +
           " " +
           borderColor
         }
-        onBlur={() => onBlur()}
-        pattern={pattern ? pattern : ".*"}
-        autoComplete="off"
-        required
       ></input>
     </fieldset>
   );

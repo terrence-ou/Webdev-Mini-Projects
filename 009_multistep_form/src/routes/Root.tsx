@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useAppSelector } from "../store/hooks";
-import { RootState } from "../store";
 
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
@@ -26,16 +24,10 @@ const Root = () => {
   const location = useLocation();
   const currLocation = location.pathname.split("/").slice(-1)[0];
 
-  const subscriptionForm = useAppSelector(
-    (state: RootState) => state.subscriptionFormReducer
-  );
-
   // State and functions handling form navigation
   const [currStep, setCurrStep] = useState<number>(getCurrStep(currLocation));
 
   function toNextStep(): void {
-    // first check if all user information fields completed
-    if (currStep === 0 && !checkInfoCompletion()) return;
     setCurrStep((prevStep) => prevStep + 1);
     const nextPath = stepToPath(formSteps[currStep + 1]);
     navigate(nextPath);
@@ -50,17 +42,6 @@ const Root = () => {
   function toSubmit(): void {
     setCurrStep((prevStep) => prevStep + 1);
     navigate("completed");
-  }
-
-  function checkInfoCompletion(): boolean {
-    if (
-      subscriptionForm.name === undefined ||
-      subscriptionForm.email === undefined ||
-      subscriptionForm.phone === undefined
-    ) {
-      return false;
-    }
-    return true;
   }
 
   return (
