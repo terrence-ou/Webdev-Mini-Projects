@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
@@ -15,7 +15,7 @@ function getCurrStep(currLocation: string): number {
   const currIndex = formSteps.findIndex(
     (step) => stepToPath(step) === currLocation
   );
-  return currIndex === -1 ? 0 : currIndex;
+  return currIndex === -1 ? formSteps.length : currIndex;
 }
 
 // The body of the Root element
@@ -23,9 +23,15 @@ const Root = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currLocation = location.pathname.split("/").slice(-1)[0];
-
   // State and functions handling form navigation
   const [currStep, setCurrStep] = useState<number>(getCurrStep(currLocation));
+
+  useEffect(
+    function updateCurrStep() {
+      setCurrStep(getCurrStep(currLocation));
+    },
+    [currLocation]
+  );
 
   function toNextStep(): void {
     setCurrStep((prevStep) => prevStep + 1);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../store/hooks";
 import { subscriptionFormActions } from "../store/subForm";
 
@@ -25,10 +25,16 @@ const Addon = () => {
       } else {
         newSelected.push(item);
       }
-      dispatch(subscriptionFormActions.updateAddons(newSelected));
       return newSelected;
     });
   };
+
+  useEffect(
+    function updateAddons() {
+      dispatch(subscriptionFormActions.updateAddons(selected));
+    },
+    [dispatch, selected]
+  );
 
   return (
     <div>

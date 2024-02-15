@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type DataRowType = {
   category: "plan" | "add-on" | "total";
   label: string;
@@ -20,7 +22,9 @@ const DataRow = ({ category, label, price }: DataRowType) => {
       <span className="flex flex-col">
         <span className={labelStyle}>{label}</span>
         {category === "plan" && (
-          <span className="text-grey text-md underline">Change</span>
+          <Link to="../select-plan" className="text-grey text-md underline">
+            Change
+          </Link>
         )}
       </span>
       <span className={priceStyle}>{price}</span>

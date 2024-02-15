@@ -1,13 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../store/hooks";
 import { subscriptionFormActions } from "../store/subForm";
+import { priceData, subPeriodType, planType } from "../data";
+import { RootState } from "../store";
 
 import RadioInput from "../components/RadioInput";
 import Title from "../components/Title";
 import Toggle from "../components/Toggle";
-
-import { priceData, subPeriodType, planType } from "../data";
-import { RootState } from "../store";
 
 const plans: string[] = Object.keys(priceData.plan);
 
@@ -40,10 +39,17 @@ const SelectPlan = () => {
     setSubPlan((prevSubPlan) => {
       const billPeriod =
         prevSubPlan.billPeriod === "monthly" ? "yearly" : "monthly";
-      dispatch(subscriptionFormActions.updateSubPeriod(billPeriod));
       return { ...prevSubPlan, billPeriod };
     });
   };
+
+  useEffect(
+    function updatePlanNPeriod() {
+      dispatch(subscriptionFormActions.updatePlan(subPlan.plan));
+      dispatch(subscriptionFormActions.updateSubPeriod(subPlan.billPeriod));
+    },
+    [dispatch, subPlan]
+  );
 
   return (
     <div>
