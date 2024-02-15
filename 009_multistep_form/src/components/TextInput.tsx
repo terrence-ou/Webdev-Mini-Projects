@@ -11,6 +11,7 @@ type InputPropsType = {
   pattern?: string;
 };
 
+// Get reducer function by the input name
 function getReducerAction(inputName: string) {
   switch (inputName) {
     case "name": {
