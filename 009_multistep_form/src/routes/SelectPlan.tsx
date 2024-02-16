@@ -15,7 +15,7 @@ export type subPlanType = {
   billPeriod: subPeriodType;
 };
 
-// Body of Select Plan Element
+/* Body of Select Plan Element */
 const SelectPlan = () => {
   const currPlan = useAppSelector(
     (state: RootState) => state.subscriptionFormReducer.plan
@@ -43,6 +43,7 @@ const SelectPlan = () => {
     });
   };
 
+  // update the subscription state when plan or billing period changes
   useEffect(
     function updatePlanNPeriod() {
       dispatch(subscriptionFormActions.updatePlan(subPlan.plan));

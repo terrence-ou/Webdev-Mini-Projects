@@ -9,6 +9,7 @@ const ButtonText = ({ text }: { text: string }) => {
   return <p className="md font-medium text-denim">{text}</p>;
 };
 
+/* The body of the Toggle element */
 const Toggle = ({ subPlan, handleChangeBill }: TogglePropsType) => {
   const buttonPos: string =
     subPlan.billPeriod === "monthly" ? "left-1" : "left-5";

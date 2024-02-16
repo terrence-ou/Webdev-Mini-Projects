@@ -8,6 +8,7 @@ import { RootState } from "../store";
 
 const formSteps: string[] = ["your info", "select plan", "add-ons", "summary"];
 
+// conver the form step to route path
 function stepToPath(step: string): string {
   return step.split(" ").join("-");
 }
@@ -19,7 +20,7 @@ function getCurrStep(currLocation: string): number {
   return currIndex === -1 ? formSteps.length : currIndex;
 }
 
-// The body of the Root element
+/* The body of the Root element */
 const Root = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -62,8 +63,8 @@ const Root = () => {
     (state: RootState) => state.subscriptionFormReducer.phone
   );
   function verifyPersonalInfo(): boolean {
-    if (!name || !email || !phone) return false;
-    return true;
+    if (name && email && phone) return true;
+    return false;
   }
 
   return (

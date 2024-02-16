@@ -8,6 +8,8 @@ type FormStepPropsType = {
 
 const FormStep = ({ index, text, isActive = false }: FormStepPropsType) => {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+
+  // when window is being resized, updated the windowWidth state
   useEffect(function getWindowSize() {
     const handleResize = (): void => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -15,6 +17,7 @@ const FormStep = ({ index, text, isActive = false }: FormStepPropsType) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   const activeStyle = "bg-sky-blue text-denim";
   const inactiveStyle = "border-white border text-white";
   const currStyle = isActive ? activeStyle : inactiveStyle;
