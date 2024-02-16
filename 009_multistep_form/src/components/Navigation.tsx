@@ -7,8 +7,8 @@ type NavigationPropsType = {
 
 const Navigation = ({ formSteps, currStep }: NavigationPropsType) => {
   return (
-    <nav className="box-content my-10 ml-8">
-      <ul className="flex flex-col gap-8">
+    <nav className="box-content my-10 ml-8 mobile:ml-0 mobile:my-8 mobile:h-[172px]">
+      <ul className="flex flex-col mobile:flex-row mobile:justify-center gap-8 mobile:gap-4">
         {formSteps.map((text, index) => {
           return (
             <li key={text}>

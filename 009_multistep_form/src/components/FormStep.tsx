@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 type FormStepPropsType = {
   index: number;
   text: string;
@@ -5,6 +7,14 @@ type FormStepPropsType = {
 };
 
 const FormStep = ({ index, text, isActive = false }: FormStepPropsType) => {
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  useEffect(function getWindowSize() {
+    const handleResize = (): void => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   const activeStyle = "bg-sky-blue text-denim";
   const inactiveStyle = "border-white border text-white";
   const currStyle = isActive ? activeStyle : inactiveStyle;
@@ -19,12 +29,14 @@ const FormStep = ({ index, text, isActive = false }: FormStepPropsType) => {
       >
         {index}
       </p>
-      <p className="flex flex-col">
-        <span className="font-normal text-sm text-light-blue">
-          STEP {index}
-        </span>
-        <span>{text.toUpperCase()}</span>
-      </p>
+      {windowWidth >= 970 && (
+        <p className="flex flex-col">
+          <span className="font-normal text-sm text-light-blue">
+            STEP {index}
+          </span>
+          <span>{text.toUpperCase()}</span>
+        </p>
+      )}
     </div>
   );
 };

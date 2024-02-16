@@ -3,6 +3,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      mobile: { max: "970px" },
+    },
     colors: {
       white: "#FFFFFF",
       bg: "#EFF5FF",
@@ -20,6 +23,7 @@ export default {
     },
     fontSize: {
       heading: "32px",
+      "heading-mobile": "24px",
       lg: "16px",
       md: "14px",
       sm: "12px",

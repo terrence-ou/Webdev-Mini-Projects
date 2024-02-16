@@ -100,7 +100,7 @@ const TextInput = ({
         defaultValue={currValue}
         onBlur={() => onBlur()}
         pattern={pattern ? pattern : ".*"}
-        aria-autocomplete="none"
+        autoComplete="off"
         required
         className={
           "h-12 px-4 border focus:outline-none focus:border-purple rounded-lg text-lg leading-body-lg font-medium" +
