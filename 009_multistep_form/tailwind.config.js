@@ -25,7 +25,9 @@ export default {
       heading: "32px",
       "heading-mobile": "24px",
       lg: "16px",
+      "lg-mobile": "15px",
       md: "14px",
+      "md-mobile": "12px",
       sm: "12px",
     },
     extend: {

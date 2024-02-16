@@ -84,8 +84,11 @@ const TextInput = ({
   });
 
   return (
-    <fieldset className="flex flex-col gap-2">
-      <label htmlFor={inputName} className="flex justify-between text-md">
+    <fieldset className="flex flex-col gap-2 mobile:gap-1">
+      <label
+        htmlFor={inputName}
+        className="flex justify-between text-md mobile:text-md-mobile"
+      >
         <span className="text-denim">{label}</span>
         {!inputValid && (
           <span className="text-red-errors font-bold">{errorMessage}</span>
@@ -103,7 +106,7 @@ const TextInput = ({
         autoComplete="off"
         required
         className={
-          "h-12 px-4 border focus:outline-none focus:border-purple rounded-lg text-lg leading-body-lg font-medium" +
+          "h-12 mobile:h-10 px-4 border focus:outline-none focus:border-purple rounded-lg text-lg mobile:text-lg-mobile leading-body-lg font-medium" +
           " " +
           borderColor
         }

@@ -45,7 +45,7 @@ const RadioInput = ({
   return (
     <div
       className={
-        "flex flex-col justify-between box-border w-[138px] h-[183px] group hover:cursor-pointer px-4 py-5 outline outline-2 outline-border-color rounded-lg" +
+        "flex flex-col mobile:flex-row mobile:gap-4 justify-between mobile:justify-start box-border w-[138px] mobile:w-full h-[183px] mobile:h-full group hover:cursor-pointer px-4 py-5 mobile:py-3 outline outline-2 outline-border-color rounded-lg" +
         " " +
         borderStyle
       }
@@ -58,7 +58,7 @@ const RadioInput = ({
           name="plan"
           value={value}
           id={value}
-          className="appearance-none group-hover:cursor-pointer"
+          className="appearance-none group-hover:cursor-pointer hidden"
           checked={selected}
           readOnly
         />
@@ -66,7 +66,7 @@ const RadioInput = ({
           htmlFor={value}
           className="flex flex-col gap-[5px] group-hover:cursor-pointer"
         >
-          <span className="font-medium text-lg text-denim">
+          <span className="font-medium text-lg  text-denim">
             {value.charAt(0).toUpperCase() + value.slice(1)}
           </span>
           <span className="text-md text-grey">{priceTag}</span>

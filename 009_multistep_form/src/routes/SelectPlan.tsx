@@ -57,7 +57,7 @@ const SelectPlan = () => {
         title="Select your plan"
         description="You have the option of monthly or yearly billing."
       />
-      <form className="flex flex-row justify-between">
+      <form className="flex flex-row mobile:flex-col mobile:gap-3 justify-between">
         {plans.map((value) => {
           return (
             <RadioInput

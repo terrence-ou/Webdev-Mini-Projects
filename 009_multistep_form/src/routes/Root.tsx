@@ -72,10 +72,10 @@ const Root = () => {
         <Navigation formSteps={formSteps} currStep={currStep} />
       </aside>
       <section className="flex-grow flex flex-col justify-between mx-20 mt-14 mb-8 mobile:m-0 mobile:bg-bg">
-        <div className="mobile:mx-4 mobile:bg-white mobile:px-5 mobile:py-8 mobile:translate-y-[-70px] mobile:rounded-xl">
+        <div className="mobile:mx-4 mobile:bg-white mobile:px-5 mobile:py-8 mobile:translate-y-[-70px] mobile:rounded-xl mobile:shadow-lg">
           <Outlet />
         </div>
-        <div className="flex flex-row-reverse justify-between font-medium text-lg">
+        <div className="flex flex-row-reverse justify-between font-medium text-lg mobile:bg-white mobile:p-4">
           {currStep < formSteps.length - 1 && (
             <Button
               text="Next Step"

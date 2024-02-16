@@ -9,7 +9,7 @@ const Title = ({ title, description }: titlePropsType) => {
       <h1 className="text-heading mobile:text-heading-mobile font-bold mb-3 mobile:mb-2">
         {title}
       </h1>
-      <p className="text-grey text-lg leading-body-lg mb-10">{description}</p>
+      <p className="text-grey text-lg leading-body-lg mb-5">{description}</p>
     </div>
   );
 };
