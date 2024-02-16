@@ -39,7 +39,7 @@ const Summary = () => {
         title="Finishing up"
         description="Double-check everything looks OK before confirming."
       />
-      <section className="bg-very-light-gray py-3 px-6">
+      <section className="bg-very-light-gray py-3 px-6 rounded-lg">
         <div className="box-border pb-6 border-b border-b-grey/20">
           <DataRow
             category="plan"

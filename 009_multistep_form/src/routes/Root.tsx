@@ -68,7 +68,7 @@ const Root = () => {
 
   return (
     <div className="box-border flex mobile:flex-col w-width mobile:w-dvw mobile:min-w-[375px] h-height mobile:h-full mobile:min-h-dvh bg-white rounded-2xl">
-      <aside className="box-border m-[16px] mr-0 w-[300px] mobile:w-full mobile:h-[172px] mobile:m-0 rounded-xl mobile:rounded-none bg-desktop mobile:bg-mobile bg-center bg-cover">
+      <aside className="box-border m-[16px] mr-0 w-[274px] mobile:w-full mobile:h-[172px] mobile:m-0 rounded-xl mobile:rounded-none bg-desktop mobile:bg-mobile bg-center bg-cover">
         <Navigation formSteps={formSteps} currStep={currStep} />
       </aside>
       <section className="flex-grow flex flex-col justify-between mx-20 mt-14 mb-8 mobile:m-0 mobile:bg-bg">
