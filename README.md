@@ -13,6 +13,8 @@ This is a repository that records my mini webdev exercises. Each exercise explor
 
 - Day 6: Dictionary App with Free Dictionary API :closed_book: [Code](./006_dictionary_app/), [Website](https://clickvisionstudio.github.io/responsive_dict_app/)
 
-- Day 7: Markdown Editor :memo: [Code](./007_markdown_editor/), [Website](https://clickvisionstudio.github.io/markdown-editor/)
+- Day 7: Markdown Editor :card_index: [Code](./007_markdown_editor/), [Website](https://clickvisionstudio.github.io/markdown-editor/)
 
 - Day 8: Space Tourism Website :earth_asia: [Code](./008_space_tourism_website/), [Website](https://clickvisionstudio.github.io/space_tourism_website/#/home)
+
+- Day 9: Multistep Form :clipboard: [Code](https://github.com/terrence-ou/Webdev-Mini-Projects/tree/main/009_multistep_form), [Website](https://clickvisionstudio.github.io/multistep_form/#/your-info)
