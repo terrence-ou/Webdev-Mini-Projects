@@ -5,7 +5,7 @@
 <img src="./gif/009_multistep_form.gif" alt="Demo gif">
 
 ### Live Demo Link: 
--> [Markdown Editor](https://clickvisionstudio.github.io/multistep_form/)
+-> [Multistep Form](https://clickvisionstudio.github.io/multistep_form/)
 
 ### Knowledge:
 
