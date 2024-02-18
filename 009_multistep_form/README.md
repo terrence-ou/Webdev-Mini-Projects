@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+# Day 009 Markdown Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Demo:
+*It takes several seconds to load the demo, thanks for your patience.* :relaxed:
+<img src="./gif/009_multistep_form.gif" alt="Demo gif">
 
-Currently, two official plugins are available:
+### Live Demo Link: 
+-> [Markdown Editor](https://clickvisionstudio.github.io/multistep_form/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Knowledge:
 
-## Expanding the ESLint configuration
+This Multistep Form project is implemented with `React,` using `react-router` for multipage management and `redux-toolkit` for form state management; the page is styled with `Tailwindcss` and features an adaptive design that fits both desktop and mobile screens. This form includes customized components including different types of text input with their respective constraints and validations, radio inputs that represent with clickable cards, toggle switch which allow user switch between subscription periods, and check boxes for the multi-value field.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+*This is a frontend challenge on Frontendmentor.io, and here's the link to that challenge: [Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ)*
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+### How to run the file:
+Open the terminal and navigate to this folder, then excuting the following commands to install the necessary packages:
+```bash
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Then use
+```bash
+npm run dev
+```
+*note: please refer [Tailwindcss Vite/React](https://tailwindcss.com/docs/guides/vite#react) for the required configuration for Tailwindcss*
+
+to activate the local server, paste the link showing in termial that starts with ``http://localhost:****/`` (where `****` is a 4-digit port number that varies between machines) to the browser.
+
+### Provisional Use Case:
+- Online orders like food order, subscription form, etc.
