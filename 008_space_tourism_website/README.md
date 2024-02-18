@@ -7,6 +7,11 @@
 ### Live Demo Link: 
 -> [Space Tourism Website](https://clickvisionstudio.github.io/space_tourism_website/#/home)
 
+
+### Knowledge:
+This multipage website is implemented with `react` and `TypeScript` and uses `react-router` for multipage management. The pages also feature an adaptive design that displays different layouts and text/image sizes to fit mobile, tablet, and desktop screens. 
+
+
 *This is a frontend challenge on Frontendmentor.io, and here's the link to that challenge: [Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3)*
 
 ### How to run the file:
