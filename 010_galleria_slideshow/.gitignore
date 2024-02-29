@@ -25,3 +25,4 @@ dist-ssr
 
 # API key file
 serviceAccountKey.json
+firebaseConfig.ts
