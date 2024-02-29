@@ -4,9 +4,11 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 // import data from "./assets/data.json";
+import useFetch from "./hooks/useFetch";
 
 function App() {
   const [count, setCount] = useState(0);
+  const { fetching, error, url } = useFetch();
   return (
     <>
       <div>
@@ -18,6 +20,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <img src={url} />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
