@@ -6,7 +6,7 @@ type errorType = {
   message: string;
 };
 
-const useFetch = () => {
+const useFetch = (path:string) => {
   const [fetching, setFetching] = useState<boolean>(true);
   const [error, setError] = useState<errorType | undefined>();
   const [url, setURL] = useState<string | undefined>(undefined);
@@ -14,7 +14,7 @@ const useFetch = () => {
   useEffect(() => {
     const pathReference = ref(
       storage,
-      "galleria-slideshow/assets/arnolfini-portrait/artist.jpg"
+      path
     );
     setFetching(true);
     getDownloadURL(pathReference)
@@ -25,7 +25,7 @@ const useFetch = () => {
       .catch((err) => {
         setError({ message: err.message || "Failed to fetch data" });
       });
-  }, []);
+  }, [path]);
 
   return { fetching, error, url };
 };

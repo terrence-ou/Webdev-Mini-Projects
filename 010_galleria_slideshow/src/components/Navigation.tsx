@@ -35,7 +35,7 @@ const Navigation = ({ index, setNextIndex, setPrevIndex }: NavPropsType) => {
   return (
     <div className="flex flex-col h-24">
       <Progress percentage={percentage} />
-      <section className="flex-1 flex justify-between items-center px-10 py-6">
+      <section className="flex justify-between items-center px-10 py-6">
         <div className="flex flex-col justify-center gap-2">
           <h3 className="text-h3 leading-h3 font-bold">{name}</h3>
           <p className="text-subh2 leading-subh2">{artist.name}</p>
