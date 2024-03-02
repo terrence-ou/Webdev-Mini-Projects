@@ -25,7 +25,7 @@ const ArtworkInfo = ({ index }: { index: number }) => {
       <div className="flex gap-0 justify-start h-[624px]">
         <section className="flex">
           <img src={artworkURL} alt="" className={artworkStyle} />
-          <div className="w-[385px] bg-gray-100 top-0 left-[410px] pl-[60px] pb-[65px] h-fit translate-x-[-65px]">
+          <div className="w-[430px] bg-gray-100 top-0 left-[410px] pl-[60px] pb-[65px] h-fit translate-x-[-65px]">
             <h1 className="text-h1 leading-h1 font-bold">{artData.name}</h1>
             <p className="text-subh1 leading-subh1 mt-6 text-gray-30">
               {artData.artist.name}
@@ -42,12 +42,19 @@ const ArtworkInfo = ({ index }: { index: number }) => {
           </div>
         </section>
         <article className="relative w-[350px]">
-          <p className="text-body text-gray-30 leading-body font-bold mt-[115px] z-10">
-            {artData.description}
-          </p>
           <span className="absolute top-0 text-display text-gray-90 leading-display -z-10">
             {artData.year}
           </span>
+          <p className="text-body text-gray-30 leading-body font-bold mt-[115px] mb-[100px] z-10">
+            {artData.description}
+          </p>
+          <a
+            href={artData.source}
+            target="_blank"
+            className="text-link2 leading-link2 tracking-link2 underline text-gray-30 decoration-gray-30"
+          >
+            GO TO SOURCE
+          </a>
         </article>
       </div>
     </div>
