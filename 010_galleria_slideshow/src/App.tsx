@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import ArtworkInfo from "./components/ArtworkInfo";
 import Navigation from "./components/Navigation";
+import Gallery from "./components/Gallery";
 
 import data from "./assets/data.json";
 
@@ -25,12 +26,17 @@ function App() {
   return (
     <main className="flex flex-col justify-between h-dvh min-h-[900px]">
       <Header onClick={toggleSlideshowMode} isSlideshow={slideshowMode} />
-      <ArtworkInfo index={slideIndex} />
-      <Navigation
-        index={slideIndex}
-        setNextIndex={setNextIndex}
-        setPrevIndex={setPrevIndex}
-      />
+      {!slideshowMode && <Gallery />}
+      {slideshowMode && (
+        <>
+          <ArtworkInfo index={slideIndex} />
+          <Navigation
+            index={slideIndex}
+            setNextIndex={setNextIndex}
+            setPrevIndex={setPrevIndex}
+          />
+        </>
+      )}
     </main>
   );
 }

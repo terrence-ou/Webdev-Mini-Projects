@@ -2,26 +2,26 @@ import { useRef } from "react";
 
 import useFetch from "../hooks/useFetch";
 import Modal from "./Modal";
-import buttonIcon from "../assets/icon/icon-view-image.svg";
 
 import data from "../assets/data.json";
 
-const fbPorjFolder = "galleria-slideshow";
-
-const convertPath = (url: string): string => fbPorjFolder + url.slice(1);
+import buttonIcon from "../assets/icon/icon-view-image.svg";
 
 const ArtworkInfo = ({ index }: { index: number }) => {
   const artData = data[index];
   const modalRef = useRef<HTMLDialogElement>(null);
 
-  const artistPath = convertPath(artData.artist.image);
-  const artworkPath = convertPath(artData.images.hero.large);
-  const fullImagePath = convertPath(artData.images.gallery);
+  // getting the firebase path of the corresponding images
+  const artistPath = artData.artist.image;
+  const artworkPath = artData.images.hero.large;
+  const fullImagePath = artData.images.gallery;
 
+  // loading artwork images
   const { fetching: artistFetching, url: artistURL } = useFetch(artistPath);
   const { fetching: artworkFetching, url: artworkURL } = useFetch(artworkPath);
   const { url: fullImageURL } = useFetch(fullImagePath);
 
+  // styles for paiting and artist images
   let artistStyle = "w-[128px] aspect-square transition-opacity delay-50";
   if (artistFetching) artistStyle += " opacity-45";
   let artworkStyle = "relative w-[475px] h-[560px] transition-opacity delay-50";
