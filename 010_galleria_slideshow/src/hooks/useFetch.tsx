@@ -6,16 +6,13 @@ type errorType = {
   message: string;
 };
 
-const useFetch = (path:string) => {
+const useFetch = (path: string) => {
   const [fetching, setFetching] = useState<boolean>(true);
   const [error, setError] = useState<errorType | undefined>();
   const [url, setURL] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    const pathReference = ref(
-      storage,
-      path
-    );
+    const pathReference = ref(storage, path);
     setFetching(true);
     getDownloadURL(pathReference)
       .then((url) => {
