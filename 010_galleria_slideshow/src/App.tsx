@@ -23,7 +23,7 @@ function App() {
   };
 
   return (
-    <main className="flex flex-col justify-between h-dvh">
+    <main className="flex flex-col justify-between h-dvh min-h-[900px]">
       <Header onClick={toggleSlideshowMode} isSlideshow={slideshowMode} />
       <ArtworkInfo index={slideIndex} />
       <Navigation
