@@ -9,7 +9,7 @@ const Thumbnail = ({ index }: { index: number }) => {
     <button className="relative group">
       <img
         src={url}
-        className="w-[310px] duration-150 group-hover:opacity-50"
+        className="w-full min-h-[220px] duration-150 group-hover:opacity-50"
       ></img>
       <p className="absolute w-full bottom-0 p-7 pt-[55px] text-left bg-gradient-to-b from-gray-0/0 to-gray-0/80">
         <span className="text-[24px] font-bold text-gray-100 leading-[26px]">
