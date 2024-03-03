@@ -9,13 +9,13 @@ import data from "./assets/data.json";
 
 function App() {
   const [slideshowMode, setSlideshowMode] = useState<boolean>(false);
+  const [slideIndex, setSlideIndex] = useState<number>(0);
+
   const toggleSlideshowMode = () => {
     setSlideshowMode((prevState) => !prevState);
+    setSlideIndex(0);
   };
-  const [slideIndex, setSlideIndex] = useState<number>(0);
-  // const handleSetSlideIndex = (index: number) => {
-  //   setSlideIndex(index);
-  // };
+
   const setNextIndex = () => {
     setSlideIndex((prevIndex) => Math.min(prevIndex + 1, data.length - 1));
   };
@@ -23,10 +23,15 @@ function App() {
     setSlideIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
+  const handleSelectSlide = (index: number) => {
+    setSlideIndex(index);
+    setSlideshowMode(true);
+  };
+
   return (
     <main className="flex flex-col justify-between h-dvh min-h-[900px]">
       <Header onClick={toggleSlideshowMode} isSlideshow={slideshowMode} />
-      {!slideshowMode && <Gallery />}
+      {!slideshowMode && <Gallery handleSelectSlide={handleSelectSlide} />}
       {slideshowMode && (
         <>
           <ArtworkInfo index={slideIndex} />

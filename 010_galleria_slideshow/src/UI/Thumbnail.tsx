@@ -1,12 +1,18 @@
 import useFetch from "../hooks/useFetch";
 import data from "../assets/data.json";
 
-const Thumbnail = ({ index }: { index: number }) => {
+const Thumbnail = ({
+  index,
+  onClick,
+}: {
+  index: number;
+  onClick: () => void;
+}) => {
   const artData = data[index];
   const thumbnailPath = artData.images.thumbnail;
   const { url } = useFetch(thumbnailPath);
   return (
-    <button className="relative group">
+    <button className="relative group" onClick={onClick}>
       <img
         src={url}
         className="w-full min-h-[220px] duration-150 group-hover:opacity-50"
