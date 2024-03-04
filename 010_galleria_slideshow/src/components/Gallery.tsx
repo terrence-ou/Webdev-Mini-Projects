@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import data from "../assets/data.json";
 import Thumbnail from "../UI/Thumbnail";
 
+// set the number of image columns based on the screen width
 const getNumColumns = (): number => {
   const width = window.innerWidth;
   if (width <= 650) {
@@ -14,6 +15,7 @@ const getNumColumns = (): number => {
   return 4;
 };
 
+/* The Gallery component */
 const Gallery = ({
   handleSelectSlide,
 }: {
@@ -21,6 +23,7 @@ const Gallery = ({
 }) => {
   const [columns, setColumns] = useState<number>(getNumColumns());
 
+  // Update the number of columns based on the current screen width
   useEffect(() => {
     const updateWindowWidth = () => {
       const numCols = getNumColumns();
@@ -30,6 +33,7 @@ const Gallery = ({
     return () => window.removeEventListener("resize", updateWindowWidth);
   }, []);
 
+  // Divide images into groups (columns)
   const groupInputs = () => {
     const inputs: number | number[][] = [];
     for (let i = 0; i < columns; i++) {

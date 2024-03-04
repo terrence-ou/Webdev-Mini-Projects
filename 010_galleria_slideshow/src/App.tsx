@@ -11,18 +11,22 @@ function App() {
   const [slideshowMode, setSlideshowMode] = useState<boolean>(false);
   const [slideIndex, setSlideIndex] = useState<number>(0);
 
+  // Switch between the slideshow mode and the gallery mode
   const toggleSlideshowMode = () => {
     setSlideshowMode((prevState) => !prevState);
     setSlideIndex(0);
   };
 
+  // Move to the next slide
   const setNextIndex = () => {
     setSlideIndex((prevIndex) => Math.min(prevIndex + 1, data.length - 1));
   };
+  // Move to the previous slide
   const setPrevIndex = () => {
     setSlideIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
+  // Select a specific artwork and move to the slideshow mode on the gallery mode
   const handleSelectSlide = (index: number) => {
     setSlideIndex(index);
     setSlideshowMode(true);

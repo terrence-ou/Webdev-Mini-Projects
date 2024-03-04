@@ -14,6 +14,8 @@ const ArtworkInfo = ({ index }: { index: number }) => {
   const [introImgSize, setIntroImgSize] = useState<"large" | "small">(
     initImgSize
   );
+
+  // Update the prefered intro image size when resizing the window
   useEffect(() => {
     function updateImageSize() {
       const width = window.innerWidth;
@@ -49,8 +51,15 @@ const ArtworkInfo = ({ index }: { index: number }) => {
     <>
       <div className="relative tablet:w-full py-10 h-fit overflow-y-scroll">
         <div className="flex flex-col desktop:gap-7 desktop:justify-start desktop:flex-row desktop:h-[624px] desktop:mx-10 mx-auto tablet:gap-16">
+          {/* Slideshow image, artist, and artwork name */}
           <section className="relative mx-auto desktop:w-[850px] desktop:mx-0 tablet:w-[690px] mobile:h-[400px]">
-            <img src={artworkURL} alt="" className={artworkStyle} />
+            {/* Artwork image */}
+            <img
+              src={artworkURL}
+              alt={`${artData.name} image`}
+              className={artworkStyle}
+            />
+            {/* Artworn name and artist name */}
             <div className="absolute top-0 left-[410px] h-full flex flex-col justify-between tablet:left-[240px] tablet:justify-start mobile:left-0 mobile:top-[240px] mobile:justify-start">
               <div className="w-[430px] bg-gray-100 pl-[60px] pb-[65px] mobile:w-[280px] mobile:h-[133px] mobile:p-[14px]">
                 <h1 className="text-h1 leading-h1 font-bold mobile:text-[24px] mobile:leading-[29px]">
@@ -60,24 +69,27 @@ const ArtworkInfo = ({ index }: { index: number }) => {
                   {artData.artist.name}
                 </p>
               </div>
+              {/* Artist headshot */}
               <div
                 className={
                   artistStyle + " " + "ml-[90px] tablet:ml-[260px] mobile:ml-0"
                 }
               >
-                <img src={artistURL} alt="" />
+                <img src={artistURL} alt={`${artData.artist.name} headshop`} />
               </div>
             </div>
+            {/* Fullscreen artwork button */}
             <button
               onClick={() => modalRef.current?.showModal()}
               className="absolute top-[500px] left-4 flex items-center justify-center gap-3 w-[152px] h-10 bg-gray-0/75 hover:bg-gray-100/25 duration-100 mobile:top-4"
             >
-              <img src={buttonIcon} className="h-3" />
+              <img src={buttonIcon} alt="view image button" className="h-3" />
               <span className="h-3 text-link2 font-bold text-gray-100 tracking-link2">
                 VIEW IMAGE
               </span>
             </button>
           </section>
+          {/* Artwork year and description */}
           <article className="relative desktop:max-w-[350px] tablet:w-[457px] mobile:w-[327px] mx-auto desktop:mx-0 mobile:-translate-y-5">
             <span className="absolute top-0 text-gray-90 leading-display -z-10 tablet:left-[-120px] text-display mobile:text-[100px] mobile:top-[20px] mobile:right-0">
               {artData.year}
@@ -95,6 +107,7 @@ const ArtworkInfo = ({ index }: { index: number }) => {
           </article>
         </div>
       </div>
+      {/* Fullscreen image modal */}
       <Modal ref={modalRef}>
         <button
           onClick={() => modalRef.current?.close()}
@@ -104,6 +117,7 @@ const ArtworkInfo = ({ index }: { index: number }) => {
         </button>
         <img
           src={fullImageURL}
+          alt={`${artData.name} full screen image`}
           className="h-[770px] mt-10 mobile:w-[327px] tablet:w-[620px] tablet:h-auto mobile:h-auto"
         ></img>
       </Modal>

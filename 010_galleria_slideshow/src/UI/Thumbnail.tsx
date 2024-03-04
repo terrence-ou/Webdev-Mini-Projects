@@ -15,6 +15,7 @@ const Thumbnail = ({
     <button className="relative group" onClick={onClick}>
       <img
         src={url}
+        alt={`${artData.name} image`}
         className="w-full min-h-[220px] duration-150 group-hover:opacity-50"
       ></img>
       <p className="absolute w-full bottom-0 p-7 pt-[55px] text-left bg-gradient-to-b from-gray-0/0 to-gray-0/80">
