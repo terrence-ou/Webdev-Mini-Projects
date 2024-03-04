@@ -29,7 +29,7 @@ function App() {
   };
 
   return (
-    <main className="flex flex-col justify-between h-dvh min-h-[900px]">
+    <main className="flex flex-col justify-between h-dvh">
       <Header onClick={toggleSlideshowMode} isSlideshow={slideshowMode} />
       {!slideshowMode && <Gallery handleSelectSlide={handleSelectSlide} />}
       {slideshowMode && (

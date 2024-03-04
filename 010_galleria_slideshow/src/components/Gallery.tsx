@@ -2,23 +2,29 @@ import { useState, useEffect } from "react";
 import data from "../assets/data.json";
 import Thumbnail from "../UI/Thumbnail";
 
+const getNumColumns = (): number => {
+  const width = window.innerWidth;
+  if (width <= 650) {
+    return 1;
+  } else if (width <= 1000) {
+    return 2;
+  } else if (width <= 1280) {
+    return 3;
+  }
+  return 4;
+};
+
 const Gallery = ({
   handleSelectSlide,
 }: {
   handleSelectSlide: (index: number) => void;
 }) => {
-  const [columns, setColumns] = useState<number>(4);
+  const [columns, setColumns] = useState<number>(getNumColumns());
 
-  useEffect(function () {
+  useEffect(() => {
     const updateWindowWidth = () => {
-      const width = window.innerWidth;
-      if (width <= 650) {
-        setColumns(1);
-      } else if (width <= 1000) {
-        setColumns(2);
-      } else if (width <= 1280) {
-        setColumns(3);
-      } else setColumns(4);
+      const numCols = getNumColumns();
+      setColumns(numCols);
     };
     window.addEventListener("resize", updateWindowWidth);
     return () => window.removeEventListener("resize", updateWindowWidth);
