@@ -12,15 +12,17 @@ const Gallery = ({
   useEffect(function () {
     const updateWindowWidth = () => {
       const width = window.innerWidth;
-      if (width <= 800) {
+      if (width <= 650) {
+        setColumns(1);
+      } else if (width <= 1000) {
         setColumns(2);
-      } else if (width <= 1100) {
+      } else if (width <= 1280) {
         setColumns(3);
       } else setColumns(4);
     };
     window.addEventListener("resize", updateWindowWidth);
     return () => window.removeEventListener("resize", updateWindowWidth);
-  });
+  }, []);
 
   const groupInputs = () => {
     const inputs: number | number[][] = [];

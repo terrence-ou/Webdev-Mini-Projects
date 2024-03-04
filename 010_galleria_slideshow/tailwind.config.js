@@ -2,6 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      modile: { max: "600px" },
+      tablet: { min: "600px", max: "1280px" },
+      desktop: "1280px",
+    },
     colors: {
       gray: {
         0: "#000000",

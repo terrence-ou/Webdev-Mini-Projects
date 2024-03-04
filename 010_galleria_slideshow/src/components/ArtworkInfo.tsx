@@ -29,15 +29,22 @@ const ArtworkInfo = ({ index }: { index: number }) => {
 
   return (
     <>
-      <div className="relative flex items-center mx-10 overflow-y-visible">
-        <div className="flex gap-0 justify-start h-[624px]">
-          <section className="flex">
+      <div className="relative tablet:w-full py-10 h-fit overflow-y-scroll">
+        <div className="flex flex-col desktop:gap-7 desktop:justify-start desktop:flex-row desktop:h-[624px] desktop:mx-10 tablet:mx-auto tablet:gap-16">
+          <section className="relative desktop:w-[850px] tablet:w-[690px] tablet:mx-auto">
             <img src={artworkURL} alt="" className={artworkStyle} />
-            <div className="w-[430px] bg-gray-100 top-0 left-[410px] pl-[60px] pb-[65px] h-fit translate-x-[-65px]">
-              <h1 className="text-h1 leading-h1 font-bold">{artData.name}</h1>
-              <p className="text-subh1 leading-subh1 mt-6 text-gray-30">
-                {artData.artist.name}
-              </p>
+            <div className="absolute top-0 left-[410px] tablet:left-[240px] h-full flex flex-col justify-between tablet:justify-start">
+              <div className="w-[430px] bg-gray-100 pl-[60px] pb-[65px]">
+                <h1 className="text-h1 leading-h1 font-bold">{artData.name}</h1>
+                <p className="text-subh1 leading-subh1 mt-6 text-gray-30">
+                  {artData.artist.name}
+                </p>
+              </div>
+              <div
+                className={artistStyle + " " + "ml-[90px] tablet:ml-[260px]"}
+              >
+                <img src={artistURL} alt="" />
+              </div>
             </div>
             <button
               onClick={() => modalRef.current?.showModal()}
@@ -48,17 +55,12 @@ const ArtworkInfo = ({ index }: { index: number }) => {
                 VIEW IMAGE
               </span>
             </button>
-            <div
-              className={artistStyle + " " + "absolute bottom-0 left-[505px]"}
-            >
-              <img src={artistURL} alt="" />
-            </div>
           </section>
-          <article className="relative w-[350px]">
-            <span className="absolute top-0 text-display text-gray-90 leading-display -z-10">
+          <article className="relative desktop:max-w-[350px] tablet:w-[457px] mx-auto desktop:mx-0">
+            <span className="absolute top-0 tablet:left-[-120px] text-display text-gray-90 leading-display -z-10">
               {artData.year}
             </span>
-            <p className="text-body text-gray-30 leading-body font-bold mt-[115px] mb-[100px] z-10">
+            <p className="text-body text-gray-30 leading-body font-bold mt-[115px] mb-[100px] tablet:mt-[75px] tablet:mb-[40px] z-10">
               {artData.description}
             </p>
             <a
