@@ -3,14 +3,14 @@ import { animated, useSpring } from "@react-spring/web";
 const AnimatedCirle = ({ cx, cy }: { cx: number; cy: number }) => {
   const style = useSpring({
     config: {
-      duration: 300,
+      duration: 500,
     },
     cx: cx,
     cy: cy,
-    fill: cx > 50 ? "tomato" : "cornflowerblue",
+    fill: cx > 250 ? "tomato" : "cornflowerblue",
   });
 
-  return <animated.circle {...style} r="2" />;
+  return <animated.circle {...style} r="4" />;
 };
 
 export default AnimatedCirle;

@@ -1,7 +1,7 @@
 export type coordsType = number[][];
 
 export function generateDataset(): coordsType {
-  return Array(30)
+  return Array(50)
     .fill(0)
-    .map(() => [Math.random() * 80 + 10, Math.random() * 35 + 10]);
+    .map(() => [Math.random() * 490 + 10, Math.random() * 380]);
 }
