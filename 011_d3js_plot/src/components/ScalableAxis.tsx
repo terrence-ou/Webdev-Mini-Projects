@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Axis from "./Axis";
 import "./styles/scalableAxis.css";
+import NumberInput from "./NumberInput";
 
 const ScalableAxis = () => {
   const [domain, setDomain] = useState<number[]>([0, 100]);
@@ -26,38 +27,34 @@ const ScalableAxis = () => {
       <div className="input-group">
         <p>Domain: </p>
         {"["}
-        <input
-          type="number"
-          min={0}
-          max={20}
+        <NumberInput
+          range={[0, 20]}
           defaultValue={domain[0]}
-          onChange={(event) => handleDomainChange(0, +event.target.value)}
+          callbackFn={handleDomainChange}
+          index={0}
         />
-        <input
-          type="number"
-          min={100}
-          max={200}
+        <NumberInput
+          range={[100, 200]}
           defaultValue={domain[1]}
-          onChange={(event) => handleDomainChange(1, +event.target.value)}
+          callbackFn={handleDomainChange}
+          index={1}
         />
         {"]"}
       </div>
       <div className="input-group">
         <p>Range: </p>
         {"["}
-        <input
-          type="number"
-          min={10}
-          max={50}
+        <NumberInput
+          range={[10, 50]}
           defaultValue={range[0]}
-          onChange={(event) => handleRangeChange(0, +event.target.value)}
+          callbackFn={handleRangeChange}
+          index={0}
         />
-        <input
-          type="number"
-          min={280}
-          max={400}
+        <NumberInput
+          range={[200, 400]}
           defaultValue={range[1]}
-          onChange={(event) => handleRangeChange(1, +event.target.value)}
+          callbackFn={handleRangeChange}
+          index={1}
         />
         {"]"}
       </div>
