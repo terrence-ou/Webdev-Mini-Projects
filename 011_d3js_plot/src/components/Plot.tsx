@@ -13,15 +13,12 @@ const Plot = () => {
   useInterval(handleSetDataset, interval);
 
   return (
-    <>
-      {/* <svg viewBox="0 0 100 50" width="300" height="50"> */}
-      <svg width="500" height="400">
-        {dataset.map(([x, y], i) => (
-          <AnimatedCirle key={i} cx={x} cy={y} />
-        ))}
-        <Axis />
-      </svg>
-    </>
+    <svg width="500" height="400">
+      {dataset.map(([x, y], i) => (
+        <AnimatedCirle key={i} cx={x} cy={y} />
+      ))}
+      <Axis translateY={380} />
+    </svg>
   );
 };
 
