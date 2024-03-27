@@ -1,5 +1,6 @@
 import Plot from "./components/Plot";
 import ScalableAxis from "./components/ScalableAxis";
+import ResizablePlot from "./components/ResizablePlot";
 import "./App.css";
 
 function App() {
@@ -10,6 +11,8 @@ function App() {
       <Plot />
       <h2>Scalable Axis</h2>
       <ScalableAxis />
+      <h2>Plot Sizing</h2>
+      <ResizablePlot />
     </>
   );
 }
