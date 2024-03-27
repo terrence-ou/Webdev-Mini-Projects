@@ -58,7 +58,9 @@ const ScalableAxis = () => {
         />
         {"]"}
       </div>
-      <Axis domain={domain} range={range} />
+      <svg height="20" width="300">
+        <Axis domain={domain} range={range} />
+      </svg>
     </div>
   );
 };

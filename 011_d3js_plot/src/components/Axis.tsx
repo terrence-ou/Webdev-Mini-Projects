@@ -25,7 +25,8 @@ const Axis = ({
   }, [domain, range]);
 
   return (
-    <svg>
+    // <svg>
+    <>
       <path
         d={`M ${range[0] + translateX} ${translateY + 6} v -6 H ${range[1]} v 6`}
         fill="none"
@@ -46,7 +47,8 @@ const Axis = ({
           </text>
         </g>
       ))}
-    </svg>
+      {/* </svg> */}
+    </>
   );
 };
 

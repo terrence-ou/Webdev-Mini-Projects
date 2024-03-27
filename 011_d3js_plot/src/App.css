@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+
+.slider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: bold;
+}
+
+.slider label {
+  width: 6.5rem;
+  text-align: right;
+}
+
+.slider-group {
+  display: flex;
+  gap:0.25rem;
+  justify-content: center;
+}
