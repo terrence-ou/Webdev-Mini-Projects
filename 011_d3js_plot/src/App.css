@@ -33,6 +33,11 @@
   }
 }
 
+main h2 {
+  margin-top: 3rem;
+}
+
+
 .card {
   padding: 2em;
 }
@@ -57,4 +62,5 @@
   display: flex;
   gap:0.25rem;
   justify-content: center;
+  padding: 0.15rem 0;
 }

@@ -10,7 +10,7 @@ const AnimatedCirle = ({ cx, cy }: { cx: number; cy: number }) => {
     fill: cx > 250 ? "tomato" : "cornflowerblue",
   });
 
-  return <animated.circle {...style} r="6" />;
+  return <animated.circle {...style} r="7" />;
 };
 
 export default AnimatedCirle;

@@ -5,15 +5,17 @@ import "./App.css";
 
 function App() {
   return (
-    <>
-      <h1>D3js in React</h1>
-      <h2>Animated scatter plot</h2>
-      <Plot />
-      <h2>Scalable Axis</h2>
-      <ScalableAxis />
-      <h2>Plot Sizing</h2>
-      <ResizablePlot />
-    </>
+    <main>
+      <h1>D3.js in React</h1>
+      <div>
+        <h2>Animated scatter plot</h2>
+        <Plot />
+        <h2>Scalable Axis</h2>
+        <ScalableAxis />
+        <h2>Plot Sizing</h2>
+        <ResizablePlot />
+      </div>
+    </main>
   );
 }
 

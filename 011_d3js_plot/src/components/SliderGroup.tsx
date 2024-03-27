@@ -8,7 +8,7 @@ interface SliderGroupPropsType {
 
 const SliderGroup = ({ sizing, handleUpdateSizing }: SliderGroupPropsType) => {
   return (
-    <>
+    <div className="sliders">
       <div className="slider-group">
         <Slider
           name="width"
@@ -51,7 +51,21 @@ const SliderGroup = ({ sizing, handleUpdateSizing }: SliderGroupPropsType) => {
           handleUpdateSizing={handleUpdateSizing}
         />
       </div>
-    </>
+      <div className="slider-group">
+        <Slider
+          name="marginTop"
+          range={[0, 20]}
+          defaultValue={sizing.marginTop ? sizing.marginTop : 0}
+          handleUpdateSizing={handleUpdateSizing}
+        />
+        <Slider
+          name="marginBottom"
+          range={[0, 20]}
+          defaultValue={sizing.marginBottom ? sizing.marginBottom : 0}
+          handleUpdateSizing={handleUpdateSizing}
+        />
+      </div>
+    </div>
   );
 };
 

@@ -9,7 +9,7 @@ export interface plotParameters {
   marginLeft?: number;
   marginRight?: number;
   marginTop?: number;
-  marginBotton?: number;
+  marginBottom?: number;
 }
 
 const ResizablePlot = () => {

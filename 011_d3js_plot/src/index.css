@@ -31,8 +31,9 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.8em;
   line-height: 1.1;
+  font-family: serif;
 }
 
 button {
@@ -57,7 +58,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #eef3f6;
   }
   a:hover {
     color: #747bff;
