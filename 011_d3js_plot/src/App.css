@@ -64,3 +64,7 @@ main h2 {
   justify-content: center;
   padding: 0.15rem 0;
 }
+
+.plot__sizing {
+  margin: 2rem 0;
+}

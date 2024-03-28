@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
   return (
     <main>
-      <h1>D3.js in React</h1>
+      <h1>D3.js in React Quick Start</h1>
       <div>
         <h2>Animated scatter plot</h2>
         <ScatterPlot />

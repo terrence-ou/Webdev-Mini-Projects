@@ -25,6 +25,7 @@ const ResizablePlot = () => {
     setSizing((prevSizing) => ({ ...prevSizing, [name]: +value }));
   };
 
+  // convert the sizing state to the plot-compatible dimension configuration
   const getPlotSizing = () => {
     const mLeft =
       sizing.marginLeft !== undefined ? sizing.marginLeft : sizing.marginX;
@@ -41,12 +42,13 @@ const ResizablePlot = () => {
     return { boundedWidth, boundedHeight, cornerTop, cornerLeft };
   };
 
+  // get the plot-compatible sizing
   const plotSizing = getPlotSizing();
 
   return (
     <div>
       <SliderGroup sizing={sizing} handleUpdateSizing={handleUpdateSizing} />
-      <svg width={sizing.width} height={sizing.height}>
+      <svg width={sizing.width} height={sizing.height} className="plot__sizing">
         <g>
           <text
             fill="currentColor"

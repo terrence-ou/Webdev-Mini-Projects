@@ -14,6 +14,7 @@ const Axis = ({
   translateX = 0,
   translateY = 0,
 }: AxisType) => {
+  // Compute the axis ticks
   const ticks = useMemo(() => {
     const xScale = d3.scaleLinear().domain(domain).range(range);
     const width = range[1] - range[0];
