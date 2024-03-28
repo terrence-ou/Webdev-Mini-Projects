@@ -1,4 +1,4 @@
-import Plot from "./components/Plot";
+import ScatterPlot from "./components/ScatterPlot";
 import ScalableAxis from "./components/ScalableAxis";
 import ResizablePlot from "./components/ResizablePlot";
 import "./App.css";
@@ -9,7 +9,7 @@ function App() {
       <h1>D3.js in React</h1>
       <div>
         <h2>Animated scatter plot</h2>
-        <Plot />
+        <ScatterPlot />
         <h2>Scalable Axis</h2>
         <ScalableAxis />
         <h2>Plot Sizing</h2>

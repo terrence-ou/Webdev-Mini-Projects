@@ -6,7 +6,7 @@ import { coordsType, generateDataset } from "../data";
 
 const interval = 1500;
 
-const Plot = () => {
+const ScatterPlot = () => {
   const [dataset, setDataset] = useState<coordsType>(generateDataset());
 
   const handleSetDataset = useCallback(() => setDataset(generateDataset()), []);
@@ -22,4 +22,4 @@ const Plot = () => {
   );
 };
 
-export default Plot;
+export default ScatterPlot;

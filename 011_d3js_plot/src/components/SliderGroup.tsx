@@ -26,13 +26,13 @@ const SliderGroup = ({ sizing, handleUpdateSizing }: SliderGroupPropsType) => {
       <div className="slider-group">
         <Slider
           name="marginX"
-          range={[0, 20]}
+          range={[0, 50]}
           defaultValue={sizing.marginX ? sizing.marginX : 0}
           handleUpdateSizing={handleUpdateSizing}
         />
         <Slider
           name="marginY"
-          range={[0, 20]}
+          range={[0, 50]}
           defaultValue={sizing.marginY ? sizing.marginY : 0}
           handleUpdateSizing={handleUpdateSizing}
         />
@@ -40,13 +40,13 @@ const SliderGroup = ({ sizing, handleUpdateSizing }: SliderGroupPropsType) => {
       <div className="slider-group">
         <Slider
           name="marginLeft"
-          range={[0, 20]}
+          range={[0, 50]}
           defaultValue={sizing.marginLeft ? sizing.marginLeft : 0}
           handleUpdateSizing={handleUpdateSizing}
         />
         <Slider
           name="marginRight"
-          range={[0, 20]}
+          range={[0, 50]}
           defaultValue={sizing.marginRight ? sizing.marginRight : 0}
           handleUpdateSizing={handleUpdateSizing}
         />
@@ -54,13 +54,13 @@ const SliderGroup = ({ sizing, handleUpdateSizing }: SliderGroupPropsType) => {
       <div className="slider-group">
         <Slider
           name="marginTop"
-          range={[0, 20]}
+          range={[0, 50]}
           defaultValue={sizing.marginTop ? sizing.marginTop : 0}
           handleUpdateSizing={handleUpdateSizing}
         />
         <Slider
           name="marginBottom"
-          range={[0, 20]}
+          range={[0, 50]}
           defaultValue={sizing.marginBottom ? sizing.marginBottom : 0}
           handleUpdateSizing={handleUpdateSizing}
         />
