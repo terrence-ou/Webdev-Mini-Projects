@@ -21,4 +21,4 @@ This is a repository that records my mini webdev exercises. Each exercise explor
 
 - Day 10: Galleria Slideshow :rice_scene: [Code](./010_galleria_slideshow/), [Website](https://clickvisionstudio.github.io/galleria_slideshow/)
 
-- Day 11: D3.js in React Quick Start :rice_scene: [Code](./011_d3js_plot/), [Website](https://clickvisionstudio.github.io/d3js_plot/)
+- Day 11: D3.js in React Quick Start :paperclip: [Code](./011_d3js_plot/), [Website](https://clickvisionstudio.github.io/d3js_plot/)
