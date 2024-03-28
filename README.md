@@ -20,3 +20,5 @@ This is a repository that records my mini webdev exercises. Each exercise explor
 - Day 09: Multistep Form :clipboard: [Code](./009_multistep_form/), [Website](https://clickvisionstudio.github.io/multistep_form/#/your-info)
 
 - Day 10: Galleria Slideshow :rice_scene: [Code](./010_galleria_slideshow/), [Website](https://clickvisionstudio.github.io/galleria_slideshow/)
+
+- Day 11: D3.js in React Quick Start :rice_scene: [Code](./011_d3js_plot/), [Website](https://clickvisionstudio.github.io/d3js_plot/)
