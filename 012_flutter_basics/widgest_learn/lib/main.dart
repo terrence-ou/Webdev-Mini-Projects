@@ -1,56 +1,42 @@
 import 'package:flutter/material.dart';
 
-class MyAppBar extends StatelessWidget {
-  const MyAppBar({required this.title, super.key});
-  final Widget title;
+class Counter extends StatefulWidget {
+  const Counter({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 56,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(color: Colors.blue[500]),
-      child: Row(
-        children: [
-          const IconButton(
-            onPressed: null,
-            icon: Icon(Icons.menu),
-            tooltip: 'Navigation menu',
-          ),
-          Expanded(child: title),
-          const IconButton(
-              onPressed: null, icon: Icon(Icons.search), tooltip: 'Search')
-        ],
-      ),
-    );
-  }
+  State<Counter> createState() => _CounterState();
 }
 
-class MyScaffold extends StatelessWidget {
-  const MyScaffold({super.key});
+class _CounterState extends State<Counter> {
+  int _counter = 0;
+
+  void _increment() {
+    setState(() {
+      _counter++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Column(
-        children: [
-          MyAppBar(
-              title: Text(
-            'Example Title',
-            style: Theme.of(context).primaryTextTheme.titleLarge,
-          )),
-          const Expanded(
-            child: Center(
-              child: Text('Hello world!'),
-            ),
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        ElevatedButton(onPressed: _increment, child: const Text('Increment')),
+        const SizedBox(
+          width: 16,
+        ),
+        SizedBox(
+          width: 100,
+          child: Center(child: Text('Count: $_counter')),
+        )
+      ],
     );
   }
 }
 
 void main() {
-  runApp(
-      const MaterialApp(title: 'My app', home: SafeArea(child: MyScaffold())));
+  runApp(const MaterialApp(
+      home: Scaffold(
+    body: Center(child: Counter()),
+  )));
 }
