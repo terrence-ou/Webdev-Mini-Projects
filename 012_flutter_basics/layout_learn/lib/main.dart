@@ -18,7 +18,15 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
         useMaterial3: true,
       ),
-      home: const LayoutTutorial([Layout1()]),
+      home: const LayoutTutorial([
+        Layout1(),
+        Layout2(),
+        Layout3(),
+        Layout4(),
+        Layout5(),
+        Layout6(),
+        Layout7()
+      ]),
     );
   }
 }
@@ -72,17 +80,21 @@ class _LayoutTutorial extends State<LayoutTutorial> {
           child: example,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: Row(
-            children: [
-              for (int i = 0; i < widget.examples.length; i++)
-                SizedBox(
-                  width: 58,
-                  child: button(i),
-                )
-            ],
-          ),
-        )
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  for (int i = 0; i < widget.examples.length; i++)
+                    Container(
+                      width: 50,
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: button(i),
+                    ),
+                ],
+              ),
+            ))
       ],
     )));
   }

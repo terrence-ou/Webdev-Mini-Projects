@@ -21,8 +21,8 @@ class Button extends StatelessWidget {
       },
       style: TextButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: isSelected ? Colors.grey : Colors.grey[800]),
-      child: Text(index.toString()),
+          backgroundColor: isSelected ? Colors.grey[800] : Colors.grey),
+      child: Text((index + 1).toString()),
     );
   }
 }
