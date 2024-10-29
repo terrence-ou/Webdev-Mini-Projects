@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_shopper/models/cart.dart';
 import 'package:provider_shopper/models/catalog.dart';
@@ -33,7 +34,9 @@ class _MyAppBar extends StatelessWidget {
       title: Text('Catalog', style: Theme.of(context).textTheme.displayLarge),
       floating: true,
       actions: [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart))
+        IconButton(
+            onPressed: () => context.go('/catalog/cart'),
+            icon: const Icon(Icons.shopping_cart))
       ],
     );
   }
