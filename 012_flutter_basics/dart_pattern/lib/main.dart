@@ -1,19 +1,38 @@
 import 'package:flutter/material.dart';
+import 'data.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const DocumentApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class DocumentApp extends StatelessWidget {
+  const DocumentApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+        theme: ThemeData(useMaterial3: true),
+        home: DocumentScreen(
+          document: Document(),
+        ));
+  }
+}
+
+class DocumentScreen extends StatelessWidget {
+  final Document document;
+  const DocumentScreen({required this.document, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final (title, :modified) = document.metadata;
+    return Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: Column(
+        children: [
+          Center(
+            child: Text('Last Modified $modified'),
+          )
+        ],
       ),
     );
   }
